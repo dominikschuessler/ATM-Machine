@@ -5,18 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-<<<<<<< HEAD
-//Ich bin ein Kommentar
-//Alle meine Entchen, schwimmen auf dem See!
-=======
-//Alle meine Entchen!
->>>>>>> refs/remotes/origin/master
-// ATM.java
-<<<<<<< HEAD
-=======
-// K
-// Ich mag hier ein Kommentar setzen
->>>>>>> Test-Massage
+
 /**
  * Die Klasse {@code ATM} stellt einen Bankautomaten dar.
  */
