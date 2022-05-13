@@ -79,6 +79,7 @@ public class ATM {
 		/** Authentifiziert den Benutzer */
 		startlogin();
 	} // end while
+	
 		// else
 		// performTransactions(); // user is now authenticated
 		// userAuthenticated = false; // reset before next ATM session
