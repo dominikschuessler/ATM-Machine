@@ -12,6 +12,11 @@ import javax.swing.JFrame;
 //Alle meine Entchen!
 >>>>>>> refs/remotes/origin/master
 // ATM.java
+<<<<<<< HEAD
+=======
+// K
+// Ich mag hier ein Kommentar setzen
+>>>>>>> Test-Massage
 /**
  * Die Klasse {@code ATM} stellt einen Bankautomaten dar.
  */
