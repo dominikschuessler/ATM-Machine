@@ -86,7 +86,7 @@ public class ATM {
 		// end while
 		// end method run
 
-	// attempts to authenticate user against database
+	/** Versuch den Benutzer in der Datenbank zu authentifizieren */
 	void startlogin() {
 
 		position = 0;
@@ -104,11 +104,13 @@ public class ATM {
 		screen.Mainframe.revalidate();
 		keypad.BEnter.addActionListener(check);
 		screen.Mainframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		screen.Mainframe.setSize(400, 280); // set frame size
+		/** Setzt die Größe des Rahmens */
+		screen.Mainframe.setSize(400, 280);
 		screen.Mainframe.setVisible(true);
 		screen.Mainframe.revalidate();
 	}
 
+	/** */
 	// set userAuthenticated to boolean value returned by database
 	public void authenticateuser(int pin) {
 		userAuthenticated = bankDatabase.authenticateUser(pin);
