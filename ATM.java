@@ -5,10 +5,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+<<<<<<< HEAD
 //Ich bin ein Kommentar
 //Alle meine Entchen, schwimmen auf dem See!
+=======
+//Alle meine Entchen!
+>>>>>>> refs/remotes/origin/master
 // ATM.java
-// K
 /**
  * Die Klasse {@code ATM} stellt einen Bankautomaten dar.
  */
@@ -387,7 +390,7 @@ public class ATM {
 
 // end i
 // end class ATM
-
+// ...
 /**************************************************************************
  * (C) Copyright 1992-2014 by Deitel & Associates, Inc. and * Pearson Education,
  * Inc. All Rights Reserved. * * DISCLAIMER: The authors and publisher of this
