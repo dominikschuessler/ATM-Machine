@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 // ATM.java
+// Kommentar
 /**
  * Die Klasse {@code ATM} stellt einen Bankautomaten dar.
  */
