@@ -10,7 +10,6 @@ import javax.swing.JFrame;
  * Die Klasse {@code ATM} stellt einen Bankautomaten dar.
  */
 
-
 public class ATM {
 
 	/** Speichert, ob der Nutzer authentifiziert ist */
@@ -73,21 +72,21 @@ public class ATM {
 	 * 
 	 */
 	public void run() {
-		// loop while user is not yet authenticated
+		// While Schleife?
 
 		/** Authentifiziert den Benutzer */
 		startlogin();
-	} // end while
-	
+		// end while
+
 		// else
 		// performTransactions(); // user is now authenticated
 		// userAuthenticated = false; // reset before next ATM session
 		// currentAccountNumber = 0; // reset before next ATM session
 		// screen.displayMessageLine("\nThank you! Goodbye!");
 		// end while
-		// end method run
+	}// end method run
 
-	/** Versuch den Benutzer in der Datenbank zu authentifizieren */
+	/** Versucht den Benutzer in der Datenbank zu authentifizieren */
 	void startlogin() {
 
 		position = 0;
@@ -111,12 +110,17 @@ public class ATM {
 		screen.Mainframe.revalidate();
 	}
 
-	/** */
-	// set userAuthenticated to boolean value returned by database
+	/**
+	 * Setzt {@code userAthenticated} auf den boolschen Wert, der von der Datenbank
+	 * zurückgegeben wird.
+	 * 
+	 * Zuerst wird überprüft, ob die Authentifizierung erfolgreich war.
+	 * 
+	 * @param pin
+	 */
 	public void authenticateuser(int pin) {
 		userAuthenticated = bankDatabase.authenticateUser(pin);
 
-		// check whether authentication succeeded
 		if (userAuthenticated) {
 			int accountNumber = bankDatabase.getaccpin(pin);
 			AdminCheck = bankDatabase.getadmin(pin);
@@ -138,7 +142,8 @@ public class ATM {
 			screen.button2.addActionListener(check);
 			screen.button3.addActionListener(check2);
 
-			// currentAccountNumber = accountNumber; // save user's account #
+			/** Speichert die Kontonummer des aktuellen Benutzers. */
+			currentAccountNumber = accountNumber;
 
 		} // end if
 		else
@@ -156,23 +161,34 @@ public class ATM {
 	}
 
 	private class Addcheck implements ActionListener {
+		/**
+		 * Action Listener zum Hinzufügen eines Bentuzers.
+		 * 
+		 * @param e Objekt vom Typ {@code ActionEvent}
+		 */
+
 		public void actionPerformed(ActionEvent e) {
-			// Action Listener for adding user.
+
 			BankDatabase.Adduser();
 
 		}
 	}
 
 	private class Deletecheck implements ActionListener {
+
+		/**
+		 * Action Listener zum Entfernen eines Bentuzers.
+		 * 
+		 * @param e Objekt vom Typ {@code ActionEvent}
+		 */
 		public void actionPerformed(ActionEvent e) {
-			// Action Listener for deleting a user.
 			BankDatabase.Deleteuser(position);
 			position = position - 1;
 
 		}
 	}
 
-	// creating the main menu GUI
+	/** Erstellt die GUI des Hauptmenüs. */
 	public void createmenu() {
 		screen.setSize(300, 150);
 		balancecheck check1 = new balancecheck();
@@ -181,7 +197,7 @@ public class ATM {
 		Exitcheck check4 = new Exitcheck();
 		screen.Mainframe.getContentPane().removeAll();
 		screen.Mainframe.revalidate();
-		// Add the keypad panel to the GUI
+		/** Fügt Tastatur zur GUI hinzu */
 		screen.Mainframe.add(keypad.addkeypad(), BorderLayout.CENTER);
 		screen.createmenu();
 		Account Account1 = bankDatabase.getAccount(currentAccountNumber);
@@ -195,8 +211,7 @@ public class ATM {
 		screen.Mainframe.revalidate();
 	}
 
-	// display the main menu and perform transactions
-	// the four below actionlisters are the main menu options.
+	/** Stellt das Hauptmenü dar und führt Transaktionen durch. */
 	private class balancecheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			userinput = "";
@@ -204,6 +219,9 @@ public class ATM {
 		}
 	}
 
+	/**
+	 * Option im Hauptmenü.
+	 */
 	private class Depositcheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			userinput = "";
@@ -211,6 +229,9 @@ public class ATM {
 		}
 	}
 
+	/**
+	 * Option im Hauptmenü.
+	 */
 	private class Withdrawcheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			userinput = "";
@@ -218,6 +239,9 @@ public class ATM {
 		}
 	}
 
+	/**
+	 * Option im Hauptmenü.
+	 */
 	private class Exitcheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			startlogin();
@@ -226,7 +250,7 @@ public class ATM {
 
 	private void performTransactions(int a) {
 
-		// local variable to store transaction currently being processed
+		// Speichert die Tansaktion, die gerade durchgeführt wird.
 		Transaction currentTransaction = null;
 
 		currentTransaction = createTransaction(a);
@@ -244,9 +268,8 @@ public class ATM {
 	}
 
 	public class Backcheck implements ActionListener {
+		/** Bring den Nutzer zurück zum Hauptmenü. */
 		public void actionPerformed(ActionEvent e) {
-			// This takes the user back to the main menu.
-
 			createmenu();
 			screen.Mainframe.add(keypad.addkeypad(), BorderLayout.CENTER);
 			screen.Mainframe.revalidate();
@@ -256,7 +279,8 @@ public class ATM {
 	}
 
 	private Transaction createTransaction(int type) {
-		Transaction temp = null; // temporary Transaction variable
+		/** temporäre Variable zur Speicherung der Transaktion */
+		Transaction temp = null;
 		screen.getContentPane().removeAll();
 		screen.revalidate();
 
