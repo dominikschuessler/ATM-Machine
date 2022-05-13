@@ -1,4 +1,5 @@
 
+/**Die Klasse {@code Deposit Slot} stellt die Geldeinzahlöffnung dar.*/
 public class DepositSlot {
 
 	/**
