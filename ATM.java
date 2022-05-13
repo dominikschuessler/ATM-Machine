@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 /**
  * Die Klasse {@code ATM} stellt einen Bankautomaten dar.
  */
-//Lömi
+
 
 public class ATM {
 
