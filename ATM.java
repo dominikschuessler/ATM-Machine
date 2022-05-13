@@ -5,9 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-//Alle meine Entchen, schwimmen auf dem See!
+//Alle meine Entchen!
 // ATM.java
-// K
 /**
  * Die Klasse {@code ATM} stellt einen Bankautomaten dar.
  */
