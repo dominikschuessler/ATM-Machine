@@ -1,11 +1,13 @@
 // CashDispenser.java
-// Represents the cash dispenser of the ATM
+
+/** @author Annalena Maier  */
+/** Die Klasse (@code CashDispenser) stellt die Geldausgabe des Automaten dar. */
 
 public class CashDispenser 
 {
-   // the default initial number of bills in the cash dispenser
+   /** Die voreingestellte Menge an Scheinen in der Geldausgabe. */
    private final static int INITIAL_COUNT = 500;
-   private int count; // number of $20 bills remaining
+   private int count; /** Die Anzahl der verbleibenden $20 Scheine. */
    
    // no-argument CashDispenser constructor initializes count to default
    public CashDispenser()
@@ -16,8 +18,8 @@ public class CashDispenser
    // simulates dispensing of specified amount of cash
    public void dispenseCash(int amount)
    {
-      int billsRequired = amount / 20; // number of $20 bills required
-      count -= billsRequired; // update the count of bills
+      int billsRequired = amount / 20; /** Die Menge an erforderten $20 Scheinen. */
+      count -= billsRequired; // /** Die aktualisierte Anzahl an Scheinen */
    } // end method dispenseCash
 
    // indicates whether cash dispenser can dispense desired amount

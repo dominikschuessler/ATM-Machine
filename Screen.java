@@ -1,5 +1,8 @@
-// Screen.java
-// Represents the screen of the ATM
+/*
+ * Screen.java
+ *
+ * Stellt den Bildschirm des Bankautomaten dar
+ */
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -21,14 +24,14 @@ public class Screen extends JFrame
 	 public static JTextField Inputfield3;
 	 public static JTextField Inputfield4;
 	 public JLabel messageJLabel; 
-	 public JLabel messageJLabel2; // displays message of game status
+	 public JLabel messageJLabel2; /**Zeigt Textnachrichten an auf dem Bildschirm an */
 	 public JLabel messageJLabel3;
 	 public JLabel messageJLabel4;
 	 public JLabel messageJLabel5;
 	 public JLabel messageJLabel8;
 	 public JLabel messageJLabel9;
 	 public JLabel messageJLabel10;
-	 public JButton loginbutton; // creates new game
+	 public JButton loginbutton; /**Erzeugt klickbare Knöpfe auf dem Bildschirm */
 	 public JButton button1;
 	 public JButton button2;
 	 public JButton button3;
@@ -41,25 +44,29 @@ public class Screen extends JFrame
 	public JLabel messageJLabel7;
 	 
 	
-   // displays a message without a carriage return
+   /**
+    * Methode zeig eine message an ohne Zeilenumbruch
+    */
    public void displayMessage(String message) 
    {
       System.out.print(message); 
-   } // end method displayMessage
+   } /** Methode displayMessage endet hier*/
 
-   // display a message with a carriage return
+   /**
+    *  Methode zeigt eine message an ohne Zeilenumbruch
+    */
    public void displayMessageLine(String message) 
    {
       System.out.println(message);   
-   } // end method displayMessageLine
+   } /** Methode displayMessageline endet hier*/
 
-   // display a dollar amount
+   /** Metode zeigt Dollar/Euro Menge als Double an*/
    public void displayDollarAmount(double amount)
    {
       System.out.printf("$%,.2f", amount);   
-   } // end method displayDollarAmount 
+   } /** Methode displayDollarAmount endet hier*/
    
-   //create the login GUI
+   /**Methode erzeugt Userinterface für login*/
 public void createlogin() {
 	
     Mainframe = new JFrame("ATM");
@@ -72,21 +79,21 @@ public void createlogin() {
 	 Inputfield2 = new JTextField( 10 );
 	 loginbutton = new JButton("Login");
 	 messageJLabel3 = new JLabel("");
-	 Mainframe.setLayout( new FlowLayout() ); // set layout
+	 Mainframe.setLayout( new FlowLayout() ); /**Layout wird erstellt mit Layoutmanager*/
 	 Mainframe.add(messageJLabel4);
-	 Mainframe.add( messageJLabel ); // add first prompt
+	 Mainframe.add( messageJLabel ); /**Erstes eingabefeld wird erzeugt*/
 	 
 	 Mainframe.add( Inputfield2 );
 	 Mainframe.add( messageJLabel2 );
 	 //Mainframe.add(loginbutton);
-	  // add message label 
+	  /**Hinzufügen von Text label */
 	 Mainframe.add(messageJLabel3);
 	 Inputfield2.setEditable(false);
 	 Mainframe.repaint();
 
 	
 }
-//create the main menu GUI
+/**Methode erzeugt Userinterface für Hauptmenü*/
 public void createmenu(){
 	Mainframe.getContentPane().removeAll();
 	messageJLabel = new JLabel("Welcome");
@@ -94,16 +101,16 @@ public void createmenu(){
 	messageJLabel3 = new JLabel("2 - Withdrawal");
 	messageJLabel4 = new JLabel("3 - Deposit");
 	messageJLabel5 = new JLabel("4 - Exit");
-	Mainframe.setLayout( new FlowLayout() ); // set layout
+	Mainframe.setLayout( new FlowLayout() );  /**Layout wird erstellt mit Layoutmanager*/
 	Mainframe.add(messageJLabel);
-	Mainframe.add( messageJLabel2 ); // add first prompt
-	Mainframe.add( messageJLabel3 ); // add second prompt
-	Mainframe.add( messageJLabel4 ); // add message label 
+	Mainframe.add( messageJLabel2 ); /**Erstes Eingabefeld wird erzeugt*/
+	Mainframe.add( messageJLabel3 ); /**Zweites Eingabefeld wird erzeugt*/
+	Mainframe.add( messageJLabel4 ); /**hinzufügen von einem Text label */
 	Mainframe.add( messageJLabel5 );
 	Mainframe.repaint();
 }
 
-//create the Balance GUI
+/**Methode erzeugt Userinterface für Kontostand*/
 public void creatBalanceGUI(){
 	Mainframe.getContentPane().removeAll();
 	messageJLabel = new JLabel("Balance Information:        ");
@@ -118,7 +125,7 @@ public void creatBalanceGUI(){
 	Mainframe.repaint();
 }
 
-//Create the withdraw GUI
+/**Methode erzeugt Userinterface für Auszahlungen*/
 public void createWithdrawGUI(){
 	Mainframe.getContentPane().removeAll();
 	Mainframe.revalidate();
@@ -143,7 +150,7 @@ public void createWithdrawGUI(){
 	
 }
 
-//Create the Deposit GUI
+/**Methode erzeugt Userinterface für Einzahlungen*/
 public void CreateDepositGUI(){
 	Mainframe.getContentPane().removeAll();
 	messageJLabel2 = new JLabel("Please enter a deposit amount in CENTS");
@@ -164,7 +171,7 @@ public void setGUI(){
 	repaint();
 }
 
-//Create the admin page GUI
+/**Methode erzeugt das Userinterface für den Admin*/
 public void createAdminpage(){
 	messageJLabel = new JLabel("View Users:");
 	messageJLabel2 = new JLabel("Account number:");
@@ -214,8 +221,7 @@ public void createAdminpage(){
 }
 
 
-} // end class Screen
-
+} /**Ende der Klasse Screen*/
 
 
 /**************************************************************************
