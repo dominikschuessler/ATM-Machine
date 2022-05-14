@@ -47,14 +47,14 @@ public class Account
    // schreibt einen Betrag auf dem Konto gut
    public void credit(double amount)
    {
-      setTotalBalance(getTotalBalance() + amount); // add to total balance
+      setTotalBalance(getTotalBalance() + amount); // zum Gesamtguthaben hinzufügen
    } // ende methode credit
 
    // bucht einen Betrag vom Konto ab
    public void debit(double amount)
    {
-      setAvailableBalance(getAvailableBalance() - amount); // subtract from available balance
-      setTotalBalance(getTotalBalance() - amount); // subtract from total balance
+      setAvailableBalance(getAvailableBalance() - amount); // vom verfügbaren Guthaben abziehen
+      setTotalBalance(getTotalBalance() - amount); // vom Gesamtsaldo subtrahieren
    } // ende methode debit
 
    // Gibt account number zurueck
