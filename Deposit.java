@@ -1,15 +1,15 @@
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+/** @author Annalena Maier */
 
 // Deposit.java
-// Represents a deposit ATM transaction
+/** Die Klasse "Deposit" repräsentiert eine Einzahlung. */
 
 public class Deposit extends Transaction
 {
-   private double amount; // amount to deposit
-   private Keypad keypad; // reference to keypad
+   private double amount; /** Die Menge an Geld, welche Eingezahlt werden soll */
+   private Keypad keypad; /** Eine Referenz zur Klasse "Keypad" */
    private DepositSlot depositSlot; // reference to deposit slot
    private final static int CANCELED = 0; // constant for cancel option
 

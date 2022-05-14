@@ -15,22 +15,22 @@ public class CashDispenser
       count = INITIAL_COUNT; // set count attribute to default
    } // end CashDispenser constructor
 
-   // simulates dispensing of specified amount of cash
+   /** Simuliert die Ausgabe, einer bestimmten Menge Geld. */
    public void dispenseCash(int amount)
    {
       int billsRequired = amount / 20; /** Die Menge an erforderten $20 Scheinen. */
       count -= billsRequired; // /** Die aktualisierte Anzahl an Scheinen */
    } // end method dispenseCash
 
-   // indicates whether cash dispenser can dispense desired amount
+   /** Zeigt an, ob die gewünschte Menge an Geld ausgegeben werden kann. */ 
    public boolean isSufficientCashAvailable(int amount)
    {
       int billsRequired = amount / 20; /** Die Menge an erforderten $20 Scheinen. */
 
       if (count >= billsRequired )
-         return true; // enough bills available
+         return true; /** Wenn genug Scheine verfügbar sind, wird "true" zurückgegeben. */ 
       else 
-         return false; // not enough bills available
+         return false; /** Wenn nicht genug Scheine verfügbar sind, wird "false" zurückgegeben. */
    } // end method isSufficientCashAvailable
 } // end class CashDispenser
 
