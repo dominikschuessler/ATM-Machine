@@ -18,7 +18,7 @@ import javax.swing.JButton;// program uses Scanner to obtain user input
 
 public class Keypad 
 {
-   private Scanner input; // reads data from the command line
+   private Scanner input; // liest Daten aus der Befehlszeile
    private String userinput;
    public static JButton B1;
    public static JButton B2;
@@ -36,17 +36,17 @@ public class Keypad
   
    
                          
-   // no-argument constructor initializes the Scanner
+   // Der Konstruktor ohne Argumente initialisiert den Scanner
    public Keypad()
    {
       input = new Scanner(System.in);    
-   } // end no-argument Keypad constructor
+   } // ende no-argument Keypad constructor
 
-   // return an integer value entered by user 
+   // Rückgabe eines vom Benutzer eingegebenen Integer-Wertes 
    public int getInput()
    {
-      return input.nextInt(); // we assume that user enters an integer  
-   } // end method getInput
+      return input.nextInt(); // wir nehmen an, dass der Benutzer eine ganze Zahl eingibt  
+   } // ende methode getInput
   
    public void setbuttons(){
 	   
