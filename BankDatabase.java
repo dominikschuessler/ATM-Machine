@@ -1,18 +1,18 @@
 import java.util.ArrayList;
 
 // BankDatabase.java
-// Represents the bank account information database 
+// Stellt die Datenbank für Bankkontoinformationen dar 
 
 public class BankDatabase
 {
-   static ArrayList<Account> accounts = new ArrayList<Account>() ; // array of Accounts
+   static ArrayList<Account> accounts = new ArrayList<Account>() ; // array von Accounts
    
    
    
-   // no-argument BankDatabase constructor initializes accounts
+   // BankDatabase-Konstruktor ohne Argumente initialisiert Konten
    public BankDatabase()
    {
-      //The original array has been changed into an arraylist, this makes it easier to add/delete from the database
+      //Das ursprüngliche Array wurde in eine Arrayliste umgewandelt, was das Hinzufügen/Löschen in der Datenbank erleichtert.
       Account accounts1 = new Account("Customer1", 12345, 11111, 1000.0, 1200.0, 0);
       Account accounts2 = new Account("Customer2", 98765, 22222, 200.0, 200.0, 0);
       Account accounts3 = new Account("Customer3", 19234, 33333, 200.0, 200.0, 0);
@@ -21,72 +21,72 @@ public class BankDatabase
       accounts.add(accounts2);
       accounts.add(accounts3);
       accounts.add(accounts4);
-   } // end no-argument BankDatabase constructor
+   } // ende no-argument BankDatabase constructor
    
-   // retrieve Account object containing specified account number
+   // Abrufen eines Konto-Objekts mit der angegebenen Kontonummer
    public Account getAccount(int accountnumber)
    {
-      // loop through accounts searching for matching account number
+      // Schleife durch die Konten auf der Suche nach der passenden Kontonummer
       for (Account currentAccount : accounts)
       {
-         // return current account if match found
+         // Girokonto zurückgeben, wenn Übereinstimmung gefunden
          if (currentAccount.getAccountNumber() == accountnumber)
             return currentAccount;
       } // end for
 
-      return null; // if no matching account was found, return null
-   } // end method getAccount
+      return null; // wenn kein passendes Konto gefunden wurde, wird null zurückgegeben
+   } // ende methode getAccount
    
    private Account getAccountpin(int PIN)
    {
-      // loop through accounts searching for matching account number
+      // Schleife durch die Konten auf der Suche nach der passenden Kontonummer
       for (Account currentAccount : accounts)
       {
-         // return current account if match found
+         // Girokonto zurückgeben, wenn Übereinstimmung gefunden
          if (currentAccount.GetPin() == PIN)
             return currentAccount;
       } // end for
 
-      return null; // if no matching account was found, return null
+      return null; // wenn kein passendes Konto gefunden wurde, wird null zurückgegeben
    } //
 
-   // determine whether user-specified account number and PIN match
-   // those of an account in the database
+   // feststellen, ob die vom Benutzer angegebene Kontonummer und PIN übereinstimmen
+   // die eines Kontos in der Datenbank
    public boolean authenticateUser(int userPIN)
    {
-      // attempt to retrieve the account with the account number
+      // Versuch, das Konto mit der Kontonummer abzurufen
       Account userAccount = getAccountpin(userPIN);
 
-      // if account exists, return result of Account method validatePIN
+      // wenn Konto existiert, Ergebnis der Kontomethode validatePIN zurückgeben
       if (userAccount != null)
          return userAccount.validatePIN(userPIN);
       else
-         return false; // account number not found, so return false
-   } // end method authenticateUser
+         return false; // Kontonummer nicht gefunden, also false zurückgeben
+   } // ende methode authenticateUser
 
-   // return available balance of Account with specified account number
+   // Rückgabe des verfügbaren Saldos des Kontos mit der angegebenen Kontonummer
    public double getAvailableBalance(int userAccountNumber)
    {
       return getAccount(userAccountNumber).getAvailableBalance();
-   } // end method getAvailableBalance
+   } // ende methode getAvailableBalance
 
-   // return total balance of Account with specified account number
+   // Rückgabe des Gesamtsaldos des Kontos mit der angegebenen Kontonummer
    public double getTotalBalance(int userAccountNumber)
    {
       return getAccount(userAccountNumber).getTotalBalance();
-   } // end method getTotalBalance
+   } // ende methode getTotalBalance
 
-   // credit an amount to Account with specified account number
+   // einen Betrag auf das Konto mit der angegebenen Kontonummer gutschreiben
    public void credit(int userAccountNumber, double amount)
    {
       getAccount(userAccountNumber).credit(amount);
-   } // end method credit
+   } // ende methode credit
 
-   // debit an amount from Account with specified account number
+   // einen Betrag vom Konto mit der angegebenen Kontonummer abbuchen
    public void debit(int userAccountNumber, double amount)
    {
       getAccount(userAccountNumber).debit(amount);
-   } // end method debit
+   } // ende methode debit
    public int getadmin(int userAccountNumber)
    {
 	   return getAccountpin(userAccountNumber).getISadmin();  
@@ -99,12 +99,12 @@ public class BankDatabase
   public int getaccpin(int PIN){
 	   for (Account currentAccount : accounts)
 	      {
-	         // return current account if match found
+	         // Girokonto zurückgeben, wenn Übereinstimmung gefunden
 	         if (currentAccount.GetPin() == PIN)
 	            return currentAccount.getAccountNumber();
 	         else
 	        	 return 1;
-	      } // end for
+	      } // ende for
 	return PIN;
    }
    
