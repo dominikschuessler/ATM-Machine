@@ -14,16 +14,22 @@ public class ATM {
 
 	/** Speichert, ob der Nutzer authentifiziert ist */
 	private boolean userAuthenticated;
+	
 	/** Kontonummer des aktuellen Benutzers */
 	private int currentAccountNumber;
+	
 	/** Das Display des Bankautomaten */
 	private Screen screen;
+	
 	/** Das Eingabefeld des Bankautomaten */
 	private Keypad keypad;
+	
 	/** Der Bargeldausgeber des Bankautomaten */
 	private CashDispenser cashDispenser;
+	
 	/** Das Bargeldeinzahler des Bankautomaten */
 	private DepositSlot depositSlot;
+	
 	/** Datenbank mit Account Informationen */
 	private BankDatabase bankDatabase;
 
