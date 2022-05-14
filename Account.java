@@ -1,17 +1,17 @@
 
 // Account.java
-// Represents a bank account
+// Repraesentiert einen bank account
 
 public class Account 
 {
    private int accountNumber; // account number
-   private int pin; // PIN for authentication
-   private double availableBalance; // funds available for withdrawal
-   private double totalBalance; // funds available + pending deposits
+   private int pin; // PIN fuer Authentifikation
+   private double availableBalance; // Verfügbare Mittel zur Entnahme
+   private double totalBalance; // Verfügbare Mittel + ausstehende Einlagen
    private int admin;
    private String username;
 
-   // Account constructor initializes attributes
+   // Der Kontokonstruktor initialisiert die Attribute
    public Account(String Username, int theAccountNumber, int thePIN, 
       double theAvailableBalance, double theTotalBalance, int isadmin)
    {
@@ -21,47 +21,47 @@ public class Account
       setAvailableBalance(theAvailableBalance);
       setTotalBalance(theTotalBalance);
       setAdmin(isadmin);
-   } // end Account constructor
+   } // ende Account Konstruktor
 
-   // determines whether a user-specified PIN matches PIN in Account
+   // ermittelt, ob eine vom Benutzer angegebene PIN mit der PIN im Konto übereinstimmt
    public boolean validatePIN(int userPIN)
    {
       if (userPIN == getPin())
          return true;
       else
          return false;
-   } // end method validatePIN
+   } // ende Methode validatePIN
    
-   // returns available balance
+   // gibt available balance zurueck
    public double getAvailableBalance()
    {
       return availableBalance;
-   } // end getAvailableBalance
+   } // ende getAvailableBalance
 
-   // returns the total balance
+   // Gibt die total balance zurueck
    public double getTotalBalance()
    {
       return totalBalance;
-   } // end method getTotalBalance
+   } // ende methode getTotalBalance
 
-   // credits an amount to the account
+   // schreibt einen Betrag auf dem Konto gut
    public void credit(double amount)
    {
       setTotalBalance(getTotalBalance() + amount); // add to total balance
-   } // end method credit
+   } // ende methode credit
 
-   // debits an amount from the account
+   // bucht einen Betrag vom Konto ab
    public void debit(double amount)
    {
       setAvailableBalance(getAvailableBalance() - amount); // subtract from available balance
       setTotalBalance(getTotalBalance() - amount); // subtract from total balance
-   } // end method debit
+   } // ende methode debit
 
-   // returns account number
+   // Gibt account number zurueck
    public int getAccountNumber()
    {
       return accountNumber;  
-   } // end method getAccountNumber
+   } // ende methode getAccountNumber
    
    public int getISadmin()
    {
@@ -110,7 +110,7 @@ public void setAdmin(int admin) {
    
   
    
-} // end class Account
+} // ende Klasse Account
 
 
 /**************************************************************************
