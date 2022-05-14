@@ -3,68 +3,120 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 // Withdrawal.java
-/** Stellt die Transaktion 'Geld abheben' des Bankautomaten dar. */
+/**
+ * Stellt die Transaktion 'Geld abheben' des Bankautomaten dar. Erbt von der
+ * Klasse {@code Transaction}.
+ * 
+ * @see Transaction
+ * @author Dominik Schüßler (Kommentarübersetzung und Kommentarergänzung)
+ */
 
 public class Withdrawal extends Transaction {
 
-	private int amount; // abzuhebender Betrag
-	private Keypad keypad; // Referenz zur Tastatur
-	private CashDispenser cashDispenser; // Referenz zum Bargeldausgeber
+	/** Abzuhebender Betrag. */
+	private int amount;
 
-	// constant corresponding to menu option to cancel
+	/** Referenz zur Tastatur. */
+	private Keypad keypad;
+
+	/** Referenz zum Bargeldausgeber. */
+	private CashDispenser cashDispenser;
+
+	/** Konstante zur Menue Option 'abbrechen'. */
 	private final static int CANCELED = 6;
 
-	// Withdrawal constructor
+	/**
+	 * Konstruktor initialisiert alle Attribute der Superklasse {@code Transaction}
+	 * und der Klasse selbst.
+	 * 
+	 * @param userAccountNumber Kontonummer des Benutzers
+	 * @param atmScreen         Das Display des Bankautomaten
+	 * @param atmBankDatabase   Die Datenbank mit Accountinformationen
+	 * @param atmKeypad         Das Eingabefeld
+	 * @param atmCashDispenser  Der Geldausgabeschacht
+	 */
 	public Withdrawal(int userAccountNumber, Screen atmScreen, BankDatabase atmBankDatabase, Keypad atmKeypad,
 			CashDispenser atmCashDispenser) {
-		// initialize superclass variables
-		super(userAccountNumber, atmScreen, atmBankDatabase);
 
-		// initialize references to keypad and cash dispenser
+		super(userAccountNumber, atmScreen, atmBankDatabase);
 		keypad = atmKeypad;
 		cashDispenser = atmCashDispenser;
 	} // end Withdrawal constructor
 
-	// perform transaction
+	/**
+	 * Führt Transaktion durch.
+	 * 
+	 * Fehlender Code!
+	 * <ul>
+	 * <li>Fuer Auszahlung verfuegbarer Betrag,
+	 * <li>Referenz zur Datenbank und zum Display,
+	 * <li>Wiederholung bis das Geld ausgezahlt wurde oder der Benutzer den Vorgang
+	 * abbricht.
+	 * </ul>
+	 * 
+	 * @see Transaction
+	 */
 	@Override
 	public void execute() {
-		// amount available for withdrawal
-
-		// get references to bank database and screen
-
-		// loop until cash is dispensed or the user cancels
+		// Hier! fehlender Code aus Beschreibung
 		displayMenuOfAmounts();
 	}
 
+	/**
+	 * Führt die Transaktion durch. Überprüft, ob das Konto des Nutzers ausreichend
+	 * gedeckt ist, der Automat ueber ausreichend Geld verfuegt und ueberwacht, ob
+	 * der Nutzer den Vorgang abbricht. 
+	 * <p><b>Fehlender Code!</b>
+	 * 
+	 * @param amount Der Betrag, der ausgegeben werden soll.
+	 */
 	public void transaction(int amount) {
-		BankDatabase bankDatabase = getBankDatabase();
-		Screen screen = getScreen();
-		boolean cashDispensed = false; // cash was not dispensed yet
-		double availableBalance;
-		// check whether user chose a withdrawal amount or canceled
 
-		// get available balance of account involved
+		BankDatabase bankDatabase = getBankDatabase();
+
+		Screen screen = getScreen();
+
+		/** Der Geldbetrag wurde noch nicht ausgegeben. */
+		boolean cashDispensed = false;
+
+		double availableBalance;
+		/**
+		 * Überprüft, ob der Nutzer einen Auszahlbetrag gewählt oder abgebrochen hat.
+		 */
+		// if?? weiter unten steht ein end if ohne, dass eins begonnen wurde
+
+		/** Speichert den verfügbaren Kontostand */
 		availableBalance = bankDatabase.getAvailableBalance(getAccountNumber());
 
-		// check whether the user has enough money in the account
+		/** Ueberprueft, ob der Benutzeraccount ausreichend gedeckt ist. */
 		if (amount <= availableBalance) {
-			// check whether the cash dispenser has enough money
+
+			/** Ueberprueft, ob der Geldausgabeschacht über ausreichende Geld verfuegt. */
 			if (cashDispenser.isSufficientCashAvailable(amount)) {
-				// update the account involved to reflect the withdrawal
+
+				/** Aktualisiert den beteiligten Account mit Auszahlung. */
 				bankDatabase.debit(getAccountNumber(), amount);
 
 				cashDispenser.dispenseCash(amount); // dispense cash
 				cashDispensed = true; // cash was dispensed
 
-				// instruct user to take cash
+				/** Aufforderung an den Benutzer, das Geld zu entnehmen. */
 				screen.messageJLabel7.setText("\nYour cash has been" + " dispensed. Please take your cash now.");
 			} // end if
-			else // cash dispenser does not have enough cash
+
+			/**
+			 * Im Fall, dass der Geldausgeber nicht ueber eine ausreichende Geldmenge
+			 * verfuegt.
+			 */
+			else
 				screen.messageJLabel7
 						.setText("\nInsufficient cash available in the ATM." + "\n\nPlease choose a smaller amount.");
 		} // end if
-		else // not enough money available in user's account
-		{
+
+		/**
+		 * Im Fall, dass der Benutzeraccount nicht ausreichend gedeckt ist.
+		 */
+		else {
 			screen.messageJLabel7
 					.setText("\nInsufficient funds in your account." + "\n\nPlease choose a smaller amount.");
 		} // end else
@@ -73,13 +125,21 @@ public class Withdrawal extends Transaction {
 
 	// end method execute
 
-	// display a menu of withdrawal amounts and the option to cancel;
-	// return the chosen amount or 0 if the user chooses to cancel
+	/**
+	 * Stellt ein Menue mit unteschiedlichen Auszahlbetraegen und der Option zum
+	 * Abbruch dar. Gibt den ausgewaehlten Betrag zurück; Bricht der Benutzer den
+	 * Vorgang ab, wird 0 zurückgegeben.
+	 * 
+	 * @return userChoice ausgewaehlter Betrag oder 0
+	 */
 	private void displayMenuOfAmounts() {
 
-		int userChoice = 0; // local variable to store return value
+		/** Speichert den Betrag, der zurückgegeben werden soll. */
+		int userChoice = 0;
 
-		Screen screen = getScreen(); // get screen reference
+		/** Screen Referenz */
+		Screen screen = getScreen();
+
 		screen.createWithdrawGUI();
 		screen.Mainframe.add(keypad.addkeypad(), BorderLayout.CENTER);
 		withdraw1 check1 = new withdraw1();
