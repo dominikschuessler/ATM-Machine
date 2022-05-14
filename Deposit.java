@@ -10,8 +10,8 @@ public class Deposit extends Transaction
 {
    private double amount; /** Die Menge an Geld, welche Eingezahlt werden soll */
    private Keypad keypad; /** Eine Referenz zur Klasse "Keypad" */
-   private DepositSlot depositSlot; // reference to deposit slot
-   private final static int CANCELED = 0; // constant for cancel option
+   private DepositSlot depositSlot; /** Eine Referenz zur Klasse "depositSlot" */
+   private final static int CANCELED = 0; /** Die Konstante für die Abbruch Option */
 
    // Deposit constructor
    public Deposit(int userAccountNumber, Screen atmScreen, 
