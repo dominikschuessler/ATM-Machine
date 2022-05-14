@@ -1,16 +1,16 @@
 import java.util.ArrayList;
 
-//This class is responsible the Iterator design pattern
+//Diese Klasse ist verantwortlich für das Iterator-Entwurfsmuster
 
 public class AccountIterator implements Iterator {
     ArrayList<Account> accounts;
     
     public AccountIterator(ArrayList<Account> accounts2) {
 		this.accounts = accounts2;
-	} //This obtains an already existing ArrayList for use within this class.
+	} //Damit wird eine bereits vorhandene ArrayList zur Verwendung in dieser Klasse abgerufen.
     
     
-    //This function returns true if the ArrayList has a space next to the current one
+    //Diese Funktion gibt true zurück, wenn die ArrayList ein Leerzeichen neben dem aktuellen enthält
 	public boolean hasNext(int position) {
 		if (position >= accounts.size()) {
 			return false;
@@ -20,7 +20,7 @@ public class AccountIterator implements Iterator {
 	}
 	
 
-	@Override //This function iterates to the next position in the ArrayList.
+	@Override //Diese Funktion iteriert zur nächsten Position in der ArrayList.
 	public Object next(int position) {
 		Account AccountItem = accounts.get(position);
 		return AccountItem;
@@ -28,7 +28,7 @@ public class AccountIterator implements Iterator {
 
 
 	@Override
-	//This function checks when the position is at 0, and prevents the user from going back even further. 
+	//Diese Funktion prüft, ob die Position bei 0 liegt, und verhindert, dass der Benutzer noch weiter zurückgehen kann. 
 	public boolean hasPrev(int position) {
 		if(position == 0)
 		return false;
