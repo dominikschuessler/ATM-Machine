@@ -13,20 +13,20 @@ public class Deposit extends Transaction
    private DepositSlot depositSlot; /** Eine Referenz zur Klasse "depositSlot" */
    private final static int CANCELED = 0; /** Die Konstante für die Abbruch Option */
 
-   // Deposit constructor
+   /** Der Konstruktor von Deposit */
    public Deposit(int userAccountNumber, Screen atmScreen, 
       BankDatabase atmBankDatabase, Keypad atmKeypad, 
       DepositSlot atmDepositSlot)
    {
-      // initialize superclass variables
+      /** Die Superklassen Variablen werden initialisiert. */ 
       super(userAccountNumber, atmScreen, atmBankDatabase);
 
-      // initialize references to keypad and deposit slot
+      /** Die Referenzen zu "Keypad" und "depositSlot" werden initialisiert. */ 
       keypad = atmKeypad;
       depositSlot = atmDepositSlot;
    } // end Deposit constructor
 
-   // perform transaction
+   /** Die Transaktion wird ausgefuehrt. */
    @Override
    public void execute()
    {
@@ -35,15 +35,15 @@ public class Deposit extends Transaction
    public void makedeposit(double amount){
       BankDatabase bankDatabase = getBankDatabase(); // get reference
       Screen screen = getScreen(); // get reference
-       // get deposit amount from user
+       /** Die Menge, die der Nutzer Einzahlen will. */
 
-      // check whether user entered a deposit amount or canceled
+      /** Es wird ueberprueft, ob ein Einzahlungsbetrag eingegeben wurde oder ob der Vorgang abgebrochen wurde. */
       if (amount != CANCELED)
       {
-         // request deposit envelope containing specified amount
+         /** Die Aufforderung, das Geld einzulegen */
          screen.messageJLabel2.setText( "\nPlease insert a deposit envelope containing " + amount);
 
-         // receive deposit envelope
+         /** Es wird ueberprueft ob das Geld erhalten wurde */
          boolean envelopeReceived = depositSlot.isEnvelopeReceived();
 
          // check whether deposit envelope was received
@@ -54,35 +54,35 @@ public class Deposit extends Transaction
               screen.messageJLabel3.setText("be available until we verify the amount of any " +
                "enclosed cash and your checks clear.");
             
-            // credit account to reflect the deposit
+            /** Der Kontostand wird angezeigt, um die Einzahlung nach zu vollziehen. */
             bankDatabase.credit(getAccountNumber(), amount); 
          } // end if
-         else // deposit envelope not received
+         else /** Wenn kein Geld eingezahlt wurde */
          {
         	 screen.messageJLabel2.setText("\nYou did not insert an " +
                "envelope, so the ATM has canceled your transaction.");
          } // end else
       } // end if 
-      else // user canceled instead of entering amount
+      else /** Falls der Nutzer den Vorgang abbricht. */
       {
     	  screen.messageJLabel2.setText("\nCanceling transaction...");
       } // end else
    } // end method execute
 
-   // prompt user to enter a deposit amount in cents 
+   /** Fordert den Nutzer auf, einen Betrag in Cent einzugeben. */
    private void promptForDepositAmount()
    {
       Screen screen = getScreen(); // get reference to screen
 
-      // display the prompt
+      /** Zeigt die Eingabeaufforderung an */
       screen.CreateDepositGUI(); // receive input of deposit amount
       screen.Mainframe.add( keypad.addkeypad(), BorderLayout.CENTER);
       Depositcheck check1 = new Depositcheck();  
       keypad.BEnter.addActionListener( check1 );
       screen.Mainframe.revalidate();
-      // check whether the user cancelled or entered a valid amount
+      /** Es wir ueberprueft ob der Nutzer den Vorgang abgebrochen hat oder einen gueueltigen Betrag eingegeben hat. */
       
-          // return dollar amount 
+          /**Die Menge an Geld wird ausgegeben */
       } // end else
    // end method promptForDepositAmount
 

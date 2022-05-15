@@ -9,7 +9,7 @@ public class CashDispenser
    private final static int INITIAL_COUNT = 500;
    private int count; /** Die Anzahl der verbleibenden $20 Scheine. */
    
-   // no-argument CashDispenser constructor initializes count to default
+   /** Der parameterlose Konstruktor "CashDispenser", initialisiert "count". */ 
    public CashDispenser()
    {
       count = INITIAL_COUNT; // set count attribute to default
@@ -22,15 +22,15 @@ public class CashDispenser
       count -= billsRequired; // /** Die aktualisierte Anzahl an Scheinen */
    } // end method dispenseCash
 
-   /** Zeigt an, ob die gewünschte Menge an Geld ausgegeben werden kann. */ 
+   /** Zeigt an, ob die gewuenschte Menge an Geld ausgegeben werden kann. */ 
    public boolean isSufficientCashAvailable(int amount)
    {
       int billsRequired = amount / 20; /** Die Menge an erforderten $20 Scheinen. */
 
       if (count >= billsRequired )
-         return true; /** Wenn genug Scheine verfügbar sind, wird "true" zurückgegeben. */ 
+         return true; /** Wenn genug Scheine verfuegbar sind, wird "true" zurueckgegeben. */ 
       else 
-         return false; /** Wenn nicht genug Scheine verfügbar sind, wird "false" zurückgegeben. */
+         return false; /** Wenn nicht genug Scheine verfuegbar sind, wird "false" zurueckgegeben. */
    } // end method isSufficientCashAvailable
 } // end class CashDispenser
 
