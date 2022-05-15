@@ -1,36 +1,50 @@
 // CashDispenser.java
 
-/** @author Annalena Maier  */
-/** Die Klasse (@code CashDispenser) stellt die Geldausgabe des Automaten dar. */
+
+/** Die Klasse (@code CashDispenser) stellt die Geldausgabe des Automaten dar.
+ *
+ *  @author Annalena Maier 
+*/
 
 public class CashDispenser 
 {
    /** Die voreingestellte Menge an Scheinen in der Geldausgabe. */
    private final static int INITIAL_COUNT = 500;
-   private int count; /** Die Anzahl der verbleibenden $20 Scheine. */
+  
+   /** Die Anzahl der verbleibenden $20 Scheine. */
+   private int count; 
    
-   /** Der parameterlose Konstruktor "CashDispenser", initialisiert "count". */ 
+   /** Der parameterlose Konstruktor {@code CashDispenser} , initialisiert "count". */ 
    public CashDispenser()
    {
       count = INITIAL_COUNT; // set count attribute to default
    } // end CashDispenser constructor
 
-   /** Simuliert die Ausgabe, einer bestimmten Menge Geld. */
+   /** 
+    * Simuliert die Ausgabe, eines bestimmten Betrages. 
+    * Die Menge an erforderlichen $20 Scheinen wird berechnet. 
+    * Anschließend wird die Anzahl an Scheinen in der Geldausgabe aktualisiert. 
+    * 
+    */
    public void dispenseCash(int amount)
    {
-      int billsRequired = amount / 20; /** Die Menge an erforderten $20 Scheinen. */
-      count -= billsRequired; // /** Die aktualisierte Anzahl an Scheinen */
+      int billsRequired = amount / 20; 
+      count -= billsRequired; 
    } // end method dispenseCash
 
-   /** Zeigt an, ob die gewuenschte Menge an Geld ausgegeben werden kann. */ 
+   /**
+    * Zeigt an, ob die gewuenschte Menge an Geld ausgegeben werden kann.
+    * 
+    * @return {@code true} wenn genug Scheine verfügbar sind.
+    */ 
    public boolean isSufficientCashAvailable(int amount)
    {
-      int billsRequired = amount / 20; /** Die Menge an erforderten $20 Scheinen. */
+      int billsRequired = amount / 20; 
 
       if (count >= billsRequired )
-         return true; /** Wenn genug Scheine verfuegbar sind, wird "true" zurueckgegeben. */ 
+         return true; 
       else 
-         return false; /** Wenn nicht genug Scheine verfuegbar sind, wird "false" zurueckgegeben. */
+         return false;
    } // end method isSufficientCashAvailable
 } // end class CashDispenser
 
