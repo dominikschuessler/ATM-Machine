@@ -1,8 +1,18 @@
 
+/**
+ * 
+ * Dieses Interface definiert Methoden zum Umgang mit Objekten, ueber die iteriert werden kann.
+ * 
+ * @see AccountIterator
+ * @author Annalena Maier
+ * @author Dominik Schuessler
+ * */
 public interface Iterator {
-	//Dies ist die Schnittstelle für das Iterator pattern.
-		boolean hasNext(int position);
-		Object next(int position);
-		boolean hasPrev(int position);
 	
+	boolean hasNext(int position);
+
+	Object next(int position);
+
+	boolean hasPrev(int position);
+
 }
