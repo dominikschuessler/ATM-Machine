@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-import ATM.DepositSlot;
+//ATM.java
 
 /**
  * Die Klasse {@code ATM} stellt einen Bankautomaten dar.
