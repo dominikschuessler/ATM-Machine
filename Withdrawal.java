@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
  * Klasse {@code Transaction}. Erbt von der Klasse {@code Transaction}.
  * 
  * @see Transaction
- * @author Dominik Schüßler (Kommentarübersetzung und Kommentarergänzung)
+ * @author Dominik Schüßler
  */
 
 public class Withdrawal extends Transaction {
