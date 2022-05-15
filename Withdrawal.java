@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 // Withdrawal.java
 /**
  * Stellt die Transaktion 'Geld abheben' des Bankautomaten dar. Erbt von der
- * Klasse {@code Transaction}.
+ * Klasse {@code Transaction}. Erbt von der Klasse {@code Transaction}.
  * 
  * @see Transaction
  * @author Dominik Schüßler (Kommentarübersetzung und Kommentarergänzung)
@@ -44,7 +44,7 @@ public class Withdrawal extends Transaction {
 	} // end Withdrawal constructor
 
 	/**
-	 * Führt Transaktion durch.
+	 * Fuehrt Transaktion durch.
 	 * 
 	 * Fehlender Code!
 	 * <ul>
