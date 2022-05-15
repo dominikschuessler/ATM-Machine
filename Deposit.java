@@ -4,7 +4,7 @@ import java.awt.event.ActionListener;
 /** @author Annalena Maier */
 
 // Deposit.java
-/** Die Klasse "Deposit" repräsentiert eine Einzahlung. */
+/** Die Klasse "Deposit" repraesentiert eine Einzahlung. */
 
 public class Deposit extends Transaction
 {
@@ -69,7 +69,7 @@ public class Deposit extends Transaction
       } // end else
    } // end method execute
 
-   /** Fordert den Nutzer auf, einen Betrag in Cent einzugeben. */
+   /** Der Nutzer wird aufgefordert, einen Betrag in Cent einzugeben. */
    private void promptForDepositAmount()
    {
       Screen screen = getScreen(); // get reference to screen
