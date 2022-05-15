@@ -26,7 +26,6 @@ public class BalanceInquiry extends Transaction {
 
 	/**
 	 * Fuehrt eine Abfrage des Kontostandes durch und gibt das Ergebnis auf dem Bildschirm aus.
-	 * 
 	 */
 	@Override
 	public void execute() {
