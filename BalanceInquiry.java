@@ -1,13 +1,14 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-/**
- * @author Dominik Schüßler (Kommentarübersetzung)
- * */
 
 // BalanceInquiry.java
+
 /**
- * Die Klasse {@code BalanceInquiry} stellt die Transaktionsart "Saldenanfrage"
+ * Die Klasse {@code BalanceInquiry} stellt die Transaktionsart "Saldoabfrage" (Kontostand)
  * des Bankautomaten dar.
+ * 
+ * @author Dominik Schuessler
+ * @see Transaction
  */
 public class BalanceInquiry extends Transaction {
 
@@ -16,27 +17,31 @@ public class BalanceInquiry extends Transaction {
 	 * aufgerufen.
 	 * 
 	 * @see Transaction
-	 * 
 	 */
 	public BalanceInquiry(int userAccountNumber, Screen atmScreen, BankDatabase atmBankDatabase) {
+
 		super(userAccountNumber, atmScreen, atmBankDatabase);
+
 	} // end BalanceInquiry constructor
 
-	/** Führt die Transaktion durch */
+	/**
+	 * Fuehrt eine Abfrage des Kontostandes durch und gibt das Ergebnis auf dem Bildschirm aus.
+	 * 
+	 */
 	@Override
 	public void execute() {
-		
-		/**Referenz zur Bankdatenbank*/
+
+		/** Referenz zur Bankdatenbank */
 		BankDatabase bankDatabase = getBankDatabase();
 		Screen screen = getScreen();
 
-		/**Erfragt den verfügbaren Saldo des beteiligten Accounts.*/
+		/** Erfragt den verfügbaren Saldo des beteiligten Accounts. */
 		double availableBalance = bankDatabase.getAvailableBalance(getAccountNumber());
 
-		/**Erfragt den vollständigen Saldo des beteiligten Accounts*/
+		/** Erfragt den vollständigen Saldo des beteiligten Accounts */
 		double totalBalance = bankDatabase.getTotalBalance(getAccountNumber());
 
-		/**Stellt den Saldo auf dem Bildschirm dar.*/
+		//Darstelllung in GUI
 		screen.creatBalanceGUI();
 		screen.messageJLabel2.setText("Avaliable Balance: " + availableBalance);
 		screen.messageJLabel3.setText("Total Balance: " + totalBalance);
