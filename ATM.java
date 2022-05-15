@@ -14,9 +14,7 @@ import ATM.DepositSlot;
 
 public class ATM {
 
-	public class DepositSlot {
 
-	}
 
 	/** Speichert, ob der Nutzer authentifiziert ist */
 	private boolean userAuthenticated;
