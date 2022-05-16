@@ -1,6 +1,10 @@
 // ATMCaseStudy.java
-// Driver program for the ATM case study
-
+/**
+ * 
+ * Treiber Programm fuer {@code ATMCaseStudy}
+ * 
+ * @author Dominik Schuessler
+ * */
 public class ATMCaseStudy {
 	
 	/** Main Methode erstellt und führt den Bankautomaten aus. */
