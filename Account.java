@@ -1,6 +1,5 @@
 
 // Account.java
-// Repraesentiert einen bank account
 
 /**
  * Die Klasse {@code Account} stellt ein Bankkonto dar.
