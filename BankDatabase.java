@@ -1,18 +1,27 @@
 import java.util.ArrayList;
 
 // BankDatabase.java
-// Stellt die Datenbank für Bankkontoinformationen dar 
+
+/**
+ * Die Klasse {@code BankDatabase} stellt die Datenbank fuer Bankkontoinformationen dar.
+ * 
+ * @author Kerstin Huebner
+ * @author Annalena Maier
+ */
 
 public class BankDatabase
+
 {
-   static ArrayList<Account> accounts = new ArrayList<Account>() ; // array von Accounts
+	/** Die Arrayliste {@code accounts} vereinfacht, im Gegensatz zu einem Array, das Hinzufuegen/Loeschen in der Datenbank.*/
+   static ArrayList<Account> accounts = new ArrayList<Account>() ;
    
+   //War hier mal ein Array?
    
-   
-   // BankDatabase-Konstruktor ohne Argumente initialisiert Konten
+   /**
+    * Der parameterlose Konstruktor initialisiert Bankkonten.
+    */
    public BankDatabase()
    {
-      //Das ursprüngliche Array wurde in eine Arrayliste umgewandelt, was das Hinzufügen/Löschen in der Datenbank erleichtert.
       Account accounts1 = new Account("Customer1", 12345, 11111, 1000.0, 1200.0, 0);
       Account accounts2 = new Account("Customer2", 98765, 22222, 200.0, 200.0, 0);
       Account accounts3 = new Account("Customer3", 19234, 33333, 200.0, 200.0, 0);
@@ -23,108 +32,162 @@ public class BankDatabase
       accounts.add(accounts4);
    } // ende no-argument BankDatabase constructor
    
-   // Abrufen eines Konto-Objekts mit der angegebenen Kontonummer
+   /** 
+    * Die Methode {@code getAccount} ruft ein bestimmtes Konto ab, indem sie 
+    * durch die {@code accounts} geht,  um die uebereinstimmende Kontonummer zu finden.
+    * @return {@code currentAccount} wenn eine uebereinstimmung gefunden wurde.
+    * 
+    * @param accountnumber Kontonummer
+    */
    public Account getAccount(int accountnumber)
    {
-      // Schleife durch die Konten auf der Suche nach der passenden Kontonummer
+     
       for (Account currentAccount : accounts)
       {
-         // Girokonto zurückgeben, wenn Übereinstimmung gefunden
          if (currentAccount.getAccountNumber() == accountnumber)
             return currentAccount;
       } // end for
 
-      return null; // wenn kein passendes Konto gefunden wurde, wird null zurückgegeben
+      return null; 
    } // ende methode getAccount
    
+   /**
+    * Die Methode {@code getAccountpin} geht durch die {@code accounts} um die uebereinstimmende Kontonummer zu finden.
+    * @return {@code currentAccount} wenn eine uebereinstimmung gefunden wurde.
+    * @param PIN PIN
+    */
    private Account getAccountpin(int PIN)
    {
-      // Schleife durch die Konten auf der Suche nach der passenden Kontonummer
+      
       for (Account currentAccount : accounts)
       {
-         // Girokonto zurückgeben, wenn Übereinstimmung gefunden
+         
          if (currentAccount.GetPin() == PIN)
             return currentAccount;
       } // end for
 
-      return null; // wenn kein passendes Konto gefunden wurde, wird null zurückgegeben
-   } //
+      return null; 
+   } // ent method getAccount
 
-   // feststellen, ob die vom Benutzer angegebene Kontonummer und PIN übereinstimmen
-   // die eines Kontos in der Datenbank
+   /**
+    * Die Methode {@code authenticateUser} stellt fest, ob ob die 
+    * vom Benutzer angegebene Kontonummer und PIN, mit Werten aus der Datenbank, uebereinstimmen.
+    * @return {@code userAccount.validatePIN(userPIN)} wenn eine uebereinstimmung gefunden wird.
+    * @param userPIN Benutzer PIN
+    */
    public boolean authenticateUser(int userPIN)
    {
-      // Versuch, das Konto mit der Kontonummer abzurufen
       Account userAccount = getAccountpin(userPIN);
 
-      // wenn Konto existiert, Ergebnis der Kontomethode validatePIN zurückgeben
+      
       if (userAccount != null)
          return userAccount.validatePIN(userPIN);
       else
-         return false; // Kontonummer nicht gefunden, also false zurückgeben
+         return false;
    } // ende methode authenticateUser
 
-   // Rückgabe des verfügbaren Saldos des Kontos mit der angegebenen Kontonummer
+   /**
+    * Die Methode {@code getAvailableBalance} fragt den Kontostand des Kontos mit der angegebenen Kontonummer ab.
+    * 
+    * @param userAccountNumber Kontonummer des Benutzers
+    * @return aktuell verfuegbare Geldmittel
+    */
    public double getAvailableBalance(int userAccountNumber)
    {
       return getAccount(userAccountNumber).getAvailableBalance();
    } // ende methode getAvailableBalance
 
-   // Rückgabe des Gesamtsaldos des Kontos mit der angegebenen Kontonummer
+   /** 
+    * Die Methode {@code getTotalBalance} fragt das Gesamtsaldo des Kontos Konto mit der angegebenen Kontonummer ab.
+    * @param userAccountNumber Kontonummer des Benutzers
+    * @return verfuegbare Geldmittel + ausstehende Einzahlung
+    */
    public double getTotalBalance(int userAccountNumber)
    {
       return getAccount(userAccountNumber).getTotalBalance();
    } // ende methode getTotalBalance
 
-   // einen Betrag auf das Konto mit der angegebenen Kontonummer gutschreiben
+   /** 
+    * Die Methode {@code credit} schreibt einen Betrag auf das Konto mit der angegebenen Kontonummer gut.
+    * 
+    * @param userAccountNumber
+    * @param amount Geldbetrag, der gutgeschrieben werden soll
+    */
    public void credit(int userAccountNumber, double amount)
    {
       getAccount(userAccountNumber).credit(amount);
    } // ende methode credit
 
-   // einen Betrag vom Konto mit der angegebenen Kontonummer abbuchen
+   /** 
+    * Die Methode {@code debit} bucht einen Betrag vom Konto mit der angegebenen Kontonummer ab.
+    * 
+    * @param userAccountNumber Kontonummer des Benutzers
+    * @param amount
+    */
    public void debit(int userAccountNumber, double amount)
    {
       getAccount(userAccountNumber).debit(amount);
    } // ende methode debit
-   public int getadmin(int userAccountNumber)
-   {
-	   return getAccountpin(userAccountNumber).getISadmin();  
-   }
    
-   public static Iterator createIterator() {
+   	/**
+	 * Die Methode {@code getadmin} fragt ab, ob das Konto mit der angegebenen
+	 * Kontonummer ueber Administratorrechte verfuegt.
+	 * 
+	 * @param userAccountNumber Kontonummer des Benutzers
+	 * @return ob der Nutzer ueber Administratorrechte verfuegt
+	 */
+	public int getadmin(int userAccountNumber) {
+		return getAccountpin(userAccountNumber).getISadmin();
+	}
+
+	/**
+	 * 
+	 * @return {@code new AccountIterator(accounts)} Neue Arrayliste.
+	 */
+	public static Iterator createIterator() {
 		return new AccountIterator(accounts);
 	}
-   
-  public int getaccpin(int PIN){
-	   for (Account currentAccount : accounts)
-	      {
-	         // Girokonto zurückgeben, wenn Übereinstimmung gefunden
-	         if (currentAccount.GetPin() == PIN)
-	            return currentAccount.getAccountNumber();
-	         else
-	        	 return 1;
-	      } // ende for
-	return PIN;
-   }
-   
-  public static void Adduser(){
-	  String name = Screen.Inputfield1.getText();
-	  int accountnumber = Integer.parseInt( Screen.Inputfield2.getText() );
-	  int pin = Integer.parseInt( Screen.Inputfield4.getText() );
-	  int balance = Integer.parseInt( Screen.Inputfield3.getText() );
-	  
-	  Account newaccount = new Account(name, accountnumber, pin, balance, balance, 0);
-	 accounts.add(newaccount);
-	 
-	 Screen.Inputfield1.setText("");
-	 Screen.Inputfield2.setText("");
-	 Screen.Inputfield3.setText("");
-	 Screen.Inputfield4.setText("");
-  }
 
-public static void Deleteuser(int position) {
-	accounts.remove(position);
+	/**
+	 * Die Methode {@code getaccpin} gibt zu einer beliebigen PIN eine Kontonummer zurueck.
+	 * @param PIN PIN
+	 * @return {@code currentAccount.getAccountNumber} wenn eine Uebereinstimmung gefunden wird
+	 */
+	public int getaccpin(int PIN) {
+		for (Account currentAccount : accounts) {
+			
+			if (currentAccount.GetPin() == PIN)
+				return currentAccount.getAccountNumber();
+			else
+				return 1;
+		} // ende for
+		return PIN; //Wird nicht erreicht
+	}
+
+	/**
+	 * Die Methode {@code Adduser} fuegt ein neues Benutzerkonto hinzu.
+	 */
+	public static void Adduser() {
+		String name = Screen.Inputfield1.getText();
+		int accountnumber = Integer.parseInt(Screen.Inputfield2.getText());
+		int pin = Integer.parseInt(Screen.Inputfield4.getText());
+		int balance = Integer.parseInt(Screen.Inputfield3.getText());
+
+		Account newaccount = new Account(name, accountnumber, pin, balance, balance, 0);
+		accounts.add(newaccount);
+
+		Screen.Inputfield1.setText("");
+		Screen.Inputfield2.setText("");
+		Screen.Inputfield3.setText("");
+		Screen.Inputfield4.setText("");
+	}
+
+	/**
+	 * Die Methode {@code Deleteuser} loescht ein bestimmtes Benutzerkonto aus der {@code Accounts} Arrayliste an einem bestimmten Index.
+	 * @param position Arrayindex
+	 */
+	public static void Deleteuser(int position) {
+		accounts.remove(position);
 	
 }
    

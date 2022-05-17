@@ -61,7 +61,9 @@ public class Deposit extends Transaction
     * 
     * Wenn kein Geld eingelegt wurde, wird dem Nutzer dies auf dem Bildschirm angezeigt. <br><br>
     * 
-    * Wenn der Nutzer den Vorgang abbricht, wird ihm diese Aktion auf dem Bildschirm bestätigt.
+    * Wenn der Nutzer den Vorgang abbricht, wird ihm diese Aktion auf dem Bildschirm bestaetigt.
+    * 
+    * @param amount
     */
    public void makedeposit(double amount){
       BankDatabase bankDatabase = getBankDatabase(); // get reference

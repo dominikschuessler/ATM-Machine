@@ -2,19 +2,14 @@ import java.util.ArrayList;
 
 import javax.swing.undo.CannotRedoException;
 
-//Diese Klasse ist verantwortlich für das Iterator-Entwurfsmuster
-
-
-
 /**
- * 
- * Die Klasse {@code AccountIterator} implementiert Methoden, die den Index einer gegebenen {@code ArrayListe} betreffen.
+ * Die Klasse {@code AccountIterator} implementiert Methoden, die den Index
+ * einer gegebenen {@code ArrayListe} betreffen.
  * 
  * @author Annalena Maier
  * @author Dominik Schuessler
  * @see Iterator
  */
-
 public class AccountIterator implements Iterator {
 	ArrayList<Account> accounts;
 
@@ -31,7 +26,7 @@ public class AccountIterator implements Iterator {
 	 * 
 	 * Gibt zurueck, ob die {@code ArrayList accounts} einen bestimmen Index hat.
 	 * 
-	 * @param Der Index, von dem erfragt werden soll, ob er existiert.
+	 * @param position Der Index, von dem erfragt werden soll, ob er existiert.
 	 * @return {@code true} wenn der Indexplatz existiert.
 	 * 
 	 */

@@ -1,13 +1,16 @@
 
+/*
+ * Die Klasse kann eventuell durch vorgeschlagenen Kommentar ersetzt werden, da sie
+ * lediglich den Konstruktor der Klasse Account implementiert.
+ */
+
 /**
  * Die Klasse {@code AccountFactory} erzeugt neue Instanzen ihrer Superklasse
  * {@code Account}
  * 
- * Kann eventuell durch vorgeschlagenen Kommentar ersetzt werden, da sie lediglich den Konstruktor der Klasse
- * Account implementiert.
- * 
  * @author Dominik Schuessler
  */
+
 public class AccountFactory extends Account {
 
 	public AccountFactory(String Username, int theAccountNumber, int thePIN, double theAvailableBalance,

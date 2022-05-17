@@ -23,7 +23,7 @@ public class CashDispenser
    /** 
     * Simuliert die Ausgabe, eines bestimmten Betrages. 
     * Die Menge an erforderlichen $20 Scheinen wird berechnet. 
-    * Anschließend wird die Anzahl an Scheinen in der Geldausgabe aktualisiert. 
+    * Anschliessend wird die Anzahl an Scheinen in der Geldausgabe aktualisiert. 
     * 
     */
    public void dispenseCash(int amount)
@@ -35,7 +35,7 @@ public class CashDispenser
    /**
     * Zeigt an, ob die gewuenschte Menge an Geld ausgegeben werden kann.
     * 
-    * @return {@code true} wenn genug Scheine verfügbar sind.
+    * @return {@code true} wenn genug Scheine verfuegbar sind.
     */ 
    public boolean isSufficientCashAvailable(int amount)
    {
