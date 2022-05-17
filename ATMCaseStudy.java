@@ -1,16 +1,19 @@
 // ATMCaseStudy.java
 /**
  * 
- * Treiber Programm fuer {@code ATMCaseStudy}
+ * Die Klasse {@code ATMCaseStudy} ist das Treiber Programm fuer
+ * {@code ATMCaseStudy}. Es enthaelt die {@code main} Methode und startet den
+ * Bankautomaten.
  * 
  * @author Dominik Schuessler
- * */
+ */
 public class ATMCaseStudy {
-	
-	/** Main Methode erstellt und führt den Bankautomaten aus. 
+
+	/**
+	 * Main Methode erstellt und führt den Bankautomaten aus.
 	 * 
-	 * @param args 
-	 * */
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
 		ATM theATM = ATM.getinstance();
