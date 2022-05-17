@@ -29,21 +29,29 @@ public class Keypad {
 	/** Liest Daten der Kommandozeile */
 	private Scanner input;
 	private String userinput;
-	
-	/* Buttons des Eingabefeldes
+
+	/*
+	 * Buttons des Eingabefeldes
 	 * 
 	 * Warum sind die Buttons 1-5 static und der Rest nicht?
 	 */
-	
+
 	public static JButton B1;
 	public static JButton B2;
 	public static JButton B3;
 	public static JButton B4;
+	
+	/** Button Nummer 5 */
 	public static JButton B5;
+	
 	public JButton B6;
+	
 	public JButton B7;
+	
 	public JButton B8;
+	
 	public JButton B9;
+	
 	public JButton B0;
 	public JButton BClear;
 	public JButton BEnter;
@@ -76,10 +84,10 @@ public class Keypad {
 	public void setbuttons() {
 
 		B1 = new JButton("1");
-		
-		//ueberfluessig weil Konstruktor Beschriftung schon als Parameter aufnimmt
+
+		// ueberfluessig weil Konstruktor Beschriftung schon als Parameter aufnimmt
 		B1.setText("1");
-		
+
 		B2 = new JButton("2");
 		B3 = new JButton("3");
 		B4 = new JButton("4");

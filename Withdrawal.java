@@ -130,7 +130,6 @@ public class Withdrawal extends Transaction {
 	 * Abbruch dar. Gibt den ausgewaehlten Betrag zurück; Bricht der Benutzer den
 	 * Vorgang ab, wird 0 zurückgegeben.
 	 * 
-	 * @return userChoice ausgewaehlter Betrag oder 0
 	 */
 	private void displayMenuOfAmounts() {
 

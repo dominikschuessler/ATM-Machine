@@ -7,7 +7,10 @@
  * */
 public class ATMCaseStudy {
 	
-	/** Main Methode erstellt und führt den Bankautomaten aus. */
+	/** Main Methode erstellt und führt den Bankautomaten aus. 
+	 * 
+	 * @param args 
+	 * */
 	public static void main(String[] args) {
 
 		ATM theATM = ATM.getinstance();
