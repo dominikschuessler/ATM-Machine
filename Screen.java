@@ -1,7 +1,7 @@
-/*
- * Screen.java
+/**
  *
- * Stellt den Bildschirm des Bankautomaten dar
+ * Die Klasse {@code Screen.java} stellt den Bildschirm des Bankautomaten dar
+ *
  */
 import java.awt.Button;
 import java.awt.Color;
@@ -23,15 +23,17 @@ public class Screen extends JFrame
 	 public static JTextField Inputfield2;
 	 public static JTextField Inputfield3;
 	 public static JTextField Inputfield4;
+	 /**Zeigt Textnachrichten an auf dem Bildschirm an */
 	 public JLabel messageJLabel; 
-	 public JLabel messageJLabel2; /**Zeigt Textnachrichten an auf dem Bildschirm an */
+	 public JLabel messageJLabel2; 
 	 public JLabel messageJLabel3;
 	 public JLabel messageJLabel4;
 	 public JLabel messageJLabel5;
 	 public JLabel messageJLabel8;
 	 public JLabel messageJLabel9;
 	 public JLabel messageJLabel10;
-	 public JButton loginbutton; /**Erzeugt klickbare Knöpfe auf dem Bildschirm */
+	/**Erzeugt klickbare Knöpfe auf dem Bildschirm */ 
+	 public JButton loginbutton; 
 	 public JButton button1;
 	 public JButton button2;
 	 public JButton button3;
@@ -45,26 +47,34 @@ public class Screen extends JFrame
 	 
 	
    /**
-    * Methode zeig eine message an ohne Zeilenumbruch
+    * Methode zeig eine Nachricht an ohne Zeilenumbruch
+    * 
+    * @param message
     */
    public void displayMessage(String message) 
    {
       System.out.print(message); 
-   } /** Methode displayMessage endet hier*/
-
+   } 
+   //end displayMessage
+   
    /**
-    *  Methode zeigt eine message an ohne Zeilenumbruch
+    *  Methode zeigt eine Nachricht an ohne Zeilenumbruch
+    *  
+    *  @param message
     */
    public void displayMessageLine(String message) 
    {
       System.out.println(message);   
-   } /** Methode displayMessageline endet hier*/
+   } //end displayMessageline
 
-   /** Metode zeigt Dollar/Euro Menge als Double an*/
+   /** Metode zeigt Dollar/Euro Menge als Double an
+    * 
+    * @param amount
+    * */
    public void displayDollarAmount(double amount)
    {
       System.out.printf("$%,.2f", amount);   
-   } /** Methode displayDollarAmount endet hier*/
+   } //end displayDollarAmount
    
    /**Methode erzeugt Userinterface für login*/
 public void createlogin() {
@@ -79,14 +89,16 @@ public void createlogin() {
 	 Inputfield2 = new JTextField( 10 );
 	 loginbutton = new JButton("Login");
 	 messageJLabel3 = new JLabel("");
-	 Mainframe.setLayout( new FlowLayout() ); /**Layout wird erstellt mit Layoutmanager*/
+	 /**Layout wird erstellt mit Layoutmanager*/
+	 Mainframe.setLayout( new FlowLayout() ); 
 	 Mainframe.add(messageJLabel4);
-	 Mainframe.add( messageJLabel ); /**Erstes eingabefeld wird erzeugt*/
+	 /**Erstes Eingabefeld wird erzeugt*/
+	 Mainframe.add( messageJLabel ); 
 	 
 	 Mainframe.add( Inputfield2 );
 	 Mainframe.add( messageJLabel2 );
 	 //Mainframe.add(loginbutton);
-	  /**Hinzufügen von Text label */
+	  //Hinzufügen von Text label 
 	 Mainframe.add(messageJLabel3);
 	 Inputfield2.setEditable(false);
 	 Mainframe.repaint();
@@ -101,11 +113,15 @@ public void createmenu(){
 	messageJLabel3 = new JLabel("2 - Withdrawal");
 	messageJLabel4 = new JLabel("3 - Deposit");
 	messageJLabel5 = new JLabel("4 - Exit");
-	Mainframe.setLayout( new FlowLayout() );  /**Layout wird erstellt mit Layoutmanager*/
+	 /**Layout wird erstellt mit Layoutmanager*/
+	Mainframe.setLayout( new FlowLayout() ); 
 	Mainframe.add(messageJLabel);
-	Mainframe.add( messageJLabel2 ); /**Erstes Eingabefeld wird erzeugt*/
-	Mainframe.add( messageJLabel3 ); /**Zweites Eingabefeld wird erzeugt*/
-	Mainframe.add( messageJLabel4 ); /**hinzufügen von einem Text label */
+	/**Erstes Eingabefeld wird erzeugt*/
+	Mainframe.add( messageJLabel2 ); 
+	/**Zweites Eingabefeld wird erzeugt*/
+	Mainframe.add( messageJLabel3 ); 
+	/**hinzufügen von einem Text label*/
+	Mainframe.add( messageJLabel4 ); 
 	Mainframe.add( messageJLabel5 );
 	Mainframe.repaint();
 }
@@ -221,7 +237,7 @@ public void createAdminpage(){
 }
 
 
-} /**Ende der Klasse Screen*/
+} //Ende der Klasse Screen
 
 
 /**************************************************************************
