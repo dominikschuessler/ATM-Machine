@@ -3,7 +3,7 @@ import java.util.ArrayList;
 // BankDatabase.java
 
 /**
- * Die Klasse {@code BankDatabase} stellt die Datenbank für Bankkontoinformationen dar.
+ * Die Klasse {@code BankDatabase} stellt die Datenbank fuer Bankkontoinformationen dar.
  * 
  * @author Kerstin Huebner
  * @author Annalena Maier
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class BankDatabase
 
 {
-	/** Die Arrayliste {@code accounts} vereinfacht, im Gegensatz zu einem Array, das Hinzufügen/Löschen in der Datenbank.*/
+	/** Die Arrayliste {@code accounts} vereinfacht, im Gegensatz zu einem Array, das Hinzufuegen/Loeschen in der Datenbank.*/
    static ArrayList<Account> accounts = new ArrayList<Account>() ;
    
    //War hier mal ein Array?
@@ -34,8 +34,8 @@ public class BankDatabase
    
    /** 
     * Die Methode {@code getAccount} ruft ein bestimmtes Konto ab, indem sie 
-    * durch die {@code accounts} geht,  um die übereinstimmende Kontonummer zu finden.
-    * @return {@code currentAccount} wenn eine Übereinstimmung gefunden wurde.
+    * durch die {@code accounts} geht,  um die uebereinstimmende Kontonummer zu finden.
+    * @return {@code currentAccount} wenn eine uebereinstimmung gefunden wurde.
     * 
     * @param accountnumber Kontonummer
     */
@@ -52,8 +52,8 @@ public class BankDatabase
    } // ende methode getAccount
    
    /**
-    * Die Methode {@code getAccountpin} geht durch die {@code accounts} um die übereinstimmende Kontonummer zu finden.
-    * @return {@code currentAccount} wenn eine Übereinstimmung gefunden wurde.
+    * Die Methode {@code getAccountpin} geht durch die {@code accounts} um die uebereinstimmende Kontonummer zu finden.
+    * @return {@code currentAccount} wenn eine uebereinstimmung gefunden wurde.
     * @param PIN PIN
     */
    private Account getAccountpin(int PIN)
@@ -71,8 +71,8 @@ public class BankDatabase
 
    /**
     * Die Methode {@code authenticateUser} stellt fest, ob ob die 
-    * vom Benutzer angegebene Kontonummer und PIN, mit Werten aus der Datenbank, übereinstimmen.
-    * @return {@code userAccount.validatePIN(userPIN)} wenn eine Übereinstimmung gefunden wird.
+    * vom Benutzer angegebene Kontonummer und PIN, mit Werten aus der Datenbank, uebereinstimmen.
+    * @return {@code userAccount.validatePIN(userPIN)} wenn eine uebereinstimmung gefunden wird.
     * @param userPIN Benutzer PIN
     */
    public boolean authenticateUser(int userPIN)
@@ -131,7 +131,7 @@ public class BankDatabase
    
    	/**
 	 * Die Methode {@code getadmin} fragt ab, ob das Konto mit der angegebenen
-	 * Kontonummer ueber Administratorrechte verfügt.
+	 * Kontonummer ueber Administratorrechte verfuegt.
 	 * 
 	 * @param userAccountNumber Kontonummer des Benutzers
 	 * @return ob der Nutzer ueber Administratorrechte verfuegt
@@ -149,7 +149,7 @@ public class BankDatabase
 	}
 
 	/**
-	 * Die Methode {@code getaccpin} gibt zu einer beliebigen PIN eine Kontonummer zurück.
+	 * Die Methode {@code getaccpin} gibt zu einer beliebigen PIN eine Kontonummer zurueck.
 	 * @param PIN PIN
 	 * @return {@code currentAccount.getAccountNumber} wenn eine Uebereinstimmung gefunden wird
 	 */
