@@ -1,5 +1,9 @@
 
-/**Die Klasse {@code Deposit Slot} stellt die Geldeinzahloeffnung dar.*/
+/**
+ * Die Klasse {@code Deposit Slot} stellt die Geldeinzahloeffnung dar.
+ * 
+ * @author Dominik Schuessler
+ */
 public class DepositSlot {
 
 	/**
