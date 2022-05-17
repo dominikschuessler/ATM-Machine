@@ -13,6 +13,8 @@ import javax.swing.JButton;
 
 /**
  * Die Klasse {@code Screen.java} stellt den Bildschirm des Bankautomaten dar
+ * 
+ * @author Mustafa Turhal
  */
 public class Screen extends JFrame {
 	public JFrame Mainframe;
