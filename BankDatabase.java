@@ -3,7 +3,7 @@ import java.util.ArrayList;
 // BankDatabase.java
 
 /**
- * Die Klasse {@codeBankDatabase} stellt die Datenbank für Bankkontoinformationen dar.
+ * Die Klasse {@code BankDatabase} stellt die Datenbank für Bankkontoinformationen dar.
  * 
  * @author Kerstin Huebner
  * @author Annalena Maier
@@ -37,7 +37,7 @@ public class BankDatabase
     * durch die {@code accounts} geht,  um die übereinstimmende Kontonummer zu finden.
     * @return {@code currentAccount} wenn eine Übereinstimmung gefunden wurde.
     * 
-    * @param accountnumber
+    * @param accountnumber Kontonummer
     */
    public Account getAccount(int accountnumber)
    {
@@ -54,7 +54,7 @@ public class BankDatabase
    /**
     * Die Methode {@code getAccountpin} geht durch die {@code accounts} um die übereinstimmende Kontonummer zu finden.
     * @return {@code currentAccount} wenn eine Übereinstimmung gefunden wurde.
-    * @param PIN
+    * @param PIN PIN
     */
    private Account getAccountpin(int PIN)
    {
@@ -73,7 +73,7 @@ public class BankDatabase
     * Die Methode {@code authenticateUser} stellt fest, ob ob die 
     * vom Benutzer angegebene Kontonummer und PIN, mit Werten aus der Datenbank, übereinstimmen.
     * @return {@code userAccount.validatePIN(userPIN)} wenn eine Übereinstimmung gefunden wird.
-    * @param userPIN
+    * @param userPIN Benutzer PIN
     */
    public boolean authenticateUser(int userPIN)
    {
@@ -89,7 +89,7 @@ public class BankDatabase
    /**
     * Die Methode {@code getAvailableBalance} fragt den Kontostand des Kontos mit der angegebenen Kontonummer ab.
     * 
-    * @param userAccountNumber
+    * @param userAccountNumber Kontonummer des Benutzers
     * @return aktuell verfuegbare Geldmittel
     */
    public double getAvailableBalance(int userAccountNumber)
@@ -99,7 +99,7 @@ public class BankDatabase
 
    /** 
     * Die Methode {@code getTotalBalance} fragt das Gesamtsaldo des Kontos Konto mit der angegebenen Kontonummer ab.
-    * @param userAccountNumber
+    * @param userAccountNumber Kontonummer des Benutzers
     * @return verfuegbare Geldmittel + ausstehende Einzahlung
     */
    public double getTotalBalance(int userAccountNumber)
@@ -111,7 +111,7 @@ public class BankDatabase
     * Die Methode {@code credit} schreibt einen Betrag auf das Konto mit der angegebenen Kontonummer gut.
     * 
     * @param userAccountNumber
-    * @param amount
+    * @param amount Geldbetrag, der gutgeschrieben werden soll
     */
    public void credit(int userAccountNumber, double amount)
    {
@@ -121,7 +121,7 @@ public class BankDatabase
    /** 
     * Die Methode {@code debit} bucht einen Betrag vom Konto mit der angegebenen Kontonummer ab.
     * 
-    * @param userAccountNumber
+    * @param userAccountNumber Kontonummer des Benutzers
     * @param amount
     */
    public void debit(int userAccountNumber, double amount)
@@ -133,20 +133,24 @@ public class BankDatabase
 	 * Die Methode {@code getadmin} fragt ab, ob das Konto mit der angegebenen
 	 * Kontonummer ueber Administratorrechte verfügt.
 	 * 
-	 * @param userAccountNumber
+	 * @param userAccountNumber Kontonummer des Benutzers
 	 * @return ob der Nutzer ueber Administratorrechte verfuegt
 	 */
 	public int getadmin(int userAccountNumber) {
 		return getAccountpin(userAccountNumber).getISadmin();
 	}
 
+	/**
+	 * 
+	 * @return {@code new AccountIterator(accounts)} Neue Arrayliste.
+	 */
 	public static Iterator createIterator() {
 		return new AccountIterator(accounts);
 	}
 
 	/**
 	 * Die Methode {@code getaccpin} gibt zu einer beliebigen PIN eine Kontonummer zurück.
-	 * @param PIN
+	 * @param PIN PIN
 	 * @return {@code currentAccount.getAccountNumber} wenn eine Uebereinstimmung gefunden wird
 	 */
 	public int getaccpin(int PIN) {
@@ -179,8 +183,8 @@ public class BankDatabase
 	}
 
 	/**
-	 * Die Methode {@codeBeleteuser} loescht ein bestimmtes Benutzerkonto.
-	 * @param position
+	 * Die Methode {@code Deleteuser} loescht ein bestimmtes Benutzerkonto aus der {@code Accounts} Arrayliste an einem bestimmten Index.
+	 * @param position Arrayindex
 	 */
 	public static void Deleteuser(int position) {
 		accounts.remove(position);
