@@ -34,10 +34,10 @@ public class BalanceInquiry extends Transaction {
 		BankDatabase bankDatabase = getBankDatabase();
 		Screen screen = getScreen();
 
-		/** Erfragt den verfügbaren Saldo des beteiligten Accounts. */
+		/** Erfragt den verfuegbaren Saldo des beteiligten Accounts. */
 		double availableBalance = bankDatabase.getAvailableBalance(getAccountNumber());
 
-		/** Erfragt den vollständigen Saldo des beteiligten Accounts */
+		/** Erfragt den vollstaendigen Saldo des beteiligten Accounts */
 		double totalBalance = bankDatabase.getTotalBalance(getAccountNumber());
 
 		//Darstelllung in GUI

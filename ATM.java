@@ -45,7 +45,7 @@ public class ATM {
 
 	Iterator Users = BankDatabase.createIterator();
 
-	/** Die Konstanten beziehen sich auf Einstellungen des Hauptmenüs */
+	/** Die Konstanten beziehen sich auf Einstellungen des Hauptmenues */
 	private static final int BALANCE_INQUIRY = 1;
 	private static final int WITHDRAWAL = 2;
 	private static final int DEPOSIT = 3;
@@ -54,7 +54,7 @@ public class ATM {
 	/** Parameterloser Konstruktor initialisiert jede Instanz. */
 	public ATM() {
 
-		/** Standardmäßig ist der Benutzer nicht zum Starten authentifiziert */
+		/** Standardmaessig ist der Benutzer nicht zum Starten authentifiziert */
 		userAuthenticated = false;
 		/** Initialwert der Kontonummer auf 0. */
 
@@ -67,12 +67,12 @@ public class ATM {
 		cashDispenser = new CashDispenser();
 		/** Bargeldeinzahler wird erzeugt */
 		depositSlot = new DepositSlot();
-		/** Datenbank über Accountinformationen wird erzeugt */
+		/** Datenbank ueber Accountinformationen wird erzeugt */
 		bankDatabase = new BankDatabase();
 	} // end no-argument ATM constructor
 
 	/**
-	 * Startet den Bankautomaten, begrüßt den Benutzer und führt Transaktionen
+	 * Startet den Bankautomaten, begruesst den Benutzer und fuehrt Transaktionen
 	 * durch.
 	 * 
 	 * Solange der Nutzer nicht authentifiziert ist, bleibt er in einer While
@@ -112,7 +112,7 @@ public class ATM {
 		screen.Mainframe.revalidate();
 		keypad.BEnter.addActionListener(check);
 		screen.Mainframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		/** Setzt die Größe des Rahmens */
+		/** Setzt die Groesse des Rahmens */
 		screen.Mainframe.setSize(400, 280);
 		screen.Mainframe.setVisible(true);
 		screen.Mainframe.revalidate();
@@ -120,9 +120,9 @@ public class ATM {
 
 	/**
 	 * Setzt {@code userAthenticated} auf den boolschen Wert, der von der Datenbank
-	 * zurückgegeben wird.
+	 * zurueckgegeben wird.
 	 * 
-	 * Zuerst wird überprüft, ob die Authentifizierung erfolgreich war.
+	 * Zuerst wird ueberprueft, ob die Authentifizierung erfolgreich war.
 	 * 
 	 * @param pin
 	 */
@@ -170,7 +170,7 @@ public class ATM {
 
 	private class Addcheck implements ActionListener {
 		/**
-		 * Action Listener zum Hinzufügen eines Bentuzers.
+		 * Action Listener zum Hinzufuegen eines Bentuzers.
 		 * 
 		 * @param e Objekt vom Typ {@code ActionEvent}
 		 */
@@ -196,7 +196,7 @@ public class ATM {
 		}
 	}
 
-	/** Erstellt die GUI des Hauptmenüs. */
+	/** Erstellt die GUI des Hauptmenues. */
 	public void createmenu() {
 		screen.setSize(300, 150);
 		balancecheck check1 = new balancecheck();
@@ -205,7 +205,7 @@ public class ATM {
 		Exitcheck check4 = new Exitcheck();
 		screen.Mainframe.getContentPane().removeAll();
 		screen.Mainframe.revalidate();
-		/** Fügt Tastatur zur GUI hinzu */
+		/** Fuegt Tastatur zur GUI hinzu */
 		screen.Mainframe.add(keypad.addkeypad(), BorderLayout.CENTER);
 		screen.createmenu();
 		Account Account1 = bankDatabase.getAccount(currentAccountNumber);
@@ -219,7 +219,7 @@ public class ATM {
 		screen.Mainframe.revalidate();
 	}
 
-	/** Stellt das Hauptmenü dar und führt Transaktionen durch. */
+	/** Stellt das Hauptmenue dar und fuehrt Transaktionen durch. */
 	private class balancecheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			userinput = "";
@@ -228,7 +228,7 @@ public class ATM {
 	}
 
 	/**
-	 * Option im Hauptmenü.
+	 * Option im Hauptmenue.
 	 */
 	private class Depositcheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
@@ -238,7 +238,7 @@ public class ATM {
 	}
 
 	/**
-	 * Option im Hauptmenü.
+	 * Option im Hauptmenue.
 	 */
 	private class Withdrawcheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
@@ -248,7 +248,7 @@ public class ATM {
 	}
 
 	/**
-	 * Option im Hauptmenü.
+	 * Option im Hauptmenue.
 	 */
 	private class Exitcheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
@@ -258,7 +258,7 @@ public class ATM {
 
 	private void performTransactions(int a) {
 
-		// Speichert die Tansaktion, die gerade durchgeführt wird.
+		// Speichert die Tansaktion, die gerade durchgefuehrt wird.
 		Transaction currentTransaction = null;
 
 		currentTransaction = createTransaction(a);
@@ -276,7 +276,7 @@ public class ATM {
 	}
 
 	public class Backcheck implements ActionListener {
-		/** Bring den Nutzer zurück zum Hauptmenü. */
+		/** Bring den Nutzer zurueck zum Hauptmenue. */
 		public void actionPerformed(ActionEvent e) {
 			createmenu();
 			screen.Mainframe.add(keypad.addkeypad(), BorderLayout.CENTER);
@@ -287,7 +287,7 @@ public class ATM {
 	}
 
 	private Transaction createTransaction(int type) {
-		/** temporäre Variable zur Speicherung der Transaktion */
+		/** temporaere Variable zur Speicherung der Transaktion */
 		Transaction temp = null;
 		screen.getContentPane().removeAll();
 		screen.revalidate();

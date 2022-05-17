@@ -1,9 +1,9 @@
 // Transaction.java
 /**
- * Die Klasse {@code Transaction} repräsentiert eine Transaktion des
+ * Die Klasse {@code Transaction} repraesentiert eine Transaktion des
  * Geldautomaten
  * 
- * @author Dominik Schüßler (Kommentarübersetzung)
+ * @author Dominik Schuessler (Kommentaruebersetzung)
  */
 public abstract class Transaction {
 
@@ -32,7 +32,7 @@ public abstract class Transaction {
 	}
 
 	/**
-	 * Gibt Accountnummer der Instanz zurück.
+	 * Gibt Accountnummer der Instanz zurueck.
 	 * 
 	 * @return accountNumber
 	 */
@@ -41,7 +41,7 @@ public abstract class Transaction {
 	}
 
 	/**
-	 * Gibt eine Referenz zum Display zurück.
+	 * Gibt eine Referenz zum Display zurueck.
 	 * 
 	 * @return screen
 	 */
@@ -50,7 +50,7 @@ public abstract class Transaction {
 	}
 
 	/**
-	 * Gibt Referenz zur Datenbank zurück.
+	 * Gibt Referenz zur Datenbank zurueck.
 	 * 
 	 * @return bankDatabase
 	 */
@@ -59,7 +59,7 @@ public abstract class Transaction {
 	}
 
 	/**
-	 * Abstrakte Methode, die die Transaktion durchführt. Implementierung duch
+	 * Abstrakte Methode, die die Transaktion durchfuehrt. Implementierung duch
 	 * jeweilige Subklasse.
 	 * 
 	 * @see BalanceInquiry

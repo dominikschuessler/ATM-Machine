@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
  * Klasse {@code Transaction}.
  * 
  * @see Transaction
- * @author Dominik Schüßler
+ * @author Dominik Schuessler
  */
 
 public class Withdrawal extends Transaction {
@@ -63,7 +63,7 @@ public class Withdrawal extends Transaction {
 	}
 
 	/**
-	 * Führt die Transaktion durch. Überprüft, ob das Konto des Nutzers ausreichend
+	 * Fuehrt die Transaktion durch. ueberprueft, ob das Konto des Nutzers ausreichend
 	 * gedeckt ist, der Automat ueber ausreichend Geld verfuegt und ueberwacht, ob
 	 * der Nutzer den Vorgang abbricht. 
 	 * <p><b>Fehlender Code!</b>
@@ -81,17 +81,17 @@ public class Withdrawal extends Transaction {
 
 		double availableBalance;
 		/**
-		 * Überprüft, ob der Nutzer einen Auszahlbetrag gewählt oder abgebrochen hat.
+		 * ueberprueft, ob der Nutzer einen Auszahlbetrag gewaehlt oder abgebrochen hat.
 		 */
 		// if?? weiter unten steht ein end if ohne, dass eins begonnen wurde
 
-		/** Speichert den verfügbaren Kontostand */
+		/** Speichert den verfuegbaren Kontostand */
 		availableBalance = bankDatabase.getAvailableBalance(getAccountNumber());
 
 		/** Ueberprueft, ob der Benutzeraccount ausreichend gedeckt ist. */
 		if (amount <= availableBalance) {
 
-			/** Ueberprueft, ob der Geldausgabeschacht über ausreichende Geld verfuegt. */
+			/** Ueberprueft, ob der Geldausgabeschacht ueber ausreichende Geld verfuegt. */
 			if (cashDispenser.isSufficientCashAvailable(amount)) {
 
 				/** Aktualisiert den beteiligten Account mit Auszahlung. */
@@ -127,13 +127,13 @@ public class Withdrawal extends Transaction {
 
 	/**
 	 * Stellt ein Menue mit unteschiedlichen Auszahlbetraegen und der Option zum
-	 * Abbruch dar. Gibt den ausgewaehlten Betrag zurück; Bricht der Benutzer den
-	 * Vorgang ab, wird 0 zurückgegeben.
+	 * Abbruch dar. Gibt den ausgewaehlten Betrag zurueck; Bricht der Benutzer den
+	 * Vorgang ab, wird 0 zurueckgegeben.
 	 * 
 	 */
 	private void displayMenuOfAmounts() {
 
-		/** Speichert den Betrag, der zurückgegeben werden soll. */
+		/** Speichert den Betrag, der zurueckgegeben werden soll. */
 		int userChoice = 0;
 
 		/** Screen Referenz */

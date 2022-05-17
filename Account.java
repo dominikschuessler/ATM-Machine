@@ -51,7 +51,7 @@ public class Account {
 	/**
 	 * Ueberprueft, ob die angegebene PIN die des Kontos ist.
 	 * 
-	 * @return {@code true} wenn die angegebe PIN mit der des Kontos übereinstimmt.
+	 * @return {@code true} wenn die angegebe PIN mit der des Kontos uebereinstimmt.
 	 */
 	public boolean validatePIN(int userPIN) {
 		if (userPIN == getPin())
@@ -84,7 +84,7 @@ public class Account {
 	 * @param amount Betrag, der dem Konto gutgeschrieben werden soll
 	 */
 	public void credit(double amount) {
-		setTotalBalance(getTotalBalance() + amount); // zum Gesamtguthaben hinzufügen
+		setTotalBalance(getTotalBalance() + amount); // zum Gesamtguthaben hinzufuegen
 	}
 
 	/**
