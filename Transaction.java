@@ -1,9 +1,9 @@
 // Transaction.java
 /**
  * Die Klasse {@code Transaction} repraesentiert eine Transaktion des
- * Geldautomaten
+ * Geldautomaten.
  * 
- * @author Dominik Schuessler (Kommentaruebersetzung)
+ * @author Dominik Schuessler
  */
 public abstract class Transaction {
 

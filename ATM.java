@@ -10,6 +10,8 @@ import javax.swing.JFrame;
 
 /**
  * Die Klasse {@code ATM} stellt einen Bankautomaten dar.
+ * 
+ * @author Dominik Schuessler
  */
 
 public class ATM {

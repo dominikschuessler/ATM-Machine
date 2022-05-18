@@ -4,15 +4,14 @@
 /**
  * Die Klasse {@code Account} stellt ein Bankkonto dar.
  * 
- * <p>
- * <b> Methoden neu sortieren! </b>
- * </p>
- * 
  * @author Kerstin Huebner
  * @author Dominik Schuessler
  * 
  */
 public class Account {
+
+	/** Benutzername */
+	private String username;
 
 	/** Kontonummer */
 	private int accountNumber;
@@ -26,17 +25,19 @@ public class Account {
 	/** verfuegbare Geldmittel + ausstehende Einzahlungen */
 	private double totalBalance;
 
+	/** Speichert, ob der Benutzer Administratorrechte hat. */
+	private int admin; // #############Warum ist das keine boolsche Variable?###############
+
 	/**
-	 * Speichert, ob der Benutzer Administratorrechte hat.
+	 * Der Kontokonstruktor initialisiert die Attribute der Klasse.
 	 * 
-	 * besser als boolsche Variable?
+	 * @param Username            Benutzername
+	 * @param theAccountNumber    Kontonummer
+	 * @param thePIN              PIN
+	 * @param theAvailableBalance verfuegbarer Geldmittel
+	 * @param theTotalBalance     verfuegbare Geldmittel mit ausstehenden Einzahlungen
+	 * @param isadmin             speichert, ob der Nutzer ueber Adminrecht verfuegt
 	 */
-	private int admin;
-
-	/** Bentzername */
-	private String username;
-
-	// Der Kontokonstruktor initialisiert die Attribute
 	public Account(String Username, int theAccountNumber, int thePIN, double theAvailableBalance,
 			double theTotalBalance, int isadmin) {
 
@@ -46,11 +47,12 @@ public class Account {
 		setAvailableBalance(theAvailableBalance);
 		setTotalBalance(theTotalBalance);
 		setAdmin(isadmin);
-	} // ende Account Konstruktor
+	}
 
 	/**
-	 * Ueberprueft, ob die angegebene PIN die des Kontos ist.
+	 * Ueberprueft, ob die angegebene PIN die PIN des Kontos ist.
 	 * 
+	 * @param userPIN soll mit der des Kontos verglichen werden
 	 * @return {@code true} wenn die angegebe PIN mit der des Kontos uebereinstimmt.
 	 */
 	public boolean validatePIN(int userPIN) {
@@ -58,24 +60,6 @@ public class Account {
 			return true;
 		else
 			return false;
-	} // ende Methode validatePIN
-
-	/**
-	 * Getter fuer {@code availableBalance}
-	 * 
-	 * @return availableBalance aktuell veruegbare Geldmittel
-	 */
-	public double getAvailableBalance() {
-		return availableBalance;
-	}
-
-	/**
-	 * Getter fuer {@code totalBalance}
-	 * 
-	 * @return totalBalance verfuegbare Geldmittel + ausstehende Einzahlungen
-	 */
-	public double getTotalBalance() {
-		return totalBalance;
 	}
 
 	/**
@@ -100,6 +84,17 @@ public class Account {
 		setTotalBalance(getTotalBalance() - amount);
 	}
 
+	// ##### GETTER #####
+
+	/**
+	 * Getter fuer {@code userName}.
+	 * 
+	 * @return userName Benutzername
+	 */
+	public String getUsername() {
+		return username;
+	}
+
 	/**
 	 * Getter fuer {@code accountNumber}.
 	 * 
@@ -107,6 +102,42 @@ public class Account {
 	 */
 	public int getAccountNumber() {
 		return accountNumber;
+	}
+
+	/**
+	 * Getter fuer {@code pin}.
+	 * 
+	 * @return pin Persoenliche Identifikationsnummer
+	 */
+	public int getPin() {
+		return pin;
+	}
+
+	/**
+	 * Getter fuer {@code availableBalance}
+	 * 
+	 * @return availableBalance aktuell veruegbare Geldmittel
+	 */
+	public double getAvailableBalance() {
+		return availableBalance;
+	}
+
+	/**
+	 * Getter fuer {@code totalBalance}
+	 * 
+	 * @return totalBalance verfuegbare Geldmittel + ausstehende Einzahlungen
+	 */
+	public double getTotalBalance() {
+		return totalBalance;
+	}
+
+	/**
+	 * Getter fuer {@code admin}.
+	 * 
+	 * @return admin ist der Benutzer Administrator
+	 */
+	public int getAdmin() {
+		return admin;
 	}
 
 	/**
@@ -127,14 +158,7 @@ public class Account {
 		return getPin();
 	}
 
-	/**
-	 * Getter fuer {@code userName}.
-	 * 
-	 * @return userName Benutzername
-	 */
-	public String getUsername() {
-		return username;
-	}
+	// ##### SETTER #####
 
 	/**
 	 * Setter fuer {@code userName}.
@@ -155,15 +179,6 @@ public class Account {
 	}
 
 	/**
-	 * Getter fuer {@code pin}.
-	 * 
-	 * @return pin Persoenliche Identifikationsnummer
-	 */
-	public int getPin() {
-		return pin;
-	}
-
-	/**
 	 * Setter fuer {@code pin}.
 	 * 
 	 * @param pin Neue persoenliche Identifikationsnummer
@@ -175,7 +190,7 @@ public class Account {
 	/**
 	 * Setter fuer {@code availableBalance}.
 	 * 
-	 * @param availableBalance
+	 * @param availableBalance verfuegbare Geldmenge
 	 */
 	public void setAvailableBalance(double availableBalance) {
 		this.availableBalance = availableBalance;
@@ -184,19 +199,10 @@ public class Account {
 	/**
 	 * Setter fuer {@code totalBalance}.
 	 * 
-	 * @param totalBalance
+	 * @param totalBalance verfuegbare Geldmenge + ausstehende Einzahlungen
 	 */
 	public void setTotalBalance(double totalBalance) {
 		this.totalBalance = totalBalance;
-	}
-
-	/**
-	 * Getter fuer {@code admin}.
-	 * 
-	 * @return admin
-	 */
-	public int getAdmin() {
-		return admin;
 	}
 
 	/**

@@ -57,6 +57,7 @@ public class AccountIterator implements Iterator {
 	 * Gibt zurueck, ob es vor einem bestimmten Indexwert in der {@code ArrayList}
 	 * noch einen weiteren Eintrag gibt.
 	 * 
+	 * @param position Indexwert, vor dem geprueft werden soll
 	 * @return {@code true}, wenn es vor dem Eintrag noch einen weiteren Eintrag
 	 *         gibt.
 	 */

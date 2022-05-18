@@ -6,13 +6,23 @@
 
 /**
  * Die Klasse {@code AccountFactory} erzeugt neue Instanzen ihrer Superklasse
- * {@code Account}
+ * {@code Account}.
  * 
  * @author Dominik Schuessler
  */
 
 public class AccountFactory extends Account {
 
+	/**
+	 * Konstruktor initialisiert alle Attribute der Superklasse.
+	 * 
+	 * @param Username
+	 * @param theAccountNumber
+	 * @param thePIN
+	 * @param theAvailableBalance
+	 * @param theTotalBalance
+	 * @param isadmin
+	 */
 	public AccountFactory(String Username, int theAccountNumber, int thePIN, double theAvailableBalance,
 			double theTotalBalance, int isadmin) {
 		super(Username, theAccountNumber, thePIN, theAvailableBalance, theTotalBalance, isadmin);

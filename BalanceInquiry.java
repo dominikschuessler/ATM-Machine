@@ -13,10 +13,14 @@ import java.awt.event.ActionListener;
 public class BalanceInquiry extends Transaction {
 
 	/**
-	 * Im Konstruktor wird der Superkonstruktor der Klasse {@code Transaction}
+	 *  Im Konstruktor wird der Superkonstruktor der Klasse {@code Transaction}
 	 * aufgerufen.
 	 * 
 	 * @see Transaction
+	 * 
+	 * @param userAccountNumber Kontonummer
+	 * @param atmScreen Bildschirm des Bankautomaten
+	 * @param atmBankDatabase Datenbank mit Bankkontoinformationen
 	 */
 	public BalanceInquiry(int userAccountNumber, Screen atmScreen, BankDatabase atmBankDatabase) {
 
