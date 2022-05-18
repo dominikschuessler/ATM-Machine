@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> abace423a9de42ad9bdb1299ee1c0451a6f04869
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -15,22 +12,17 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
-<<<<<<< HEAD
-public class Screen extends JFrame
-/**
-*
-* Die Klasse {@code Screen.java} stellt den Bildschirm des Bankautomaten dar
-* 
-* */
-{
-=======
 /**
  * Die Klasse {@code Screen.java} stellt den Bildschirm des Bankautomaten dar
  * 
  * @author Mustafa Turhal
  */
-public class Screen extends JFrame {
->>>>>>> abace423a9de42ad9bdb1299ee1c0451a6f04869
+
+public class Screen extends JFrame
+
+{
+
+
 	public JFrame Mainframe;
 	public static JTextField Inputfield1;
 	public static JTextField Inputfield2;
