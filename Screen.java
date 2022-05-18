@@ -1,8 +1,4 @@
-/**
- *
- * Die Klasse {@code Screen.java} stellt den Bildschirm des Bankautomaten dar
- *
- */
+
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -17,6 +13,11 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 
 public class Screen extends JFrame
+/**
+*
+* Die Klasse {@code Screen.java} stellt den Bildschirm des Bankautomaten dar
+* 
+* */
 {
 	public JFrame Mainframe;
 	 public static JTextField Inputfield1;
