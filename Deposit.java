@@ -2,7 +2,6 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
 // Deposit.java
 /** 
  * Die Klasse {@code Deposit} repraesentiert eine Einzahlung.
