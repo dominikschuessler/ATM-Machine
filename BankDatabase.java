@@ -76,7 +76,7 @@ public class BankDatabase
 	 * angegebene Kontonummer und PIN, mit Werten aus der Datenbank,
 	 * uebereinstimmen.
 	 * 
-	 * @return {@code userAccount.validatePIN(userPIN)} wenn eine uebereinstimmung
+	 * @return {@code true} bei Uebereinstimmung
 	 *         gefunden wird.
 	 * @param userPIN Benutzer PIN
 	 */
