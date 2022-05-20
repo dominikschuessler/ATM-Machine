@@ -47,7 +47,7 @@ public class ATM {
 
 	Iterator Users = BankDatabase.createIterator();
 
-	/** Die Konstanten beziehen sich auf Einstellungen des Hauptmenues */
+	// Die Konstanten beziehen sich auf Einstellungen des Hauptmenues
 	private static final int BALANCE_INQUIRY = 1;
 	private static final int WITHDRAWAL = 2;
 	private static final int DEPOSIT = 3;
@@ -58,19 +58,25 @@ public class ATM {
 
 		/** Standardmaessig ist der Benutzer nicht zum Starten authentifiziert */
 		userAuthenticated = false;
+		
 		/** Initialwert der Kontonummer auf 0. */
-
 		currentAccountNumber = 0;
+		
 		/** Display wird erzeugt */
 		screen = new Screen();
+		
 		/** Tastatur wird erzeugt. */
-		keypad = new Keypad(); // create keypad
+		keypad = new Keypad();
+		
 		/** Bargeldausgeber wird erzeugt */
 		cashDispenser = new CashDispenser();
+		
 		/** Bargeldeinzahler wird erzeugt */
 		depositSlot = new DepositSlot();
+		
 		/** Datenbank ueber Accountinformationen wird erzeugt */
 		bankDatabase = new BankDatabase();
+		
 	} // end no-argument ATM constructor
 
 	/**
@@ -96,7 +102,7 @@ public class ATM {
 		// end while
 	}// end method run
 
-	/** Versucht den Benutzer in der Datenbank zu authentifizieren */
+	/** Versucht, den Benutzer in der Datenbank zu authentifizieren */
 	void startlogin() {
 
 		position = 0;
@@ -160,6 +166,7 @@ public class ATM {
 			screen.messageJLabel3.setText("Invalid account number or PIN. Please try again.");
 	} // end method authenticateUser
 
+	// ÄNDERUNGSVORSCHLAG: Klasse authenticate groß schreiben!
 	private class authenticate implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 
