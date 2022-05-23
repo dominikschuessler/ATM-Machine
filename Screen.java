@@ -37,7 +37,7 @@ public class Screen extends JFrame
 	public JLabel messageJLabel8;
 	public JLabel messageJLabel9;
 	public JLabel messageJLabel10;
-	/** Erzeugt klickbare Knï¿½pfe auf dem Bildschirm */
+	/** Erzeugt klickbare Knoepfe auf dem Bildschirm */
 	public JButton loginbutton;
 	public JButton button1;
 	public JButton button2;
@@ -70,15 +70,15 @@ public class Screen extends JFrame
 	} // end displayMessageline
 
 	/**
-	 * Metode zeigt Dollar/Euro Menge als Double an
+	 * Metode zeigt Euro Menge als Double an
 	 * 
 	 * @param amount
 	 */
-	public void displayDollarAmount(double amount) {
+	public void displayDollarAmount(double amount) {	//Delta= displayEuroAmount
 		System.out.printf("$%,.2f", amount);
 	} // end displayDollarAmount
 
-	/** Methode erzeugt Userinterface fï¿½r login */
+	/** Methode erzeugt Userinterface fuer login */
 	public void createlogin() {
 
 		Mainframe = new JFrame("Bankautomat");
@@ -100,14 +100,14 @@ public class Screen extends JFrame
 		Mainframe.add(Inputfield2);
 		Mainframe.add(messageJLabel2);
 		// Mainframe.add(loginbutton);
-		// Hinzufï¿½gen von Text label
+		// Hinzufuegen von Text label
 		Mainframe.add(messageJLabel3);
 		Inputfield2.setEditable(false);
 		Mainframe.repaint();
 
 	}
 
-	/** Methode erzeugt Userinterface fï¿½r Hauptmenï¿½ */
+	/** Methode erzeugt Userinterface fuer Hauptmenue */
 	public void createmenu() {
 		Mainframe.getContentPane().removeAll();
 		messageJLabel = new JLabel("Wilkommen");
@@ -128,7 +128,7 @@ public class Screen extends JFrame
 		Mainframe.repaint();
 	}
 
-	/** Methode erzeugt Userinterface fï¿½r Kontostand */
+	/** Methode erzeugt Userinterface fuer Kontostand */
 	public void creatBalanceGUI() {
 		Mainframe.getContentPane().removeAll();
 		messageJLabel = new JLabel("Kontostand Information:        ");
@@ -168,7 +168,7 @@ public class Screen extends JFrame
 
 	}
 
-	/** Methode erzeugt Userinterface fï¿½r Einzahlungen */
+	/** Methode erzeugt Userinterface fuer Einzahlungen */
 	public void CreateDepositGUI() {
 		Mainframe.getContentPane().removeAll();
 		messageJLabel2 = new JLabel("Bitte geben Sie einen Betrag zum Einzahlen an in CENTS");//Delta: Beträge in Euro
@@ -188,7 +188,7 @@ public class Screen extends JFrame
 		repaint();
 	}
 
-	/** Methode erzeugt das Userinterface fï¿½r den Admin */
+	/** Methode erzeugt das Userinterface fuer den Admin */
 	public void createAdminpage() {
 		messageJLabel = new JLabel("Nutzer anzeigen:");
 		messageJLabel2 = new JLabel("Kontonummer:");
