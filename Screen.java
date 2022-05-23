@@ -81,9 +81,9 @@ public class Screen extends JFrame
 	/** Methode erzeugt Userinterface fï¿½r login */
 	public void createlogin() {
 
-		Mainframe = new JFrame("ATM");
-		messageJLabel4 = new JLabel("Insert your credit/debit card then                             ");
-		messageJLabel = new JLabel("  Enter your PIN number:    ");
+		Mainframe = new JFrame("Bankautomat");
+		messageJLabel4 = new JLabel("Führen Sie ihre EC-Karte/Kreditkarte ein                             ");
+		messageJLabel = new JLabel("  Geben Sie ihre PIN ein:    ");
 
 		Inputfield1 = new JTextField(10);
 
@@ -110,11 +110,11 @@ public class Screen extends JFrame
 	/** Methode erzeugt Userinterface fï¿½r Hauptmenï¿½ */
 	public void createmenu() {
 		Mainframe.getContentPane().removeAll();
-		messageJLabel = new JLabel("Welcome");
-		messageJLabel2 = new JLabel("1 - Balance");
-		messageJLabel3 = new JLabel("2 - Withdrawal");
-		messageJLabel4 = new JLabel("3 - Deposit");
-		messageJLabel5 = new JLabel("4 - Exit");
+		messageJLabel = new JLabel("Wilkommen");
+		messageJLabel2 = new JLabel("1 - Kontostand");
+		messageJLabel3 = new JLabel("2 - Auszahlen");
+		messageJLabel4 = new JLabel("3 - Einzahlen");
+		messageJLabel5 = new JLabel("4 - Beenden");
 		/** Layout wird erstellt mit Layoutmanager */
 		Mainframe.setLayout(new FlowLayout());
 		Mainframe.add(messageJLabel);
@@ -131,10 +131,10 @@ public class Screen extends JFrame
 	/** Methode erzeugt Userinterface fï¿½r Kontostand */
 	public void creatBalanceGUI() {
 		Mainframe.getContentPane().removeAll();
-		messageJLabel = new JLabel("Balance Information:        ");
-		messageJLabel2 = new JLabel("Avaliable Balance:");
-		messageJLabel3 = new JLabel("Total Balance:");
-		Exit = new JButton("Back");
+		messageJLabel = new JLabel("Kontostand Information:        ");
+		messageJLabel2 = new JLabel("Verfügbarer Kontostand:");
+		messageJLabel3 = new JLabel("Gesamter Kontostand:");
+		Exit = new JButton("Zurück");
 		Mainframe.setLayout(new FlowLayout());
 		Mainframe.add(messageJLabel);
 		Mainframe.add(messageJLabel2);
@@ -143,18 +143,18 @@ public class Screen extends JFrame
 		Mainframe.repaint();
 	}
 
-	/** Methode erzeugt Userinterface fï¿½r Auszahlungen */
+	/** Methode erzeugt Userinterface fuer Auszahlungen */
 	public void createWithdrawGUI() {
 		Mainframe.getContentPane().removeAll();
 		Mainframe.revalidate();
-		messageJLabel = new JLabel("Withdraw Menu:                       ");
-		messageJLabel2 = new JLabel("1 - $20 ");
-		messageJLabel3 = new JLabel("2 - $40 ");
-		messageJLabel4 = new JLabel("3 - $60 ");
-		messageJLabel5 = new JLabel("4 - $100 ");
-		messageJLabel6 = new JLabel("5 - $200 ");
-		messageJLabel7 = new JLabel("            Choose an amount to withdraw");
-		Exit = new JButton("Cancel");
+		messageJLabel = new JLabel("Auszahl Menü:                       ");
+		messageJLabel2 = new JLabel("1 - 20€ ");
+		messageJLabel3 = new JLabel("2 - 40€ ");
+		messageJLabel4 = new JLabel("3 - 60€ ");
+		messageJLabel5 = new JLabel("4 - 100€ ");
+		messageJLabel6 = new JLabel("5 - 200€ ");
+		messageJLabel7 = new JLabel("            Wählen Sie einen Betrag zum Auszahlen");
+		Exit = new JButton("Abbrechen");
 		Mainframe.setLayout(new FlowLayout());
 		Mainframe.add(messageJLabel);
 		Mainframe.add(messageJLabel2);
@@ -171,12 +171,12 @@ public class Screen extends JFrame
 	/** Methode erzeugt Userinterface fï¿½r Einzahlungen */
 	public void CreateDepositGUI() {
 		Mainframe.getContentPane().removeAll();
-		messageJLabel2 = new JLabel("Please enter a deposit amount in CENTS");
+		messageJLabel2 = new JLabel("Bitte geben Sie einen Betrag zum Einzahlen an in CENTS");//Delta: Beträge in Euro
 		messageJLabel3 = new JLabel("");
 		Inputfield2 = new JTextField(10);
 		Inputfield2.setEditable(false);
-		button1 = new JButton("Deposit");
-		Exit = new JButton("Cancel");
+		button1 = new JButton("Einzahlen");
+		Exit = new JButton("Abbrechen");
 		Mainframe.add(messageJLabel2);
 		Mainframe.add(messageJLabel3);
 		Mainframe.add(Inputfield2);
@@ -190,29 +190,29 @@ public class Screen extends JFrame
 
 	/** Methode erzeugt das Userinterface fï¿½r den Admin */
 	public void createAdminpage() {
-		messageJLabel = new JLabel("View Users:");
-		messageJLabel2 = new JLabel("Account number:");
-		messageJLabel3 = new JLabel("Avaliable Balance:");
-		messageJLabel4 = new JLabel("Total Balance:");
+		messageJLabel = new JLabel("Nutzer anzeigen:");
+		messageJLabel2 = new JLabel("Kontonummer:");
+		messageJLabel3 = new JLabel("Verfügbarer Kontostand:");
+		messageJLabel4 = new JLabel("Gesamter Kontostand:");
 		messageJLabel5 = new JLabel("________________________________________________");
-		button1 = new JButton("Next");
-		button4 = new JButton("Previous");
-		Exit = new JButton("Back");
+		button1 = new JButton("Nächster");
+		button4 = new JButton("Vorheriger");
+		Exit = new JButton("Zurück");
 		Inputfield1 = new JTextField(10);
 		Inputfield2 = new JTextField(10);
 		Inputfield3 = new JTextField(10);
 		Inputfield4 = new JTextField(10);
 		Mainframe.setLayout(new FlowLayout());
-		messageJLabel6 = new JLabel("Add Account: ");
-		messageJLabel7 = new JLabel("User name: ");
+		messageJLabel6 = new JLabel("Konto hinzufügen: "+"\n");
+		messageJLabel7 = new JLabel("Benutzername: ");
 		Mainframe.add(messageJLabel);
-		messageJLabel8 = new JLabel("          Account number: ");
+		messageJLabel8 = new JLabel("          Kontonummer: ");
 		Mainframe.add(messageJLabel2);
 		messageJLabel10 = new JLabel("                                       PIN: ");
 
 		messageJLabel9 = new JLabel("              Balance number: ");
-		button2 = new JButton("Add");
-		button3 = new JButton("Delete");
+		button2 = new JButton("Hinzufügen");
+		button3 = new JButton("Löschen");
 
 		Mainframe.add(messageJLabel3);
 		Mainframe.add(messageJLabel4);

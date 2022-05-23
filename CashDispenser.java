@@ -10,7 +10,7 @@ public class CashDispenser {
 	/** Die voreingestellte Menge an Scheinen in der Geldausgabe. */
 	private final static int INITIAL_COUNT = 500;
 
-	/** Die Anzahl der verbleibenden $20 Scheine. */
+	/** Die Anzahl der verbleibenden 20€ Scheine. */
 	private int count;
 
 	/**
@@ -22,7 +22,7 @@ public class CashDispenser {
 
 	/**
 	 * Simuliert die Ausgabe, eines bestimmten Betrages. Die Menge an erforderlichen
-	 * $20 Scheinen wird berechnet. Anschliessend wird die Anzahl an Scheinen in der
+	 * 20€ Scheinen wird berechnet. Anschliessend wird die Anzahl an Scheinen in der
 	 * Geldausgabe aktualisiert.
 	 * 
 	 */
