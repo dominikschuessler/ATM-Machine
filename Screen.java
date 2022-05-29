@@ -13,7 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 
 /**
- * Die Klasse {@code Screen.java} stellt den Bildschirm des Bankautomaten dar
+ * Die Klasse {@code Screen} stellt den Bildschirm des Bankautomaten dar
  * 
  * @author Mustafa Turhal
  */

@@ -11,12 +11,12 @@ public class DepositSlot {
 	 * wurde.
 	 * 
 	 * Da der Automat nur eine Software Simulation ist, gibt die Methode immer
-	 * {@code True} zurück.
+	 * {@code True} zurueck.
 	 * 
 	 * @return True
 	 */
 	public boolean isEnvelopeReceived() {
-		return true; // Geldbündel wurde erhalten
+		return true; // Geldbuendel wurde erhalten
 	}
 
 }

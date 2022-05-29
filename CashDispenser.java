@@ -1,7 +1,7 @@
 // CashDispenser.java
 
 /**
- * Die Klasse (@code CashDispenser) stellt die Geldausgabe des Automaten dar.
+ * Die Klasse {@code CashDispenser} stellt die Geldausgabe des Automaten dar.
  *
  * @author Annalena Maier
  */

@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
  *
  * @see Transaction
  * @author Annalena Maier
+ * @author Mustafa Turhal
  */
 
 public class Deposit extends Transaction
