@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
  * 
  * @see Transaction
  * @author Dominik Schuessler
+ * @author Mustafa Turhal
  */
 
 public class Withdrawal extends Transaction {
@@ -101,7 +102,7 @@ public class Withdrawal extends Transaction {
 				cashDispensed = true; // cash was dispensed
 
 				/** Aufforderung an den Benutzer, das Geld zu entnehmen. */
-				screen.messageJLabel7.setText("\nYour cash has been" + " dispensed. Please take your cash now.");
+				screen.messageJLabel7.setText("\nIhr Bargeld wurde" + " Ausgezahlt. Bitte entnehmen Sie ihr Bargeld jetzt.");
 			} // end if
 
 			/**
@@ -110,7 +111,7 @@ public class Withdrawal extends Transaction {
 			 */
 			else
 				screen.messageJLabel7
-						.setText("\nInsufficient cash available in the ATM." + "\n\nPlease choose a smaller amount.");
+						.setText("\nUnzureichender Betrag an Bargeld im Geldautomaten. " + "\n\nBitte geben Sie einen kleineren Betrag an.");
 		} // end if
 
 		/**
@@ -118,7 +119,7 @@ public class Withdrawal extends Transaction {
 		 */
 		else {
 			screen.messageJLabel7
-					.setText("\nInsufficient funds in your account." + "\n\nPlease choose a smaller amount.");
+					.setText("\nUnzureichende Geldmittel auf ihrem Konto." + "\n\nBitte geben Sie einen kleineren Betrag an.");
 		} // end else
 	} // end if
 		// end else
@@ -138,47 +139,57 @@ public class Withdrawal extends Transaction {
 
 		/** Screen Referenz */
 		Screen screen = getScreen();
-
+		/**Auszahlmenue wird Erzeugt**/
 		screen.createWithdrawGUI();
 		screen.Mainframe.add(keypad.addkeypad(), BorderLayout.CENTER);
+		/**Erzeugt neue Instanz von withdraw1**/
 		withdraw1 check1 = new withdraw1();
+		/**Erzeugt neue Instanz von withdraw2**/
 		withdraw2 check2 = new withdraw2();
+		/**Erzeugt neue Instanz von withdraw3**/
 		withdraw3 check3 = new withdraw3();
+		/**Erzeugt neue Instanz von withdraw4**/
 		withdraw4 check4 = new withdraw4();
+		/**Erzeugt neue Instanz von withdraw5**/
 		withdraw5 check5 = new withdraw5();
+		/**Prueft in {@link Keypad} ob B1 gedrueckt wurde und fuehrt somit check1 aus**/
 		Keypad.B1.addActionListener(check1);
+		/**Prueft in {@link Keypad} ob B2 gedrueckt wurde und fuehrt somit check2 aus**/
 		Keypad.B2.addActionListener(check2);
+		/**Prueft in {@link Keypad} ob B3 gedrueckt wurde und fuehrt somit check3 aus**/
 		Keypad.B3.addActionListener(check3);
+		/**Prueft in {@link Keypad} ob B4 gedrueckt wurde und fuehrt somit check4 aus**/
 		Keypad.B4.addActionListener(check4);
+		/**Prueft in {@link Keypad} ob B5 gedrueckt wurde und fuehrt somit check5 aus**/
 		Keypad.B5.addActionListener(check5);
-
+		/**Setzt {@link Screen#Mainframe} zurueck basierend auf den neuen Geldbetraegen**/
 		screen.Mainframe.revalidate();
 	}
-
+	/**Fuehrt die Transaktion für die erste Auszahlungsmöglichkeit durch **/
 	public class withdraw1 implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			transaction(20);
 		}
 	}
-
+	/**Fuehrt die Transaktion für die zweite Auszahlungsmöglichkeit durch **/
 	public class withdraw2 implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			transaction(40);
 		}
 	}
-
+	/**Fuehrt die Transaktion für die dritte Auszahlungsmöglichkeit durch **/
 	public class withdraw3 implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			transaction(60);
 		}
 	}
-
+	/**Fuehrt die Transaktion für die vierte Auszahlungsmöglichkeit durch **/
 	public class withdraw4 implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			transaction(100);
 		}
 	}
-
+	/**Fuehrt die Transaktion für die fünfte Auszahlungsmöglichkeit durch **/
 	public class withdraw5 implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			transaction(200);
