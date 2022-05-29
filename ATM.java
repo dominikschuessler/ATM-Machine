@@ -166,7 +166,7 @@ public class ATM {
 			screen.messageJLabel3.setText("Invalid account number or PIN. Please try again.");
 	} // end method authenticateUser
 
-	// ÄNDERUNGSVORSCHLAG: Klasse authenticate groß schreiben!
+	// AENDERUNGSVORSCHLAG: Klasse authenticate groß schreiben!
 	private class authenticate implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 
@@ -317,15 +317,23 @@ public class ATM {
 	}
 	// end method createTransaction
 
-	// This creates the 'admin' screen if the Isadmin field is set to 1.
+	/**
+	 * Erzeugt die Admin Oberflaeche, wenn die Variable {@code IsAdmin} den Wert 1 hat
+	 */
 	public void createAdminGUI() {
 
+		// AENDERUNG: Hier findet keine Ueberpruefung statt, ob die Variable IsAdmin einen bestimmten Wert besitzt
+		
 		screen.Mainframe.getContentPane().removeAll();
 		Nextcheck Ncheck = new Nextcheck();
 		Prevcheck Pcheck = new Prevcheck();
 		Exitcheck check4 = new Exitcheck();
+		
 		screen.Mainframe.revalidate();
+		
+		// Adminoberflaeche wird erzeugt
 		screen.createAdminpage();
+		
 		screen.button1.addActionListener(Ncheck);
 		screen.button4.addActionListener(Pcheck);
 		screen.Exit.addActionListener(check4);
