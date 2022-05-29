@@ -70,7 +70,7 @@ public class Deposit extends Transaction
 
       if (amount != CANCELED)
       {
-         screen.messageJLabel2.setText( "\nPlease insert a deposit envelope containing " + amount);
+         screen.messageJLabel2.setText( "\nBitte legen Sie ihr Bargeld in das Bargeldfach ein " + amount);
 
   
          boolean envelopeReceived = depositSlot.isEnvelopeReceived();
@@ -78,23 +78,23 @@ public class Deposit extends Transaction
          
          if (envelopeReceived)
          {  
-        	 screen.messageJLabel2.setText("\nYour envelope has been " + 
-               "received.\nNOTE: The money just deposited will not ");
-              screen.messageJLabel3.setText("be available until we verify the amount of any " +
-               "enclosed cash and your checks clear.");
+        	 screen.messageJLabel2.setText("\nIhre Zahlung ist " + 
+               "eingegangen.\nHINWEIS: Das soeben eingezahlte Geld ist nicht verfügbar,  ");
+              screen.messageJLabel3.setText("bis wir den Betrag des " +
+               "beigelegten Bargelds überprüft und Ihre Schecks eingelöst haben.");
             
             
             bankDatabase.credit(getAccountNumber(), amount); 
          } // end if
          else 
          {
-        	 screen.messageJLabel2.setText("\nYou did not insert an " +
-               "envelope, so the ATM has canceled your transaction.");
+        	 screen.messageJLabel2.setText("\nSie haben kein Bargeld" +
+               "eingelegt, ihre Transaktion wurde abgebrochen");
          } // end else
       } // end if 
       else 
       {
-    	  screen.messageJLabel2.setText("\nCanceling transaction...");
+    	  screen.messageJLabel2.setText("\nTransaktion wird abgebrochen...");
       } // end else
    } // end method execute
 

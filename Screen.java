@@ -22,32 +22,53 @@ public class Screen extends JFrame
 
 {
 
-
+	/**Erzeugt ein Fenster auf dem das GUI ist**/
 	public JFrame Mainframe;
+	/**Erzeugt statische Eingabefelder, welche man in anderen Klassen aufgreifen kann**/
 	public static JTextField Inputfield1;
+	/**Erzeugt statische Eingabefelder, welche man in anderen Klassen aufgreifen kann**/
 	public static JTextField Inputfield2;
+	/**Erzeugt statische Eingabefelder, welche man in anderen Klassen aufgreifen kann**/
 	public static JTextField Inputfield3;
+	/**Erzeugt statische Eingabefelder, welche man in anderen Klassen aufgreifen kann**/
 	public static JTextField Inputfield4;
 	/** Zeigt Textnachrichten an auf dem Bildschirm an */
 	public JLabel messageJLabel;
+	/** Zeigt Textnachrichten an auf dem Bildschirm an */
 	public JLabel messageJLabel2;
+	/** Zeigt Textnachrichten an auf dem Bildschirm an */
 	public JLabel messageJLabel3;
+	/** Zeigt Textnachrichten an auf dem Bildschirm an */
 	public JLabel messageJLabel4;
+	/** Zeigt Textnachrichten an auf dem Bildschirm an */
 	public JLabel messageJLabel5;
+	/** Zeigt Textnachrichten an auf dem Bildschirm an */
 	public JLabel messageJLabel8;
+	/** Zeigt Textnachrichten an auf dem Bildschirm an */
 	public JLabel messageJLabel9;
+	/** Zeigt Textnachrichten an auf dem Bildschirm an */
 	public JLabel messageJLabel10;
 	/** Erzeugt klickbare Knoepfe auf dem Bildschirm */
 	public JButton loginbutton;
+	/** Erzeugt klickbare Knoepfe auf dem Bildschirm */
 	public JButton button1;
+	/** Erzeugt klickbare Knoepfe auf dem Bildschirm */
 	public JButton button2;
+	/** Erzeugt klickbare Knoepfe auf dem Bildschirm */
 	public JButton button3;
+	/** Erzeugt klickbare Knoepfe auf dem Bildschirm */
 	public JButton button4;
+	/** Erzeugt klickbare Knoepfe auf dem Bildschirm */
 	public JButton button5;
+	/** Erzeugt klickbare Knoepfe auf dem Bildschirm*/
 	public JButton Exit;
+	/**integer accnum[accountnumber] wird mit 0 initialisiert**/
 	public int accnum = 0;
+	/**integer Pin number wird mit 0 initialisiert**/
 	public int PIN = 0;
+	/** Zeigt Textnachrichten an auf dem Bildschirm an */
 	public JLabel messageJLabel6;
+	/** Zeigt Textnachrichten an auf dem Bildschirm an */
 	public JLabel messageJLabel7;
 
 	/**
@@ -122,7 +143,7 @@ public class Screen extends JFrame
 		Mainframe.add(messageJLabel2);
 		/** Zweites Eingabefeld wird erzeugt */
 		Mainframe.add(messageJLabel3);
-		/** hinzuf�gen von einem Text label */
+		/** Hinzufuegen von einem Text label */
 		Mainframe.add(messageJLabel4);
 		Mainframe.add(messageJLabel5);
 		Mainframe.repaint();
