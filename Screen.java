@@ -22,15 +22,34 @@ public class Screen extends JFrame
 
 {
 
-	/**Erzeugt ein Fenster auf dem die GUI ist.**/
+	/*
+	 * AENDERUNGSVORSCHLAG:
+	 * *****************************************************************************
+	 * Zustand: Attribute sind alle public und werden auch per Punkoperator
+	 * ueber andere Klassen aufgerufen. AENDERUNG: Attribute alle auf private
+	 * setzen, zumindest solche, die PIN und BN speichern und Getter und Setter
+	 * definieren. Moeglicherweise umfassendere Codeanpassung notwendig.
+	 * *****************************************************************************
+	 */
+
+	/** Erzeugt ein Fenster auf dem die GUI ist. **/
 	public JFrame Mainframe;
-	/**Erzeugt statische Eingabefelder, welche man in anderen Klassen aufgreifen kann**/
+	/**
+	 * Erzeugt statische Eingabefelder, welche man in anderen Klassen aufgreifen
+	 * kann
+	 **/
 	public static JTextField Inputfield1;
-	/** Eingabefeld zur PIN-Eingabe.*/
+	/** Eingabefeld zur PIN-Eingabe. */
 	public static JTextField Inputfield2;
-	/**Erzeugt statische Eingabefelder, welche man in anderen Klassen aufgreifen kann**/
+	/**
+	 * Erzeugt statische Eingabefelder, welche man in anderen Klassen aufgreifen
+	 * kann
+	 **/
 	public static JTextField Inputfield3;
-	/**Erzeugt statische Eingabefelder, welche man in anderen Klassen aufgreifen kann**/
+	/**
+	 * Erzeugt statische Eingabefelder, welche man in anderen Klassen aufgreifen
+	 * kann
+	 **/
 	public static JTextField Inputfield4;
 	/** Zeigt Textnachrichten an auf dem Bildschirm an */
 	public JLabel messageJLabel;
@@ -60,11 +79,11 @@ public class Screen extends JFrame
 	public JButton button4;
 	/** Erzeugt klickbare Knoepfe auf dem Bildschirm */
 	public JButton button5;
-	/** Erzeugt klickbare Knoepfe auf dem Bildschirm*/
+	/** Erzeugt klickbare Knoepfe auf dem Bildschirm */
 	public JButton Exit;
-	/**integer accnum[accountnumber] wird mit 0 initialisiert**/
+	/** integer accnum[accountnumber] wird mit 0 initialisiert **/
 	public int accnum = 0;
-	/**integer Pin number wird mit 0 initialisiert**/
+	/** integer Pin number wird mit 0 initialisiert **/
 	public int PIN = 0;
 	/** Zeigt Textnachrichten an auf dem Bildschirm an */
 	public JLabel messageJLabel6;
@@ -95,7 +114,7 @@ public class Screen extends JFrame
 	 * 
 	 * @param amount
 	 */
-	public void displayDollarAmount(double amount) {	//Delta= displayEuroAmount
+	public void displayDollarAmount(double amount) { // Delta= displayEuroAmount
 		System.out.printf("$%,.2f", amount);
 	} // end displayDollarAmount
 
@@ -120,7 +139,7 @@ public class Screen extends JFrame
 
 		Mainframe.add(Inputfield2);
 		Mainframe.add(messageJLabel2);
-		// Mainframe.add(loginbutton);
+		Mainframe.add(loginbutton);
 		// Hinzufuegen von Text label
 		Mainframe.add(messageJLabel3);
 		Inputfield2.setEditable(false);
@@ -192,7 +211,7 @@ public class Screen extends JFrame
 	/** Methode erzeugt Userinterface fuer Einzahlungen */
 	public void CreateDepositGUI() {
 		Mainframe.getContentPane().removeAll();
-		messageJLabel2 = new JLabel("Bitte geben Sie einen Betrag zum Einzahlen an in CENTS");//Delta: Betr�ge in Euro
+		messageJLabel2 = new JLabel("Bitte geben Sie einen Betrag zum Einzahlen an in CENTS");// Delta: Betr�ge in Euro
 		messageJLabel3 = new JLabel("");
 		Inputfield2 = new JTextField(10);
 		Inputfield2.setEditable(false);
@@ -224,7 +243,7 @@ public class Screen extends JFrame
 		Inputfield3 = new JTextField(10);
 		Inputfield4 = new JTextField(10);
 		Mainframe.setLayout(new FlowLayout());
-		messageJLabel6 = new JLabel("Konto hinzuf�gen: "+"\n");
+		messageJLabel6 = new JLabel("Konto hinzuf�gen: " + "\n");
 		messageJLabel7 = new JLabel("Benutzername: ");
 		Mainframe.add(messageJLabel);
 		messageJLabel8 = new JLabel("          Kontonummer: ");

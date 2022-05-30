@@ -14,7 +14,6 @@ import javax.swing.JFrame;
  * @author Dominik Schuessler
  */
 
-
 public class ATM {
 
 	/** Speichert, ob der Nutzer authentifiziert ist */
@@ -38,14 +37,23 @@ public class ATM {
 	/** Datenbank mit Account Informationen */
 	private BankDatabase bankDatabase;
 
+	/**
+	 * Speichert den Adminstatus des Benutzers. Der Wert 0 bedeutet, dass der
+	 * Benutzer ueber keine Adminrechte verfuegt.
+	 */
 	private int AdminCheck;
 
-	/** Speichert die Nutzereingabe aus der Klasse {@code Keypad}.*/
+	/**
+	 * Speichert die Nutzereingabe aus der Klasse {@code Keypad}.
+	 */
 	private String userinput = "";
 
 	private int position = 0;
 
-	/**Speichert die ATM Instanz und verhindert durch Singelton Pattern, dass mehr als eine Instanz instanziiert wird.	 */
+	/**
+	 * Speichert die ATM Instanz und verhindert durch Singelton Pattern, dass mehr
+	 * als eine Instanz instanziiert wird.
+	 */
 	private static ATM uniqueinstance;
 
 	Iterator Users = BankDatabase.createIterator();
@@ -59,10 +67,12 @@ public class ATM {
 	/**
 	 * Parameterloser Konstruktor initialisiert jede Instanz.
 	 * 
-	 * Dazu wird festgelegt, dass der Nutzer standardmaeßig nicht authentifiziert ist
+	 * Dazu wird festgelegt, dass der Nutzer standardmaeßig nicht authentifiziert
+	 * ist
 	 */
-	
-	//AENDERUNGSVORSCHLAG: Der Konstruktor muesste als private modelliert werden, wenn zur Erzeugung einer Instanz das Singleton Pattern verwendet werden soll.
+
+	// AENDERUNGSVORSCHLAG: Der Konstruktor muesste als private modelliert werden,
+	// wenn zur Erzeugung einer Instanz das Singleton Pattern verwendet werden soll.
 	public ATM() {
 
 		// Standardmaessig ist der Benutzer nicht zum Starten authentifiziert
@@ -115,12 +125,13 @@ public class ATM {
 	void startlogin() {
 
 		position = 0;
-		
+
 		// UI fuer Login
 		screen.createlogin();
 		userinput = "";
 
 		authenticate check = new authenticate();
+
 		screen.Mainframe.revalidate();
 		screen.Inputfield2.setText("");
 		keypad.setbuttons();
@@ -130,8 +141,8 @@ public class ATM {
 
 		screen.Mainframe.revalidate();
 		keypad.BEnter.addActionListener(check);
+
 		screen.Mainframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		/** Setzt die Groesse des Rahmens */
 		screen.Mainframe.setSize(400, 280);
 		screen.Mainframe.setVisible(true);
 		screen.Mainframe.revalidate();
@@ -150,6 +161,10 @@ public class ATM {
 
 		if (userAuthenticated) {
 			int accountNumber = bankDatabase.getaccpin(pin);
+			/*
+			 * AENDERUNGSVORSCHLAG: Die Methode getAdmin ueberprueft nicht nach der PIN
+			 * sondern nach der Kontonummer! Parameter PIN ist also falsch!
+			 */
 			AdminCheck = bankDatabase.getadmin(pin);
 			if (AdminCheck == 0) {
 				currentAccountNumber = accountNumber;
@@ -177,13 +192,18 @@ public class ATM {
 			screen.messageJLabel3.setText("Invalid account number or PIN. Please try again.");
 	} // end method authenticateUser
 
-	// AENDERUNGSVORSCHLAG: Klasse authenticate groß schreiben!
+	/********************************************************************************
+	 * AENDERUNGSVORSCHLAG: Klasse authenticate groß schreiben + Inputfield 1 wieder
+	 * akivieren.
+	 * ******************************************************************************
+	 */
 	private class authenticate implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 
 			// int accnum = Integer.parseInt( screen.Inputfield1.getText() );
-			int PIN = Integer.parseInt(screen.Inputfield2.getText());
+
 			// Get the PIN from the GUI text field.
+			int PIN = Integer.parseInt(screen.Inputfield2.getText());
 			authenticateuser(PIN);
 		}
 	}
@@ -334,9 +354,6 @@ public class ATM {
 	 */
 	public void createAdminGUI() {
 
-		// AENDERUNG: Hier findet keine Ueberpruefung statt, ob die Variable IsAdmin
-		// einen bestimmten Wert besitzt
-
 		screen.Mainframe.getContentPane().removeAll();
 		Nextcheck Ncheck = new Nextcheck();
 		Prevcheck Pcheck = new Prevcheck();
@@ -355,7 +372,8 @@ public class ATM {
 	}
 
 	/**
-	 * Fuegt den Tasten auf dem Eingabefeld der Klasse {@code Keypad} Action Listener hinzu, damit diese auch eine Aktion auslösen können.
+	 * Fuegt den Tasten auf dem Eingabefeld der Klasse {@code Keypad} Action
+	 * Listener hinzu, damit diese auch eine Aktion auslösen können.
 	 */
 	public void addkeypadlisteners() {
 		BCheck BC = new BCheck();
@@ -374,21 +392,23 @@ public class ATM {
 	}
 
 	/**
-	 * Event Klasse ermittelt, welcher Button gerueckt wurde und aktualisiert das Textfeld entsprechend.
+	 * Event Klasse ermittelt, welcher Button gerueckt wurde und aktualisiert das
+	 * Textfeld entsprechend.
+	 * 
 	 * @author Dominik Schüßler
 	 */
 	public class BCheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			
+
 			// Speichert Buttonobjekt des gedrueckten Buttons.
 			JButton b = (JButton) e.getSource();
-			
+
 			// Speichert Beschriftung des gedrueckten Buttons.
 			String label = b.getText();
-			
+
 			// Gedrueckter Button wird in der Variable userinput gespeichert.
 			userinput = userinput + label;
-			
+
 			// Aktualisiert das Textfeld mit der Benutzereingabe.
 			screen.Inputfield2.setText(userinput);
 
@@ -397,6 +417,7 @@ public class ATM {
 
 	/**
 	 * Event Klasse bereinigt Textfeld, sobald der "Clear" Button gedrueckt wird.
+	 * 
 	 * @author Dominik Schüßler
 	 *
 	 */
@@ -408,7 +429,14 @@ public class ATM {
 		}
 	}
 
-	// Action listener used for the literator pattern
+	/**
+	 * Event Klasse fuer das Weiterruecken zum naechsten Benutzer. Ruft
+	 * {@code iterateUser}; diese Methode rueckt dann in der aktuellen ArrayListe
+	 * weiter, sofern dies moeglich ist.
+	 * 
+	 * @author Dominik Schüßler
+	 *
+	 */
 	public class Nextcheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 
@@ -416,7 +444,14 @@ public class ATM {
 		}
 	}
 
-	// Action listener used for the literator pattern
+	/**
+	 * Event Klasse fuer das Vorruecken zum vorherigen Benutzer. Ruft
+	 * {@code iterateUser}; diese Methode rueckt dann in der aktuellen ArrayListe
+	 * zurueck, sofern dies moeglich ist.
+	 * 
+	 * @author Dominik Schüßler
+	 *
+	 */
 	public class Prevcheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 
@@ -424,7 +459,17 @@ public class ATM {
 		}
 	}
 
-	// Action listener used for the literator pattern
+	// *********** evtl. irrefuehrender Name, besser: nextUser() + Bezeichner klein
+	// schreiben!
+	/**
+	 * {@code IterateUser()} ruft den naechsten Nutzer im aufgenommenen
+	 * {@code Iterator} Objekt auf und stellt ihn, sofern dieser Benutzer existiert,
+	 * auf der grafischen Benutzeroberflaeche dar.
+	 * 
+	 * @param Iterator Ein iterierbares Objekt, hier ein Objekt der Klasse
+	 *                 {@code AccountIterator} mit Daten aus der Klasse
+	 *                 {@code BankDatabase}.
+	 */
 	public void IterateUser(Iterator Iterator) {
 		if (Iterator.hasNext(position) == true) {
 			position = position + 1;
@@ -434,23 +479,43 @@ public class ATM {
 			screen.messageJLabel3.setText("Avaliable Balance: " + AccountItem.getAvailableBalance());
 			screen.messageJLabel4.setText("Avaliable Balance: " + AccountItem.getTotalBalance());
 		}
+		// **************************************************************
+		// Hier fehlt Error Handling, falls hasNext den Wert 'false' hat
+		// **************************************************************
 
 	}
 
-	// Action listener used for the literator pattern
+	/**
+	 * {@code prevIterateUser()} ruft den vorherigen Nutzer in aufgenommenen
+	 * {@code Iterator} Objekt auf und stellt ihn, sofern dieser Benutzer existiert,
+	 * auf der grafischen Benutzeroberflaeche dar.
+	 * 
+	 * @param Iterator Ein iterierbares Objekt, hier ein Objekt der Klasse
+	 *                 {@code AccountIterator} mit Daten aus der Klasse
+	 *                 {@code BankDatabase}.
+	 */
 	public void prevIterateUser(Iterator Iterator) {
 		if (Iterator.hasPrev(position) == true) {
 			position = position - 1;
 			Account AccountItem = (Account) Iterator.next(position);
+			// *****************************************************************************************
+			// Dieser Teil doppelt sich mit IterateUser und sollte ausgelagert werden!
 			screen.messageJLabel2.setText("Username: " + AccountItem.getUsername());
 			screen.messageJLabel3.setText("Avaliable Balance: " + AccountItem.getAvailableBalance());
 			screen.messageJLabel4.setText("Avaliable Balance: " + AccountItem.getTotalBalance());
+			// *****************************************************************************************
 
 		}
+		// **************************************
+		// Selbiges Problem mit Error Handling
+		// **************************************
 
 	}
+
 	/**
-	 * Singleton Pattern fuer ATM Instanz. Diese Methode verhindert, dass von der Klasse {@code ATM} mehrere Instanzen erzeugt werden.
+	 * Singleton Pattern fuer ATM Instanz. Diese Methode verhindert, dass von der
+	 * Klasse {@code ATM} mehrere Instanzen erzeugt werden.
+	 * 
 	 * @return uniqueinstance Die aktuelle Instanz des Automaten
 	 */
 	public static ATM getinstance() {
