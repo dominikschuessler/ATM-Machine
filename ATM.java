@@ -49,7 +49,7 @@ public class ATM {
 	private int AdminCheck;
 
 	/**
-	 * Speichert die Nutzereingabe aus der Klasse {@code Keypad}.
+	 * Speichert die Nutzereingabe
 	 */
 	private String userinput = "";
 
