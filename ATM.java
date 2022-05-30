@@ -44,6 +44,8 @@ public class ATM {
 	
 	/*************************************************
 	 * AENDERUNGSVORSCHLAG: adminCheck klein schreiben
+	 * + zu adminStatus umbenennen
+	 * + variable mit 0 initialsieren
 	 * ***********************************************
 	 */
 	private int AdminCheck;
