@@ -91,19 +91,14 @@ public class ATM {
 		// Initialwert der Kontonummer auf 0.
 		currentAccountNumber = 0;
 
-		// Display wird erzeugt
 		screen = new Screen();
 
-		// Tastatur wird erzeugt.
 		keypad = new Keypad();
 
-		// Bargeldausgeber wird erzeugt
 		cashDispenser = new CashDispenser();
 
-		// Bargeldeinzahler wird erzeugt
 		depositSlot = new DepositSlot();
 
-		// Datenbank ueber Accountinformationen wird erzeugt
 		bankDatabase = new BankDatabase();
 
 	} // end no-argument ATM constructor
@@ -171,7 +166,7 @@ public class ATM {
 
 		if (userAuthenticated) {
 			int accountNumber = bankDatabase.getaccpin(pin);
-			/******************************************************************************
+			/* *****************************************************************************
 			 * AENDERUNGSVORSCHLAG: Die Methode getAdmin ueberprueft nicht nach der PIN
 			 * sondern nach der Kontonummer! Parameter PIN ist also falsch! Deswegen wird
 			 * auch das Admininterface angezeigt, wenn bei PIN eine 0 eingegeben wird!
@@ -209,7 +204,7 @@ public class ATM {
 			screen.messageJLabel3.setText("Invalid account number or PIN. Please try again.");
 	} // end method authenticateUser
 
-	/********************************************************************************
+	/* *******************************************************************************
 	 * AENDERUNGSVORSCHLAG: Klasse authenticate groß schreiben + Inputfield 1 wieder
 	 * akivieren.
 	 * ******************************************************************************
@@ -491,8 +486,13 @@ public class ATM {
 		}
 	}
 
-	// *********** evtl. irrefuehrender Name, besser: nextUser() + Bezeichner klein
-	// schreiben!
+	/* *******************************
+	 * AENDERUNGSVORSCHLAG
+	 * evtl. irrefuehrender Name, besser: nextUser() + Bezeichner klein
+	 *********************************/
+	/* schreiben!
+	 * 
+	 */
 	/**
 	 * {@code IterateUser()} ruft den naechsten Nutzer im aufgenommenen
 	 * {@code Iterator} Objekt auf und stellt ihn, sofern dieser Benutzer existiert,
