@@ -14,6 +14,7 @@ import javax.swing.JFrame;
  * @author Dominik Schuessler
  */
 
+
 public class ATM {
 
 	/** Speichert, ob der Nutzer authentifiziert ist */
@@ -59,6 +60,8 @@ public class ATM {
 	 * 
 	 * Dazu wird festgelegt, dass der Nutzer standardmaeßig nicht authentifiziert ist
 	 */
+	
+	//AENDERUNGSVORSCHLAG: Der Konstruktor muesste als private modelliert werden, wenn zur Erzeugung einer Instanz das Singleton Pattern verwendet werden soll.
 	public ATM() {
 
 		// Standardmaessig ist der Benutzer nicht zum Starten authentifiziert
