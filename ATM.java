@@ -395,12 +395,7 @@ public class ATM {
 	}
 
 	/**
-	 * Erzeugt eine Instanz der drei Transaktionsarten. <br>
-	 * <ul>
-	 * <li>Kontostandsabfrage ({@codeBalanceInquiry}
-	 * <li>Auszahlung ({@code Withdrawal}
-	 * <li>Einzahlung ({@code Deposit}
-	 * </ul>
+	 * Erzeugt eine Instanz der drei Transaktionsarten.
 	 * 
 	 * @param type Ganzzahl im Intervall [1;3] festgelegt durch die deklarierten
 	 *             Konstanten
