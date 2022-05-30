@@ -53,30 +53,34 @@ public class ATM {
 	private static final int DEPOSIT = 3;
 	private static final int EXIT = 4;
 
-	/** Parameterloser Konstruktor initialisiert jede Instanz. */
+	/**
+	 * Parameterloser Konstruktor initialisiert jede Instanz.
+	 * 
+	 * Dazu wird festgelegt, dass der Nutzer standardmaeßig nicht authentifiziert ist
+	 */
 	public ATM() {
 
-		/** Standardmaessig ist der Benutzer nicht zum Starten authentifiziert */
+		// Standardmaessig ist der Benutzer nicht zum Starten authentifiziert
 		userAuthenticated = false;
-		
-		/** Initialwert der Kontonummer auf 0. */
+
+		// Initialwert der Kontonummer auf 0.
 		currentAccountNumber = 0;
-		
-		/** Display wird erzeugt */
+
+		// Display wird erzeugt
 		screen = new Screen();
-		
-		/** Tastatur wird erzeugt. */
+
+		// Tastatur wird erzeugt.
 		keypad = new Keypad();
-		
-		/** Bargeldausgeber wird erzeugt */
+
+		// Bargeldausgeber wird erzeugt
 		cashDispenser = new CashDispenser();
-		
-		/** Bargeldeinzahler wird erzeugt */
+
+		// Bargeldeinzahler wird erzeugt
 		depositSlot = new DepositSlot();
-		
-		/** Datenbank ueber Accountinformationen wird erzeugt */
+
+		// Datenbank ueber Accountinformationen wird erzeugt
 		bankDatabase = new BankDatabase();
-		
+
 	} // end no-argument ATM constructor
 
 	/**
@@ -318,22 +322,24 @@ public class ATM {
 	// end method createTransaction
 
 	/**
-	 * Erzeugt die Admin Oberflaeche, wenn die Variable {@code IsAdmin} den Wert 1 hat
+	 * Erzeugt die Admin Oberflaeche, wenn die Variable {@code IsAdmin} den Wert 1
+	 * hat
 	 */
 	public void createAdminGUI() {
 
-		// AENDERUNG: Hier findet keine Ueberpruefung statt, ob die Variable IsAdmin einen bestimmten Wert besitzt
-		
+		// AENDERUNG: Hier findet keine Ueberpruefung statt, ob die Variable IsAdmin
+		// einen bestimmten Wert besitzt
+
 		screen.Mainframe.getContentPane().removeAll();
 		Nextcheck Ncheck = new Nextcheck();
 		Prevcheck Pcheck = new Prevcheck();
 		Exitcheck check4 = new Exitcheck();
-		
+
 		screen.Mainframe.revalidate();
-		
+
 		// Adminoberflaeche wird erzeugt
 		screen.createAdminpage();
-		
+
 		screen.button1.addActionListener(Ncheck);
 		screen.button4.addActionListener(Pcheck);
 		screen.Exit.addActionListener(check4);
