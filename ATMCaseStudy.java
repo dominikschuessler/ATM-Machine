@@ -16,6 +16,9 @@ public class ATMCaseStudy {
 	 */
 	public static void main(String[] args) {
 
+		/**
+		 * Die einzige Instanz des Bankautomaten, dadurch, dass die Methode getinstance() verwendet wird.
+		 */
 		ATM theATM = ATM.getinstance();
 
 		theATM.run();

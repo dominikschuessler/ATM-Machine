@@ -430,7 +430,7 @@ public class ATM {
 
 	}
 	/**
-	 * Singleton Pattern fuer ATM Instanz
+	 * Singleton Pattern fuer ATM Instanz. Diese Methode verhindert, dass von der Klasse {@code ATM} mehrere Instanzen erzeugt werden.
 	 * @return uniqueinstance Die aktuelle Instanz des Automaten
 	 */
 	public static ATM getinstance() {
