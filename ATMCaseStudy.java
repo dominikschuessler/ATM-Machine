@@ -10,7 +10,7 @@
 public class ATMCaseStudy {
 
 	/**
-	 * Main Methode erstellt und führt den Bankautomaten aus.
+	 * Main Methode erstellt und fuehrt den Bankautomaten aus.
 	 * 
 	 * @param args
 	 */
