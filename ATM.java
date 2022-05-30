@@ -41,6 +41,11 @@ public class ATM {
 	 * Speichert den Adminstatus des Benutzers. Der Wert 0 bedeutet, dass der
 	 * Benutzer ueber keine Adminrechte verfuegt.
 	 */
+	
+	/*************************************************
+	 * AENDERUNGSVORSCHLAG: adminCheck klein schreiben
+	 * ***********************************************
+	 */
 	private int AdminCheck;
 
 	/**
@@ -161,9 +166,11 @@ public class ATM {
 
 		if (userAuthenticated) {
 			int accountNumber = bankDatabase.getaccpin(pin);
-			/*
+			/******************************************************************************
 			 * AENDERUNGSVORSCHLAG: Die Methode getAdmin ueberprueft nicht nach der PIN
-			 * sondern nach der Kontonummer! Parameter PIN ist also falsch!
+			 * sondern nach der Kontonummer! Parameter PIN ist also falsch! Deswegen wird
+			 * auch das Admininterface angezeigt, wenn bei PIN eine 0 eingegeben wird!
+			 * ***************************************************************************
 			 */
 			AdminCheck = bankDatabase.getadmin(pin);
 			if (AdminCheck == 0) {
@@ -178,10 +185,15 @@ public class ATM {
 			else
 
 				createAdminGUI();
+			// erstellt den Iterator, damit der Administrator durch die einzelnen Accounts durchschalten kann.
 			Iterator UserIterator = BankDatabase.createIterator();
+			
 			Addcheck check = new Addcheck();
 			Deletecheck check2 = new Deletecheck();
+			
+			// Button zum Hinzufuegen eines neuen Nutzers
 			screen.button2.addActionListener(check);
+			// Button zum Entfernen eines Nutzers
 			screen.button3.addActionListener(check2);
 
 			/** Speichert die Kontonummer des aktuellen Benutzers. */
@@ -208,13 +220,16 @@ public class ATM {
 		}
 	}
 
+	/**
+	 * Event Klasse toggelt das Hinzufuegen eines neuen Benutzers.
+	 * @author Dominik Schüßler
+	 *
+	 */
 	private class Addcheck implements ActionListener {
-		/**
-		 * Action Listener zum Hinzufuegen eines Bentuzers.
-		 * 
-		 * @param e Objekt vom Typ {@code ActionEvent}
-		 */
 
+		/**
+		 * Event Handler zum Hinzufuegen eines neuen Benutzers.
+		 */
 		public void actionPerformed(ActionEvent e) {
 
 			BankDatabase.Adduser();
@@ -222,12 +237,13 @@ public class ATM {
 		}
 	}
 
+	/**
+	 * Event Klasse toggelt das Loeschen eines Benutzers.
+	 * @author Dominik Schüßler
+	 */
 	private class Deletecheck implements ActionListener {
-
 		/**
-		 * Action Listener zum Entfernen eines Bentuzers.
-		 * 
-		 * @param e Objekt vom Typ {@code ActionEvent}
+		 * Event Handler zum Loeschen eines Benutzers.
 		 */
 		public void actionPerformed(ActionEvent e) {
 			BankDatabase.Deleteuser(position);
@@ -354,7 +370,15 @@ public class ATM {
 	 */
 	public void createAdminGUI() {
 
+		// Fenster wird geleert
 		screen.Mainframe.getContentPane().removeAll();
+
+		/*
+		 * Klassen fuer Adminbuttons werden generiert
+		 * 
+		 * Ncheck fuer naechsten Benutzer Pcheck fuer vorherigen Benutzer check4 zum
+		 * Verlassen des Admininterfaces
+		 */
 		Nextcheck Ncheck = new Nextcheck();
 		Prevcheck Pcheck = new Prevcheck();
 		Exitcheck check4 = new Exitcheck();
@@ -364,6 +388,9 @@ public class ATM {
 		// Adminoberflaeche wird erzeugt
 		screen.createAdminpage();
 
+		/*
+		 * Event Handler werden mit den Buttons ueber Action Listener verbunden.
+		 */
 		screen.button1.addActionListener(Ncheck);
 		screen.button4.addActionListener(Pcheck);
 		screen.Exit.addActionListener(check4);
