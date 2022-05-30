@@ -255,23 +255,30 @@ public class ATM {
 	/** Erstellt die GUI des Hauptmenues. */
 	public void createmenu() {
 		screen.setSize(300, 150);
+		
 		balancecheck check1 = new balancecheck();
 		Depositcheck check2 = new Depositcheck();
 		Withdrawcheck check3 = new Withdrawcheck();
 		Exitcheck check4 = new Exitcheck();
+		
+		// Bereinigt Fenster
 		screen.Mainframe.getContentPane().removeAll();
 		screen.Mainframe.revalidate();
-		/** Fuegt Tastatur zur GUI hinzu */
+		
+		/** Fuegt Tastatur in der Mitte der GUI hinzu */
 		screen.Mainframe.add(keypad.addkeypad(), BorderLayout.CENTER);
+		
 		screen.createmenu();
 		Account Account1 = bankDatabase.getAccount(currentAccountNumber);
 		screen.messageJLabel.setText("Welcome " + Account1.getUsername()
 				+ "                                                                                   ");
 
+		// Buttons fuer Kontostandsabfrage, Einzahlung und Auszahlung
 		keypad.B1.addActionListener(check1);
 		keypad.B2.addActionListener(check3);
 		keypad.B3.addActionListener(check2);
 		keypad.B4.addActionListener(check4);
+		
 		screen.Mainframe.revalidate();
 	}
 
