@@ -43,6 +43,7 @@ public class ATM {
 
 	private int position = 0;
 
+	/**Speichert die ATM Instanz und verhindert durch Singelton Pattern, dass mehr als eine Instanz instanziiert wird.	 */
 	private static ATM uniqueinstance;
 
 	Iterator Users = BankDatabase.createIterator();
@@ -425,8 +426,10 @@ public class ATM {
 		}
 
 	}
-
-//Code used for the Singleton pattern.
+	/**
+	 * Singleton Pattern fuer ATM Instanz
+	 * @return uniqueinstance Die aktuelle Instanz des Automaten
+	 */
 	public static ATM getinstance() {
 		if (uniqueinstance == null) {
 			uniqueinstance = new ATM();
