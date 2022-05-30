@@ -26,7 +26,7 @@ public class Screen extends JFrame
 	public JFrame Mainframe;
 	/**Erzeugt statische Eingabefelder, welche man in anderen Klassen aufgreifen kann**/
 	public static JTextField Inputfield1;
-	/**Erzeugt statische Eingabefelder, welche man in anderen Klassen aufgreifen kann**/
+	/** Eingabefeld zur PIN-Eingabe.*/
 	public static JTextField Inputfield2;
 	/**Erzeugt statische Eingabefelder, welche man in anderen Klassen aufgreifen kann**/
 	public static JTextField Inputfield3;

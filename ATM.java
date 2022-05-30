@@ -40,6 +40,7 @@ public class ATM {
 
 	private int AdminCheck;
 
+	/** Speichert die Nutzereingabe aus der Klasse {@code Keypad}.*/
 	private String userinput = "";
 
 	private int position = 0;
@@ -114,6 +115,8 @@ public class ATM {
 	void startlogin() {
 
 		position = 0;
+		
+		// UI fuer Login
 		screen.createlogin();
 		userinput = "";
 
@@ -351,7 +354,9 @@ public class ATM {
 
 	}
 
-	// This code adds action listeners to the keypad.
+	/**
+	 * Fuegt den Tasten auf dem Eingabefeld der Klasse {@code Keypad} Action Listener hinzu, damit diese auch eine Aktion auslösen können.
+	 */
 	public void addkeypadlisteners() {
 		BCheck BC = new BCheck();
 		BClear BC1 = new BClear();
@@ -368,21 +373,36 @@ public class ATM {
 		keypad.BClear.addActionListener(BC1);
 	}
 
-	// This code checks what button was pressed on the keypad.
+	/**
+	 * Event Klasse ermittelt, welcher Button gerueckt wurde und aktualisiert das Textfeld entsprechend.
+	 * @author Dominik Schüßler
+	 */
 	public class BCheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
+			
+			// Speichert Buttonobjekt des gedrueckten Buttons.
 			JButton b = (JButton) e.getSource();
-			String label = b.getLabel();
+			
+			// Speichert Beschriftung des gedrueckten Buttons.
+			String label = b.getText();
+			
+			// Gedrueckter Button wird in der Variable userinput gespeichert.
 			userinput = userinput + label;
-			// update the text field using the user's input.
+			
+			// Aktualisiert das Textfeld mit der Benutzereingabe.
 			screen.Inputfield2.setText(userinput);
 
 		}
 	}
 
+	/**
+	 * Event Klasse bereinigt Textfeld, sobald der "Clear" Button gedrueckt wird.
+	 * @author Dominik Schüßler
+	 *
+	 */
 	public class BClear implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			// Clear the input field.
+			// Bereinigt Eingabefeld
 			userinput = "";
 			screen.Inputfield2.setText(userinput);
 		}
