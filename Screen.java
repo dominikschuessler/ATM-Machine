@@ -22,7 +22,7 @@ public class Screen extends JFrame
 
 {
 
-	/**Erzeugt ein Fenster auf dem das GUI ist**/
+	/**Erzeugt ein Fenster auf dem die GUI ist.**/
 	public JFrame Mainframe;
 	/**Erzeugt statische Eingabefelder, welche man in anderen Klassen aufgreifen kann**/
 	public static JTextField Inputfield1;
@@ -103,7 +103,7 @@ public class Screen extends JFrame
 	public void createlogin() {
 
 		Mainframe = new JFrame("Bankautomat");
-		messageJLabel4 = new JLabel("Führen Sie ihre EC-Karte/Kreditkarte ein                             ");
+		messageJLabel4 = new JLabel("Fï¿½hren Sie ihre EC-Karte/Kreditkarte ein                             ");
 		messageJLabel = new JLabel("  Geben Sie ihre PIN ein:    ");
 
 		Inputfield1 = new JTextField(10);
@@ -153,9 +153,9 @@ public class Screen extends JFrame
 	public void creatBalanceGUI() {
 		Mainframe.getContentPane().removeAll();
 		messageJLabel = new JLabel("Kontostand Information:        ");
-		messageJLabel2 = new JLabel("Verfügbarer Kontostand:");
+		messageJLabel2 = new JLabel("Verfï¿½gbarer Kontostand:");
 		messageJLabel3 = new JLabel("Gesamter Kontostand:");
-		Exit = new JButton("Zurück");
+		Exit = new JButton("Zurï¿½ck");
 		Mainframe.setLayout(new FlowLayout());
 		Mainframe.add(messageJLabel);
 		Mainframe.add(messageJLabel2);
@@ -168,13 +168,13 @@ public class Screen extends JFrame
 	public void createWithdrawGUI() {
 		Mainframe.getContentPane().removeAll();
 		Mainframe.revalidate();
-		messageJLabel = new JLabel("Auszahl Menü:                       ");
-		messageJLabel2 = new JLabel("1 - 20€ ");
-		messageJLabel3 = new JLabel("2 - 40€ ");
-		messageJLabel4 = new JLabel("3 - 60€ ");
-		messageJLabel5 = new JLabel("4 - 100€ ");
-		messageJLabel6 = new JLabel("5 - 200€ ");
-		messageJLabel7 = new JLabel("            Wählen Sie einen Betrag zum Auszahlen");
+		messageJLabel = new JLabel("Auszahl Menï¿½:                       ");
+		messageJLabel2 = new JLabel("1 - 20ï¿½ ");
+		messageJLabel3 = new JLabel("2 - 40ï¿½ ");
+		messageJLabel4 = new JLabel("3 - 60ï¿½ ");
+		messageJLabel5 = new JLabel("4 - 100ï¿½ ");
+		messageJLabel6 = new JLabel("5 - 200ï¿½ ");
+		messageJLabel7 = new JLabel("            Wï¿½hlen Sie einen Betrag zum Auszahlen");
 		Exit = new JButton("Abbrechen");
 		Mainframe.setLayout(new FlowLayout());
 		Mainframe.add(messageJLabel);
@@ -192,7 +192,7 @@ public class Screen extends JFrame
 	/** Methode erzeugt Userinterface fuer Einzahlungen */
 	public void CreateDepositGUI() {
 		Mainframe.getContentPane().removeAll();
-		messageJLabel2 = new JLabel("Bitte geben Sie einen Betrag zum Einzahlen an in CENTS");//Delta: Beträge in Euro
+		messageJLabel2 = new JLabel("Bitte geben Sie einen Betrag zum Einzahlen an in CENTS");//Delta: Betrï¿½ge in Euro
 		messageJLabel3 = new JLabel("");
 		Inputfield2 = new JTextField(10);
 		Inputfield2.setEditable(false);
@@ -213,18 +213,18 @@ public class Screen extends JFrame
 	public void createAdminpage() {
 		messageJLabel = new JLabel("Nutzer anzeigen:");
 		messageJLabel2 = new JLabel("Kontonummer:");
-		messageJLabel3 = new JLabel("Verfügbarer Kontostand:");
+		messageJLabel3 = new JLabel("Verfï¿½gbarer Kontostand:");
 		messageJLabel4 = new JLabel("Gesamter Kontostand:");
 		messageJLabel5 = new JLabel("________________________________________________");
-		button1 = new JButton("Nächster");
+		button1 = new JButton("Nï¿½chster");
 		button4 = new JButton("Vorheriger");
-		Exit = new JButton("Zurück");
+		Exit = new JButton("Zurï¿½ck");
 		Inputfield1 = new JTextField(10);
 		Inputfield2 = new JTextField(10);
 		Inputfield3 = new JTextField(10);
 		Inputfield4 = new JTextField(10);
 		Mainframe.setLayout(new FlowLayout());
-		messageJLabel6 = new JLabel("Konto hinzufügen: "+"\n");
+		messageJLabel6 = new JLabel("Konto hinzufï¿½gen: "+"\n");
 		messageJLabel7 = new JLabel("Benutzername: ");
 		Mainframe.add(messageJLabel);
 		messageJLabel8 = new JLabel("          Kontonummer: ");
@@ -232,8 +232,8 @@ public class Screen extends JFrame
 		messageJLabel10 = new JLabel("                                       PIN: ");
 
 		messageJLabel9 = new JLabel("              Balance number: ");
-		button2 = new JButton("Hinzufügen");
-		button3 = new JButton("Löschen");
+		button2 = new JButton("Hinzufï¿½gen");
+		button3 = new JButton("Lï¿½schen");
 
 		Mainframe.add(messageJLabel3);
 		Mainframe.add(messageJLabel4);
