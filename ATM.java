@@ -78,8 +78,11 @@ public class ATM {
 	 * ist
 	 */
 
-	// AENDERUNGSVORSCHLAG: Der Konstruktor muesste als private modelliert werden,
-	// wenn zur Erzeugung einer Instanz das Singleton Pattern verwendet werden soll.
+	/* ****************************************************************************
+	 * AENDERUNGSVORSCHLAG: Der Konstruktor muesste als private modelliert werden,
+	 * wenn zur Erzeugung einer Instanz das Singleton Pattern verwendet werden soll.
+	 ******************************************************************************
+	 */
 	public ATM() {
 
 		// Standardmaessig ist der Benutzer nicht zum Starten authentifiziert
