@@ -38,20 +38,10 @@ public class ATM {
 	private BankDatabase bankDatabase;
 
 	/**
-	 * Speichert den Adminstatus des Benutzers. Der Wert 0 bedeutet, dass der
-	 * Benutzer ueber keine Adminrechte verfuegt.
-	 */
-
-	/*
-	 * ************************************************ AENDERUNGSVORSCHLAG:
-	 * adminCheck klein schreiben + zu adminStatus umbenennen + variable mit 0
-	 * initialsieren ***********************************************
-	 */
-
-	/**
 	 * Speichert, ob ein Nutzer Adminrechte besitzt. Der Wert 0 bedeutet keine
 	 * Adminrechte.
 	 */
+	// issue #3
 	private int AdminCheck;
 
 	/** Speichert die Nutzereingabe */
@@ -87,12 +77,7 @@ public class ATM {
 	 * ist
 	 */
 
-	/*
-	 * ****************************************************************************
-	 * AENDERUNGSVORSCHLAG: Der Konstruktor muesste als private modelliert werden,
-	 * wenn zur Erzeugung einer Instanz das Singleton Pattern verwendet werden soll.
-	 ******************************************************************************
-	 */
+	//issue #4
 	public ATM() {
 
 		// Standardmaessig ist der Benutzer nicht zum Starten authentifiziert
@@ -176,13 +161,8 @@ public class ATM {
 
 		if (userAuthenticated) {
 			int accountNumber = bankDatabase.getaccpin(pin);
-			/*
-			 * *****************************************************************************
-			 * AENDERUNGSVORSCHLAG: Die Methode getAdmin ueberprueft nicht nach der PIN
-			 * sondern nach der Kontonummer! Parameter PIN ist also falsch! Deswegen wird
-			 * auch das Admininterface angezeigt, wenn bei PIN eine 0 eingegeben wird!
-			 * ***************************************************************************
-			 */
+
+			// issue #5
 			AdminCheck = bankDatabase.getadmin(pin);
 			if (AdminCheck == 0) {
 				currentAccountNumber = accountNumber;
@@ -216,20 +196,16 @@ public class ATM {
 			screen.messageJLabel3.setText("Invalid account number or PIN. Please try again.");
 	} // end method authenticateUser
 
-	/*
-	 * 
-	 * *****************************************************************************
-	 * ** AENDERUNGSVORSCHLAG: Klasse authenticate groß schreiben + Inputfield 1
-	 * wieder akivieren.
-	 * *****************************************************************************
-	 * 
-	 */
+
 
 	/**
 	 * Event Klasse toggelt Nutzerauthentifikation anhand von Kontonummer und PIN.
 	 * 
 	 * @author Dominik Schuessler
 	 */
+	
+	// issue #6
+	// issue #12
 	private class authenticate implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 
@@ -311,6 +287,7 @@ public class ATM {
 	 * 
 	 * @author Dominik Schuessler
 	 */
+	//issue #7
 	private class balancecheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			userinput = "";
@@ -323,6 +300,7 @@ public class ATM {
 	 * 
 	 * @author Dominik Schuessler
 	 */
+	// issue #7
 	private class Depositcheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			userinput = "";
@@ -335,22 +313,20 @@ public class ATM {
 	 * 
 	 * @author Dominik Schuessler
 	 */
+	// issue #7
 	private class Withdrawcheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			userinput = "";
-			// AENDERUNGSVORSCHLAG: Konstanten statt Zahlen nutzen
 			performTransactions(2);
 		}
 	}
 
 	/**
 	 * Event Klasse ruft Loginfenster auf.
-	 * 
-	 * AENDERUNGSVORSCHLAG: Der Nutzer wird nicht abgemeldet bzw. das Fenster
-	 * geschlossen!
-	 * 
+	 *  
 	 * @author Dominik Schuessler
 	 */
+	// issue #8
 	private class Exitcheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			startlogin();
@@ -412,11 +388,7 @@ public class ATM {
 		screen.getContentPane().removeAll();
 		screen.revalidate();
 
-		// stellt fest, um welche Transaktionsart es sich handelt.
-
-		/*
-		 * AENDERUNGSVORSCHLAG: statt if eine switch case statement
-		 */
+		// issue #9
 		if (type == 1)
 
 			// erzeugt Kontostandsabfrage fuer aktuelle Kontonummer
@@ -562,14 +534,7 @@ public class ATM {
 		}
 	}
 
-	/*
-	 * ******************************* AENDERUNGSVORSCHLAG evtl. irrefuehrender
-	 * Name, besser: nextUser() + Bezeichner klein
-	 *********************************/
-	/*
-	 * schreiben!
-	 * 
-	 */
+
 	/**
 	 * {@code IterateUser()} ruft den naechsten Nutzer im aufgenommenen
 	 * {@code Iterator} Objekt auf und stellt ihn, sofern dieser Benutzer existiert,
@@ -579,6 +544,8 @@ public class ATM {
 	 *                 {@code AccountIterator} mit Daten aus der Klasse
 	 *                 {@code BankDatabase}.
 	 */
+	// issue #10
+	// issue #11
 	public void IterateUser(Iterator Iterator) {
 		if (Iterator.hasNext(position) == true) {
 			position = position + 1;
@@ -588,9 +555,6 @@ public class ATM {
 			screen.messageJLabel3.setText("Avaliable Balance: " + AccountItem.getAvailableBalance());
 			screen.messageJLabel4.setText("Avaliable Balance: " + AccountItem.getTotalBalance());
 		}
-		// **************************************************************
-		// Hier fehlt Error Handling, falls hasNext den Wert 'false' hat
-		// **************************************************************
 
 	}
 
@@ -603,6 +567,7 @@ public class ATM {
 	 *                 {@code AccountIterator} mit Daten aus der Klasse
 	 *                 {@code BankDatabase}.
 	 */
+	// issue #11
 	public void prevIterateUser(Iterator Iterator) {
 		if (Iterator.hasPrev(position) == true) {
 			position = position - 1;
@@ -615,9 +580,6 @@ public class ATM {
 			// *****************************************************************************************
 
 		}
-		// **************************************
-		// Selbiges Problem mit Error Handling
-		// **************************************
 
 	}
 
