@@ -137,7 +137,7 @@ public class BankDatabase
 	 * Kontonummer ueber Administratorrechte verfuegt.
 	 * 
 	 * @param userAccountNumber Kontonummer des Benutzers
-	 * @return ob der Nutzer ueber Administratorrechte verfuegt
+	 * @return Adminstatus als Level
 	 */
 	public int getadmin(int userAccountNumber) {
 		return getAccountpin(userAccountNumber).getISadmin();
