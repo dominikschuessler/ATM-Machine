@@ -338,6 +338,7 @@ public class ATM {
 	private class Withdrawcheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			userinput = "";
+			// AENDERUNGSVORSCHLAG: Konstanten statt Zahlen nutzen
 			performTransactions(2);
 		}
 	}
@@ -357,8 +358,8 @@ public class ATM {
 	}
 
 	/**
-	 * 
-	 * @param a
+	 * Erzeugt das spezifische Transaktionsfenster, je nach dem, welche Transaktion ueber den Methodenparameter ausgewaehlt wird.
+	 * @param a Transaktionsart festgelegt durch Konstanten [1;4]
 	 */
 	private void performTransactions(int a) {
 
