@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
  *
  * @see Transaction
  * @author Annalena Maier
- * @author Mustafa Turhal
  */
 
 public class Deposit extends Transaction
@@ -80,9 +79,9 @@ public class Deposit extends Transaction
          if (envelopeReceived)
          {  
         	 screen.messageJLabel2.setText("\nIhre Zahlung ist " + 
-               "eingegangen.\nHINWEIS: Das soeben eingezahlte Geld ist nicht verfügbar,  ");
+               "eingegangen.\nHINWEIS: Das soeben eingezahlte Geld ist nicht verfuegbar,  ");
               screen.messageJLabel3.setText("bis wir den Betrag des " +
-               "beigelegten Bargelds überprüft und Ihre Schecks eingelöst haben.");
+               "beigelegten Bargelds ueberprueft und Ihre Schecks eingeloest haben.");
             
             
             bankDatabase.credit(getAccountNumber(), amount); 
