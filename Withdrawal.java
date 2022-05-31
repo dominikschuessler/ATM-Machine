@@ -101,7 +101,7 @@ public class Withdrawal extends Transaction {
 				cashDispensed = true; // cash was dispensed
 
 				/** Aufforderung an den Benutzer, das Geld zu entnehmen. */
-				screen.messageJLabel7.setText("\nIhr Bargeld wurde" + " Ausgezahlt. Bitte entnehmen Sie ihr Bargeld jetzt.");
+				screen.messageJLabel7.setText("\nIhr Bargeld wurde" + " ausgezahlt. Bitte entnehmen Sie ihr Bargeld jetzt.");
 			} // end if
 
 			/**
