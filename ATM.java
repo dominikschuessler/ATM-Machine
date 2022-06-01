@@ -108,9 +108,9 @@ public class ATM {
 		// While Schleife?
 		/** Authentifiziert den Benutzer */
 		startlogin();
-		
+
 		// end while
-		
+
 		// else
 		// performTransactions(1); // user is now authenticated
 		// userAuthenticated = false; // reset before next ATM session
@@ -194,14 +194,12 @@ public class ATM {
 			screen.messageJLabel3.setText("Invalid account number or PIN. Please try again.");
 	} // end method authenticateUser
 
-
-
 	/**
 	 * Event Klasse toggelt Nutzerauthentifikation anhand von Kontonummer und PIN.
 	 * 
 	 * @author Dominik Schuessler
 	 */
-	
+
 	// issue #6
 	// issue #12
 	private class authenticate implements ActionListener {
@@ -285,7 +283,7 @@ public class ATM {
 	 * 
 	 * @author Dominik Schuessler
 	 */
-	//issue #7
+	// issue #7
 	private class balancecheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			userinput = "";
@@ -321,7 +319,7 @@ public class ATM {
 
 	/**
 	 * Event Klasse ruft Loginfenster auf.
-	 *  
+	 * 
 	 * @author Dominik Schuessler
 	 */
 	// issue #8
@@ -332,7 +330,9 @@ public class ATM {
 	}
 
 	/**
-	 * Erzeugt das spezifische Transaktionsfenster, je nach dem, welche Transaktion ueber den Methodenparameter ausgewaehlt wird.
+	 * Erzeugt das spezifische Transaktionsfenster, je nach dem, welche Transaktion
+	 * ueber den Methodenparameter ausgewaehlt wird.
+	 * 
 	 * @param a Transaktionsart festgelegt durch Konstanten [1;4]
 	 */
 	private void performTransactions(int a) {
@@ -379,36 +379,29 @@ public class ATM {
 	 */
 	private Transaction createTransaction(int type) {
 
-		// temporaere Variable zur Speicherung der Transaktion
 		Transaction temp = null;
 
-		// bereinige Fenster
 		screen.getContentPane().removeAll();
 		screen.revalidate();
 
-		// issue #9
-		if (type == 1)
-
+		switch (type) {
+		case 1:
 			// erzeugt Kontostandsabfrage fuer aktuelle Kontonummer
 			temp = new BalanceInquiry(currentAccountNumber, screen, bankDatabase);
-
-		else if (type == 2)// create new Withdrawal transaction
-
+			break;
+		case 2:
 			// erzeugt neue Auszahlung
 			temp = new Withdrawal(currentAccountNumber, screen, bankDatabase, keypad, cashDispenser);
+			break;
 
-		else if (type == 3) { // create new Deposit transaction
-
-			// erzeugt neue Einzahlung
+		case 3:
 			screen.setSize(400, 250);
 			temp = new Deposit(currentAccountNumber, screen, bankDatabase, keypad, depositSlot);
-
-		}
-		// end switch
+			break;
+		}// end switch
 
 		return temp;
-	}
-	// end method createTransaction
+	}// end method createTransaction
 
 	/**
 	 * Erzeugt die Admin Oberflaeche, wenn die Variable {@code IsAdmin} den Wert 1
@@ -531,7 +524,6 @@ public class ATM {
 			prevIterateUser(BankDatabase.createIterator());
 		}
 	}
-
 
 	/**
 	 * {@code IterateUser()} ruft den naechsten Nutzer im aufgenommenen
