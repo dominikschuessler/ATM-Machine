@@ -13,48 +13,59 @@ import java.util.ArrayList;
 public class BankDatabase
 
 {
-	/**
-	 * Die Arrayliste {@code accounts} vereinfacht, im Gegensatz zu einem Array, das
-	 * Hinzufuegen/Loeschen in der Datenbank.
-	 */
-	static ArrayList<Account> accounts = new ArrayList<Account>();
+	Account accounts1;
+	Account accounts2;
+	Account accounts3;
+	Account accounts4;
 
-	// War hier mal ein Array?
+	/**
+	 * Die Arrayliste {@code accountList} vereinfacht, im Gegensatz zu einem Array,
+	 * das Hinzufuegen/Loeschen in der Datenbank.
+	 */
+	private static ArrayList<Account> accountList = new ArrayList<Account>();
 
 	/**
 	 * Der parameterlose Konstruktor initialisiert Bankkonten.
 	 */
 	public BankDatabase() {
-		Account accounts1 = new Account("Customer1", 12345, 11111, 1000.0, 1200.0, 0);
-		Account accounts2 = new Account("Customer2", 98765, 22222, 200.0, 200.0, 0);
-		Account accounts3 = new Account("Customer3", 19234, 33333, 200.0, 200.0, 0);
-		Account accounts4 = new Account("Manager1", 99999, 00000, 0, 0, 1);
-		accounts.add(accounts1);
-		accounts.add(accounts2);
-		accounts.add(accounts3);
-		accounts.add(accounts4);
+		accounts1 = new Account("Customer1", 12345, 11111, 1000.0, 1200.0, 0);
+		accounts2 = new Account("Customer2", 98765, 22222, 200.0, 200.0, 0);
+		accounts3 = new Account("Customer3", 19234, 33333, 200.0, 200.0, 0);
+		accounts4 = new Account("Manager1", 99999, 00000, 0, 0, 1);
+
+		accountList.add(accounts1);
+		accountList.add(accounts2);
+		accountList.add(accounts3);
+		accountList.add(accounts4);
 	} // ende no-argument BankDatabase constructor
 
+	@Deprecated
+	public Account getAccount(int accountnumber) {
+		return getAccountIfExists(accountnumber);
+	}
+	// ende methode getAccount
+
 	/**
-	 * Die Methode {@code getAccount} ruft ein bestimmtes Konto ab, indem sie durch
-	 * die {@code accounts} geht, um die uebereinstimmende Kontonummer zu finden.
+	 * Gibt das Kontoobjekt zurueck, wenn das Konto mit gegebener Kontonummer
+	 * existiert.
 	 * 
 	 * @return {@code currentAccount} wenn eine uebereinstimmung gefunden wurde.
 	 * 
 	 * @param accountnumber Kontonummer
 	 */
-	public Account getAccount(int accountnumber) {
+	public Account getAccountIfExists(int accountNumberToLookFor) {
+		for (Account currentAccount : accountList) {
 
-		for (Account currentAccount : accounts) {
-			if (currentAccount.getAccountNumber() == accountnumber)
+			if (currentAccount.getAccountNumber() == accountNumberToLookFor) {
 				return currentAccount;
-		} // end for
-
+			}
+		}
 		return null;
-	} // ende methode getAccount
+
+	}// end getAccountIfExists
 
 	/**
-	 * Die Methode {@code getAccountpin} geht durch die {@code accounts} um die
+	 * Die Methode {@code getAccountpin} geht durch die {@code accountList} um die
 	 * uebereinstimmende Kontonummer zu finden.
 	 * 
 	 * @return {@code currentAccount} wenn eine uebereinstimmung gefunden wurde.
@@ -62,7 +73,7 @@ public class BankDatabase
 	 */
 	private Account getAccountpin(int PIN) {
 
-		for (Account currentAccount : accounts) {
+		for (Account currentAccount : accountList) {
 
 			if (currentAccount.GetPin() == PIN)
 				return currentAccount;
@@ -96,7 +107,7 @@ public class BankDatabase
 	 * @return aktuell verfuegbare Geldmittel
 	 */
 	public double getAvailableBalance(int userAccountNumber) {
-		return getAccount(userAccountNumber).getAvailableBalance();
+		return getAccountIfExists(userAccountNumber).getAvailableBalance();
 	} // ende methode getAvailableBalance
 
 	/**
@@ -107,7 +118,7 @@ public class BankDatabase
 	 * @return verfuegbare Geldmittel + ausstehende Einzahlung
 	 */
 	public double getTotalBalance(int userAccountNumber) {
-		return getAccount(userAccountNumber).getTotalBalance();
+		return getAccountIfExists(userAccountNumber).getTotalBalance();
 	} // ende methode getTotalBalance
 
 	/**
@@ -149,10 +160,11 @@ public class BankDatabase
 	 * 
 	 * @see AccountIterator
 	 * @see ArrayList
-	 * @return {@code AccountIterator} Objekt mit alle zum Programmstart registrierten Accounts.
+	 * @return {@code AccountIterator} Objekt mit alle zum Programmstart
+	 *         registrierten Accounts.
 	 */
 	public static Iterator createIterator() {
-		return new AccountIterator(accounts);
+		return new AccountIterator(accountList);
 	}
 
 	/**
@@ -164,7 +176,7 @@ public class BankDatabase
 	 *         gefunden wird
 	 */
 	public int getaccpin(int PIN) {
-		for (Account currentAccount : accounts) {
+		for (Account currentAccount : accountList) {
 
 			if (currentAccount.GetPin() == PIN)
 				return currentAccount.getAccountNumber();
@@ -184,7 +196,7 @@ public class BankDatabase
 		int balance = Integer.parseInt(Screen.Inputfield3.getText());
 
 		Account newaccount = new Account(name, accountnumber, pin, balance, balance, 0);
-		accounts.add(newaccount);
+		accountList.add(newaccount);
 
 		Screen.Inputfield1.setText("");
 		Screen.Inputfield2.setText("");
@@ -199,7 +211,7 @@ public class BankDatabase
 	 * @param position Arrayindex
 	 */
 	public static void Deleteuser(int position) {
-		accounts.remove(position);
+		accountList.remove(position);
 
 	}
 
