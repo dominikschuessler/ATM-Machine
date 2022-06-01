@@ -282,11 +282,10 @@ public class ATM {
 	 * 
 	 * @author Dominik Schuessler
 	 */
-	// issue #7
 	private class balancecheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			userinput = "";
-			performTransactions(1);
+			performTransactions(BALANCE_INQUIRY);
 		}
 	}
 
@@ -295,11 +294,10 @@ public class ATM {
 	 * 
 	 * @author Dominik Schuessler
 	 */
-	// issue #7
 	private class Depositcheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			userinput = "";
-			performTransactions(3);
+			performTransactions(DEPOSIT);
 		}
 	}
 
@@ -308,11 +306,10 @@ public class ATM {
 	 * 
 	 * @author Dominik Schuessler
 	 */
-	// issue #7
 	private class Withdrawcheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			userinput = "";
-			performTransactions(2);
+			performTransactions(WITHDRAWAL);
 		}
 	}
 
