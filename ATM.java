@@ -46,7 +46,7 @@ public class ATM {
 	/** Speichert die Nutzereingabe */
 	private String userinput = "";
 
-	private int position = 0;
+	private int userListPosition = 0;
 
 	/**
 	 * Speichert die ATM Instanz und verhindert durch Singelton Pattern, dass mehr
@@ -75,13 +75,10 @@ public class ATM {
 	 * Dazu wird festgelegt, dass der Nutzer standardmaeßig nicht authentifiziert
 	 * ist
 	 */
-
 	private ATM() {
 
-		// Standardmaessig ist der Benutzer nicht zum Starten authentifiziert
 		userAuthenticated = false;
 
-		// Initialwert der Kontonummer auf 0.
 		currentAccountNumber = 0;
 
 		screen = new Screen();
@@ -122,7 +119,7 @@ public class ATM {
 	/** Versucht, den Benutzer in der Datenbank zu authentifizieren */
 	void startlogin() {
 
-		position = 0;
+		userListPosition = 0;
 
 		// UI fuer Login
 		screen.createlogin();
@@ -241,8 +238,8 @@ public class ATM {
 		 * Event Handler zum Loeschen eines Benutzers.
 		 */
 		public void actionPerformed(ActionEvent e) {
-			BankDatabase.Deleteuser(position);
-			position = position - 1;
+			BankDatabase.Deleteuser(userListPosition);
+			userListPosition = userListPosition - 1;
 
 		}
 	}
@@ -253,8 +250,8 @@ public class ATM {
 
 		balancecheck check1 = new balancecheck();
 		Depositcheck check2 = new Depositcheck();
-		Withdrawcheck check3 = new Withdrawcheck();
-		Exitcheck check4 = new Exitcheck();
+		WithdrawalCheck check3 = new WithdrawalCheck();
+		ExitCheck check4 = new ExitCheck();
 
 		// Bereinigt Fenster
 		screen.Mainframe.getContentPane().removeAll();
@@ -306,7 +303,7 @@ public class ATM {
 	 * 
 	 * @author Dominik Schuessler
 	 */
-	private class Withdrawcheck implements ActionListener {
+	private class WithdrawalCheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			userinput = "";
 			performTransactions(WITHDRAWAL);
@@ -319,7 +316,7 @@ public class ATM {
 	 * @author Dominik Schuessler
 	 */
 	// issue #8
-	private class Exitcheck implements ActionListener {
+	private class ExitCheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			startlogin();
 		}
@@ -333,7 +330,7 @@ public class ATM {
 	 */
 	private void performTransactions(int a) {
 
-		// Speichert die Tansaktion, die gerade durchgefuehrt wird.
+		// Speichert die Transaktion, die gerade durchgefuehrt wird.
 		Transaction currentTransaction = null;
 
 		currentTransaction = createTransaction(a);
@@ -416,7 +413,7 @@ public class ATM {
 		 */
 		Nextcheck Ncheck = new Nextcheck();
 		Prevcheck Pcheck = new Prevcheck();
-		Exitcheck check4 = new Exitcheck();
+		ExitCheck check4 = new ExitCheck();
 
 		screen.Mainframe.revalidate();
 
@@ -533,10 +530,10 @@ public class ATM {
 	// issue #10
 	// issue #11
 	public void IterateUser(Iterator Iterator) {
-		if (Iterator.hasNext(position) == true) {
-			position = position + 1;
+		if (Iterator.hasNext(userListPosition) == true) {
+			userListPosition = userListPosition + 1;
 			// Display the current user in the GUI message labels.
-			Account AccountItem = (Account) Iterator.next(position);
+			Account AccountItem = (Account) Iterator.next(userListPosition);
 			screen.messageJLabel2.setText("Username: " + AccountItem.getUsername());
 			screen.messageJLabel3.setText("Avaliable Balance: " + AccountItem.getAvailableBalance());
 			screen.messageJLabel4.setText("Avaliable Balance: " + AccountItem.getTotalBalance());
@@ -555,9 +552,9 @@ public class ATM {
 	 */
 	// issue #11
 	public void prevIterateUser(Iterator Iterator) {
-		if (Iterator.hasPrev(position) == true) {
-			position = position - 1;
-			Account AccountItem = (Account) Iterator.next(position);
+		if (Iterator.hasPrev(userListPosition) == true) {
+			userListPosition = userListPosition - 1;
+			Account AccountItem = (Account) Iterator.next(userListPosition);
 			// *****************************************************************************************
 			// Dieser Teil doppelt sich mit IterateUser und sollte ausgelagert werden!
 			screen.messageJLabel2.setText("Username: " + AccountItem.getUsername());
