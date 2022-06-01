@@ -101,9 +101,9 @@ public class Screen extends JFrame
 	// end displayMessage
 
 	/**
-	 * Methode zeigt eine Nachricht an ohne Zeilenumbruch
+	 * Zeigt eine gegebene Nachricht auf der Konsole an.
 	 * 
-	 * @param message
+	 * @param message Nachricht, die als Konsolenausgabe getaetigt werden soll.
 	 */
 	public void displayMessageLine(String message) {
 		System.out.println(message);

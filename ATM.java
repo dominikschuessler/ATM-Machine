@@ -108,13 +108,13 @@ public class ATM {
 	 */
 	public void run() {
 		// While Schleife?
-
 		/** Authentifiziert den Benutzer */
 		startlogin();
+		
 		// end while
-
+		
 		// else
-		// performTransactions(); // user is now authenticated
+		// performTransactions(1); // user is now authenticated
 		// userAuthenticated = false; // reset before next ATM session
 		// currentAccountNumber = 0; // reset before next ATM session
 		// screen.displayMessageLine("\nThank you! Goodbye!");
