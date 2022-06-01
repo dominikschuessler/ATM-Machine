@@ -128,7 +128,7 @@ public class ATM {
 		screen.createlogin();
 		userinput = "";
 
-		authenticate check = new authenticate();
+		Authenticate check = new Authenticate();
 
 		screen.Mainframe.revalidate();
 		screen.Inputfield2.setText("");
@@ -200,9 +200,8 @@ public class ATM {
 	 * @author Dominik Schuessler
 	 */
 
-	// issue #6
 	// issue #12
-	private class authenticate implements ActionListener {
+	private class Authenticate implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 
 			// Erfasst Kontonummer aus Inputfeld 1
