@@ -41,8 +41,7 @@ public class ATM {
 	 * Speichert, ob ein Nutzer Adminrechte besitzt. Der Wert 0 bedeutet keine
 	 * Adminrechte.
 	 */
-	// issue #3
-	private int AdminCheck;
+	private int adminStatus = 0;
 
 	/** Speichert die Nutzereingabe */
 	private String userinput = "";
@@ -162,8 +161,8 @@ public class ATM {
 			int accountNumber = bankDatabase.getaccpin(pin);
 
 			// issue #5
-			AdminCheck = bankDatabase.getadmin(pin);
-			if (AdminCheck == 0) {
+			adminStatus = bankDatabase.getadmin(pin);
+			if (adminStatus == 0) {
 				currentAccountNumber = accountNumber;
 				screen.Mainframe.getContentPane().removeAll();
 				screen.Mainframe.revalidate();
