@@ -25,8 +25,11 @@ public class Account {
 	/** verfuegbare Geldmittel + ausstehende Einzahlungen */
 	private double totalBalance;
 
-	/** Speichert, ob der Benutzer Administratorrechte hat. */
-	private int admin; // #############Warum ist das keine boolsche Variable?###############
+	/** Speichert, ob der Benutzer Administratorrechte hat. 
+	 *  0 = kein Admin
+	 *  >0 = Admin
+	 * */
+	private int adminStatus;
 
 	/**
 	 * Der Kontokonstruktor initialisiert die Attribute der Klasse.
@@ -55,8 +58,8 @@ public class Account {
 	 * @param userPIN soll mit der des Kontos verglichen werden
 	 * @return {@code true} wenn die angegebe PIN mit der des Kontos uebereinstimmt.
 	 */
-	public boolean validatePIN(int userPIN) {
-		if (userPIN == getPin())
+	public boolean validatePIN(int PIN) {
+		if (this.pin == PIN)
 			return true;
 		else
 			return false;
@@ -132,28 +135,26 @@ public class Account {
 	}
 
 	/**
-	 * Getter fuer {@code admin}.
-	 * 
-	 * @return admin ist der Benutzer Administrator
+	 * Ersetzt durch {@code getAdminStatus()}
 	 */
+	@Deprecated
 	public int getAdmin() {
-		return admin;
+		return getAdminStatus();
 	}
 
 	/**
 	 * Gibt zurueck, ob der Bentzer Administratorrechte besitzt.
+	 * Impliziert die Rueckgabe eines boolschen Wertes, was nicht der Fall ist.
 	 * 
-	 * @return admin ist der Benutzer Administrator
+	 * @return adminStatus ist der Benutzer Administrator
 	 */
+	@Deprecated
 	public int getISadmin() {
-		return getAdmin();
+		return getAdminStatus();
 	}
 
-	/**
-	 * Getter fuer {@code pin}.
-	 * 
-	 * @return PIN Persoenliche Identifikationsnummer
-	 */
+
+	@Deprecated
 	public int GetPin() {
 		return getPin();
 	}
@@ -206,12 +207,16 @@ public class Account {
 	}
 
 	/**
-	 * setter fuer {@code admin}.
+	 * setter fuer {@code adminStatus}.
 	 * 
-	 * @param admin Hat der Benutzer Administratorrechte.
+	 * @param adminStatus Hat der Benutzer Administratorrechte.
 	 */
-	public void setAdmin(int admin) {
-		this.admin = admin;
+	public void setAdmin(int adminStatus) {
+		this.adminStatus = adminStatus;
+	}
+
+	public int getAdminStatus() {
+		return adminStatus;
 	}
 
 } // ende Klasse Account

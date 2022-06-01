@@ -26,7 +26,7 @@ public class ATM {
 	private Screen screen;
 
 	/** Das Eingabefeld des Bankautomaten */
-	private Keypad keypad;
+	private Numpad keypad;
 
 	/** Der Bargeldausgeber des Bankautomaten */
 	private CashDispenser cashDispenser;
@@ -83,7 +83,7 @@ public class ATM {
 
 		screen = new Screen();
 
-		keypad = new Keypad();
+		keypad = new Numpad();
 
 		cashDispenser = new CashDispenser();
 
@@ -120,21 +120,23 @@ public class ATM {
 	void startlogin() {
 
 		userListPosition = 0;
-
-		// UI fuer Login
-		screen.createlogin();
 		userinput = "";
+		screen.createlogin();
 
-		Authenticate check = new Authenticate();
+		
 
 		screen.Mainframe.revalidate();
+		screen.Inputfield1.setText("");
 		screen.Inputfield2.setText("");
+		
 		keypad.setbuttons();
 		addkeypadlisteners();
 
-		screen.Mainframe.add(keypad.addkeypad(), BorderLayout.CENTER);
+		screen.Mainframe.add(keypad.addkeypad(), BorderLayout.SOUTH);
 
 		screen.Mainframe.revalidate();
+		
+		Authenticate check = new Authenticate();
 		keypad.BEnter.addActionListener(check);
 
 		screen.Mainframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -151,18 +153,17 @@ public class ATM {
 	 * 
 	 * @param pin
 	 */
-	public void authenticateuser(int pin) {
-		userAuthenticated = bankDatabase.authenticateUser(pin);
+	public void authenticateUser(int accountNumber, int pin) {
+		userAuthenticated = bankDatabase.authenticateUser(accountNumber, pin);
 
 		if (userAuthenticated) {
-			int accountNumber = bankDatabase.getaccpin(pin);
-
 			// issue #5
-			adminStatus = bankDatabase.getadmin(pin);
+			adminStatus = bankDatabase.getadmin(accountNumber);
 			if (adminStatus == 0) {
 				currentAccountNumber = accountNumber;
 				screen.Mainframe.getContentPane().removeAll();
 				screen.Mainframe.revalidate();
+				System.out.println("Benutzer kein Admin, weiter zum Hauptmenü.");
 				createmenu();
 				screen.Mainframe.add(keypad.addkeypad(), BorderLayout.CENTER);
 				screen.Mainframe.revalidate();
@@ -202,11 +203,11 @@ public class ATM {
 		public void actionPerformed(ActionEvent e) {
 
 			// Erfasst Kontonummer aus Inputfeld 1
-			// int accnum = Integer.parseInt( screen.Inputfield1.getText() );
+			 int accountNumber = Integer.parseInt( screen.Inputfield1.getText() );
 
 			// Erfasst PIN aus Inputfeld 2
 			int PIN = Integer.parseInt(screen.Inputfield2.getText());
-			authenticateuser(PIN);
+			authenticateUser(accountNumber, PIN);
 		}
 	}
 
@@ -243,9 +244,15 @@ public class ATM {
 
 		}
 	}
-
-	/** Erstellt die GUI des Hauptmenues. */
+	/**
+	 * Ersetzt durch {@code createTransactionMenu()}
+	 */
+	@Deprecated
 	public void createmenu() {
+		createTransactionMenu();
+	}
+	
+	public void createTransactionMenu() {
 		screen.setSize(300, 150);
 
 		balancecheck check1 = new balancecheck();
@@ -435,7 +442,7 @@ public class ATM {
 	 * Listener hinzu, damit diese auch eine Aktion auslösen können.
 	 */
 	public void addkeypadlisteners() {
-		BCheck BC = new BCheck();
+		ButtonCheck BC = new ButtonCheck();
 		BClear BC1 = new BClear();
 		keypad.B1.addActionListener(BC);
 		keypad.B2.addActionListener(BC);
@@ -456,7 +463,7 @@ public class ATM {
 	 * 
 	 * @author Dominik Schuessler
 	 */
-	public class BCheck implements ActionListener {
+	public class ButtonCheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 
 			// Speichert Buttonobjekt des gedrueckten Buttons.
@@ -469,7 +476,7 @@ public class ATM {
 			userinput = userinput + label;
 
 			// Aktualisiert das Textfeld mit der Benutzereingabe.
-			screen.Inputfield2.setText(userinput);
+			screen.Inputfield1.setText(userinput);
 
 		}
 	}
@@ -484,7 +491,7 @@ public class ATM {
 		public void actionPerformed(ActionEvent e) {
 			// Bereinigt Eingabefeld
 			userinput = "";
-			screen.Inputfield2.setText(userinput);
+			screen.Inputfield1.setText(userinput);
 		}
 	}
 

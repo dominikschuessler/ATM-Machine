@@ -39,43 +39,29 @@ public class BankDatabase
 		accountList.add(accounts4);
 	} // ende no-argument BankDatabase constructor
 
-	@Deprecated
-	public Account getAccount(int accountnumber) {
-		return getAccountIfExists(accountnumber);
-	}
-	// ende methode getAccount
-
-	/**
-	 * Gibt das Kontoobjekt zurueck, wenn das Konto mit gegebener Kontonummer
-	 * existiert.
-	 * 
-	 * @return {@code currentAccount} wenn eine uebereinstimmung gefunden wurde.
-	 * 
-	 * @param accountnumber Kontonummer
-	 */
-	public Account getAccountIfExists(int accountNumberToLookFor) {
+	public Account getAccount(int accountNumber) {
 		for (Account currentAccount : accountList) {
 
-			if (currentAccount.getAccountNumber() == accountNumberToLookFor) {
+			if (currentAccount.getAccountNumber() == accountNumber) {
 				return currentAccount;
 			}
 		}
 		return null;
-
-	}// end getAccountIfExists
+	}
 
 	/**
-	 * Die Methode {@code getAccountpin} geht durch die {@code accountList} um die
-	 * uebereinstimmende Kontonummer zu finden.
+	 * Die Methode gibt zu einer gegebenen PIN den Account zurueck. Die
+	 * Authentifizierung darf so nicht implementiert werden!
 	 * 
 	 * @return {@code currentAccount} wenn eine uebereinstimmung gefunden wurde.
 	 * @param PIN PIN
 	 */
+	@Deprecated
 	private Account getAccountpin(int PIN) {
 
 		for (Account currentAccount : accountList) {
 
-			if (currentAccount.GetPin() == PIN)
+			if (currentAccount.getPin() == PIN)
 				return currentAccount;
 		} // end for
 
@@ -83,21 +69,45 @@ public class BankDatabase
 	} // ent method getAccount
 
 	/**
-	 * Die Methode {@code authenticateUser} stellt fest, ob ob die vom Benutzer
-	 * angegebene Kontonummer und PIN, mit Werten aus der Datenbank,
-	 * uebereinstimmen.
+	 * Stellt fest, ob es den Benutzer gibt, und ueberprueft anschliessend, ob die
+	 * PIN zur Kontonummer passt.
 	 * 
-	 * @return {@code true} bei Uebereinstimmung gefunden wird.
-	 * @param userPIN Benutzer PIN
+	 * @return 1 bei erfolgreicher Authentifizierung
+	 * @return 0 bei fehlgeschlagener Authentifizierung
+	 * @return -1 wenn das Konto nicht existiert
+	 * 
+	 * @param accountNumber Kontonummer
+	 * @param userPIN       eingegebene PIN
 	 */
-	public boolean authenticateUser(int userPIN) {
-		Account userAccount = getAccountpin(userPIN);
+	public boolean authenticateUser(int accountNumber, int userPIN) {
 
-		if (userAccount != null)
-			return userAccount.validatePIN(userPIN);
-		else
+		if (validateUser(accountNumber)) {
+			Account userAccount = getAccount(accountNumber);
+			if (userAccount.validatePIN(userPIN)) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
 			return false;
+		}
+
 	} // ende methode authenticateUser
+
+	/**
+	 * Ueberprueft, ob es den Nutzer gibt.
+	 * 
+	 * @param accountNumber
+	 */
+	private boolean validateUser(int accountNumber) {
+		for (Account currentAccount : accountList) {
+
+			if (getAccount(accountNumber) != null) {
+				return true;
+			}
+		}
+		return false;
+	}
 
 	/**
 	 * Die Methode {@code getAvailableBalance} fragt den Kontostand des Kontos mit
@@ -107,7 +117,7 @@ public class BankDatabase
 	 * @return aktuell verfuegbare Geldmittel
 	 */
 	public double getAvailableBalance(int userAccountNumber) {
-		return getAccountIfExists(userAccountNumber).getAvailableBalance();
+		return getAccount(userAccountNumber).getAvailableBalance();
 	} // ende methode getAvailableBalance
 
 	/**
@@ -118,7 +128,7 @@ public class BankDatabase
 	 * @return verfuegbare Geldmittel + ausstehende Einzahlung
 	 */
 	public double getTotalBalance(int userAccountNumber) {
-		return getAccountIfExists(userAccountNumber).getTotalBalance();
+		return getAccount(userAccountNumber).getTotalBalance();
 	} // ende methode getTotalBalance
 
 	/**
@@ -150,8 +160,8 @@ public class BankDatabase
 	 * @param userAccountNumber Kontonummer des Benutzers
 	 * @return Adminstatus als Level
 	 */
-	public int getadmin(int userAccountNumber) {
-		return getAccountpin(userAccountNumber).getISadmin();
+	public int getadmin(int accountNumber) {
+		return getAccount(accountNumber).getAdminStatus();
 	}
 
 	/**
@@ -169,13 +179,14 @@ public class BankDatabase
 
 	/**
 	 * Die Methode {@code getaccpin} gibt zu einer beliebigen PIN eine Kontonummer
-	 * zurueck.
+	 * zurueck. Die Authetifizierung darf so nicht stattfinden!
 	 * 
 	 * @param PIN PIN
 	 * @return {@code currentAccount.getAccountNumber} wenn eine Uebereinstimmung
 	 *         gefunden wird
 	 */
-	public int getaccpin(int PIN) {
+	@Deprecated
+	private int getaccpin(int PIN) {
 		for (Account currentAccount : accountList) {
 
 			if (currentAccount.GetPin() == PIN)

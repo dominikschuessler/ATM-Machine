@@ -122,14 +122,16 @@ public class Screen extends JFrame
 	public void createlogin() {
 
 		Mainframe = new JFrame("Bankautomat");
-		messageJLabel4 = new JLabel("F�hren Sie ihre EC-Karte/Kreditkarte ein                             ");
+		messageJLabel4 = new JLabel("Geben Sie ihre Kontonummer ein und druecken Sie anschließend die Bestaetigentaste");
 		messageJLabel = new JLabel("  Geben Sie ihre PIN ein:    ");
 
 		Inputfield1 = new JTextField(10);
+		Inputfield1.setToolTipText("Kontonummer  - Geben Sie Ihre Kontonummer ein.");
+		
 
 		messageJLabel2 = new JLabel(" 														                  ");
 		Inputfield2 = new JTextField(10);
-		loginbutton = new JButton("Login");
+		Inputfield2.setToolTipText("PIN - Geben Sie Ihre persoenliche Identifikationsnummer ein.");
 		messageJLabel3 = new JLabel("");
 		/** Layout wird erstellt mit Layoutmanager */
 		Mainframe.setLayout(new FlowLayout());
@@ -137,12 +139,12 @@ public class Screen extends JFrame
 		/** Erstes Eingabefeld wird erzeugt */
 		Mainframe.add(messageJLabel);
 
+		Mainframe.add(Inputfield1);
 		Mainframe.add(Inputfield2);
 		Mainframe.add(messageJLabel2);
-		Mainframe.add(loginbutton);
 		// Hinzufuegen von Text label
 		Mainframe.add(messageJLabel3);
-		Inputfield2.setEditable(false);
+		Inputfield2.setEditable(true);
 		Mainframe.repaint();
 
 	}
