@@ -77,8 +77,7 @@ public class ATM {
 	 * ist
 	 */
 
-	//issue #4
-	public ATM() {
+	private ATM() {
 
 		// Standardmaessig ist der Benutzer nicht zum Starten authentifiziert
 		userAuthenticated = false;
