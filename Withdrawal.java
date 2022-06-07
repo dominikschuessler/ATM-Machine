@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
  * 
  * @see Transaction
  * @author Dominik Schuessler
+
  * @author Mustafa Turhal
  * @author Hakan Pir
  */
@@ -103,7 +104,7 @@ public class Withdrawal extends Transaction {
 				cashDispensed = true; // cash was dispensed
 
 				/** Aufforderung an den Benutzer, das Geld zu entnehmen. */
-				screen.messageJLabel7.setText("\nIhr Bargeld wurde" + " Ausgezahlt. Bitte entnehmen Sie ihr Bargeld jetzt.");
+				screen.messageJLabel7.setText("\nIhr Bargeld wurde" + " ausgezahlt. Bitte entnehmen Sie ihr Bargeld jetzt.");
 			} // end if
 
 			/**
@@ -166,31 +167,47 @@ public class Withdrawal extends Transaction {
 		/**Setzt {@link Screen#Mainframe} zurueck basierend auf den neuen Geldbetraegen**/
 		screen.Mainframe.revalidate();
 	}
-	/**Fuehrt die Transaktion für die erste Auszahlungsmöglichkeit durch **/
+	/**Fuehrt die Transaktion fï¿½r die erste Auszahlungsmï¿½glichkeit durch **/
 	public class withdraw1 implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			transaction(20);
 		}
 	}
+<<<<<<< HEAD
 	/**Fuehrt die Transaktion für die zweite Auszahlungsmoeglichkeit durch **/
+=======
+	/**Fuehrt die Transaktion fï¿½r die zweite Auszahlungsmï¿½glichkeit durch **/
+>>>>>>> cecf28447b9f2d9653c1185fa7a589cf96516294
 	public class withdraw2 implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			transaction(40);
 		}
 	}
+<<<<<<< HEAD
 	/**Fuehrt die Transaktion für die dritte Auszahlungsmoeglichkeit durch **/
+=======
+	/**Fuehrt die Transaktion fï¿½r die dritte Auszahlungsmï¿½glichkeit durch **/
+>>>>>>> cecf28447b9f2d9653c1185fa7a589cf96516294
 	public class withdraw3 implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			transaction(60);
 		}
 	}
+<<<<<<< HEAD
 	/**Fuehrt die Transaktion für die vierte Auszahlungsmoeglichkeit durch **/
+=======
+	/**Fuehrt die Transaktion fï¿½r die vierte Auszahlungsmï¿½glichkeit durch **/
+>>>>>>> cecf28447b9f2d9653c1185fa7a589cf96516294
 	public class withdraw4 implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			transaction(100);
 		}
 	}
+<<<<<<< HEAD
 	/**Fuehrt die Transaktion für die fünfte Auszahlungsmoeglichkeit durch **/
+=======
+	/**Fuehrt die Transaktion fï¿½r die fï¿½nfte Auszahlungsmï¿½glichkeit durch **/
+>>>>>>> cecf28447b9f2d9653c1185fa7a589cf96516294
 	public class withdraw5 implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			transaction(200);

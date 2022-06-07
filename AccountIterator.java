@@ -1,16 +1,26 @@
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.undo.CannotRedoException;
 
 /**
- * Die Klasse {@code AccountIterator} implementiert Methoden, die den Index
- * einer gegebenen {@code ArrayListe} betreffen.
+ * Die Klasse {@code AccountIterator} speichert Accountobjekte dynamisch in
+ * einer ArrayListe, welche durch diverse Methoden manipulierbar waere. Die
+ * ArrayListe ist im Gegensatz zu einem Array dynamisch erweiterbar und
+ * verkuerzbar; Die ArrayList ist eine veraenderbare Implementierung des
+ * {@code List} Interfaces, dieses definiert lediglich abfragende Methoden, die
+ * Existenz eines Objektes zurueckgeben bzw. das Objekt selbst.
  * 
  * @author Annalena Maier
  * @author Dominik Schuessler
  * @see Iterator
+ * @see List
  */
 public class AccountIterator implements Iterator {
+	/**
+	 * Die Arrayliste {@code accounts} speichert dynamisch keinen, einen oder
+	 * mehrere Accounts.
+	 */
 	ArrayList<Account> accounts;
 
 	/**
@@ -24,10 +34,10 @@ public class AccountIterator implements Iterator {
 
 	/**
 	 * 
-	 * Gibt zurueck, ob die {@code ArrayList accounts} einen bestimmen Index hat.
+	 * Gibt zu einer gegebenen Position zurueck, ob es einen Nachfolger gibt.
 	 * 
-	 * @param position Der Index, von dem erfragt werden soll, ob er existiert.
-	 * @return {@code true} wenn der Indexplatz existiert.
+	 * @param position Index, der auf Nachfolger ueberprueft werden soll
+	 * @return {@code true} wenn ein Nachfolger im Array exisitiert.
 	 * 
 	 */
 	@Override
@@ -39,6 +49,8 @@ public class AccountIterator implements Iterator {
 		}
 	}
 
+	// AENDERUNGSVORSCHLAG: Die Methode next() gibt das Objekt an der gegebenen Stelle
+	// zurueck; irrefuehrender Bezeichner!
 	/**
 	 * Gibt ein Objekt der Klasse {@code Account} an einer bestimmten Stelle
 	 * zurueck.

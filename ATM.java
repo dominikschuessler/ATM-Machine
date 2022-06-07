@@ -37,46 +37,65 @@ public class ATM {
 	/** Datenbank mit Account Informationen */
 	private BankDatabase bankDatabase;
 
+	/**
+	 * Speichert, ob ein Nutzer Adminrechte besitzt. Der Wert 0 bedeutet keine
+	 * Adminrechte.
+	 */
+	// issue #3
 	private int AdminCheck;
 
+	/** Speichert die Nutzereingabe */
 	private String userinput = "";
 
 	private int position = 0;
 
+	/**
+	 * Speichert die ATM Instanz und verhindert durch Singelton Pattern, dass mehr
+	 * als eine Instanz instanziiert wird.
+	 */
 	private static ATM uniqueinstance;
 
+	/** Sammlung aller zu Programmstart in der Datenbank registrierten Nutzer. */
 	Iterator Users = BankDatabase.createIterator();
 
-	// Die Konstanten beziehen sich auf Einstellungen des Hauptmenues
+	/** Konstante zur Abfrage des Kontostands. */
 	private static final int BALANCE_INQUIRY = 1;
+
+	/** Konstante zur Auszahlung. */
 	private static final int WITHDRAWAL = 2;
+
+	/** Konstante zur Einzahlung. */
 	private static final int DEPOSIT = 3;
+
+	/** Konstante zuzum Verlassen des Menues. */
 	private static final int EXIT = 4;
 
-	/** Parameterloser Konstruktor initialisiert jede Instanz. */
+	/**
+	 * Parameterloser Konstruktor initialisiert jede Instanzvariable.
+	 * 
+	 * Dazu wird festgelegt, dass der Nutzer standardmaeßig nicht authentifiziert
+	 * ist
+	 */
+
+	//issue #4
 	public ATM() {
 
-		/** Standardmaessig ist der Benutzer nicht zum Starten authentifiziert */
+		// Standardmaessig ist der Benutzer nicht zum Starten authentifiziert
 		userAuthenticated = false;
-		
-		/** Initialwert der Kontonummer auf 0. */
+
+		// Initialwert der Kontonummer auf 0.
 		currentAccountNumber = 0;
-		
-		/** Display wird erzeugt */
+
 		screen = new Screen();
-		
-		/** Tastatur wird erzeugt. */
+
 		keypad = new Keypad();
-		
-		/** Bargeldausgeber wird erzeugt */
+
 		cashDispenser = new CashDispenser();
-		
-		/** Bargeldeinzahler wird erzeugt */
+
 		depositSlot = new DepositSlot();
-		
-		/** Datenbank ueber Accountinformationen wird erzeugt */
+
 		bankDatabase = new BankDatabase();
-		
+
 	} // end no-argument ATM constructor
 
 	/**
@@ -89,13 +108,13 @@ public class ATM {
 	 */
 	public void run() {
 		// While Schleife?
-
 		/** Authentifiziert den Benutzer */
 		startlogin();
+		
 		// end while
-
+		
 		// else
-		// performTransactions(); // user is now authenticated
+		// performTransactions(1); // user is now authenticated
 		// userAuthenticated = false; // reset before next ATM session
 		// currentAccountNumber = 0; // reset before next ATM session
 		// screen.displayMessageLine("\nThank you! Goodbye!");
@@ -106,10 +125,13 @@ public class ATM {
 	void startlogin() {
 
 		position = 0;
+
+		// UI fuer Login
 		screen.createlogin();
 		userinput = "";
 
 		authenticate check = new authenticate();
+
 		screen.Mainframe.revalidate();
 		screen.Inputfield2.setText("");
 		keypad.setbuttons();
@@ -119,8 +141,8 @@ public class ATM {
 
 		screen.Mainframe.revalidate();
 		keypad.BEnter.addActionListener(check);
+
 		screen.Mainframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		/** Setzt die Groesse des Rahmens */
 		screen.Mainframe.setSize(400, 280);
 		screen.Mainframe.setVisible(true);
 		screen.Mainframe.revalidate();
@@ -139,6 +161,8 @@ public class ATM {
 
 		if (userAuthenticated) {
 			int accountNumber = bankDatabase.getaccpin(pin);
+
+			// issue #5
 			AdminCheck = bankDatabase.getadmin(pin);
 			if (AdminCheck == 0) {
 				currentAccountNumber = accountNumber;
@@ -152,10 +176,16 @@ public class ATM {
 			else
 
 				createAdminGUI();
+			// erstellt den Iterator, damit der Administrator durch die einzelnen Accounts
+			// durchschalten kann.
 			Iterator UserIterator = BankDatabase.createIterator();
+
 			Addcheck check = new Addcheck();
 			Deletecheck check2 = new Deletecheck();
+
+			// Button zum Hinzufuegen eines neuen Nutzers
 			screen.button2.addActionListener(check);
+			// Button zum Entfernen eines Nutzers
 			screen.button3.addActionListener(check2);
 
 			/** Speichert die Kontonummer des aktuellen Benutzers. */
@@ -166,24 +196,39 @@ public class ATM {
 			screen.messageJLabel3.setText("Invalid account number or PIN. Please try again.");
 	} // end method authenticateUser
 
-	// ÄNDERUNGSVORSCHLAG: Klasse authenticate groß schreiben!
+
+
+	/**
+	 * Event Klasse toggelt Nutzerauthentifikation anhand von Kontonummer und PIN.
+	 * 
+	 * @author Dominik Schuessler
+	 */
+	
+	// issue #6
+	// issue #12
 	private class authenticate implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 
+			// Erfasst Kontonummer aus Inputfeld 1
 			// int accnum = Integer.parseInt( screen.Inputfield1.getText() );
+
+			// Erfasst PIN aus Inputfeld 2
 			int PIN = Integer.parseInt(screen.Inputfield2.getText());
-			// Get the PIN from the GUI text field.
 			authenticateuser(PIN);
 		}
 	}
 
+	/**
+	 * Event Klasse toggelt das Hinzufuegen eines neuen Benutzers.
+	 * 
+	 * @author Dominik Schuessler
+	 *
+	 */
 	private class Addcheck implements ActionListener {
-		/**
-		 * Action Listener zum Hinzufuegen eines Bentuzers.
-		 * 
-		 * @param e Objekt vom Typ {@code ActionEvent}
-		 */
 
+		/**
+		 * Event Handler zum Hinzufuegen eines neuen Benutzers.
+		 */
 		public void actionPerformed(ActionEvent e) {
 
 			BankDatabase.Adduser();
@@ -191,12 +236,14 @@ public class ATM {
 		}
 	}
 
+	/**
+	 * Event Klasse toggelt das Loeschen eines Benutzers.
+	 * 
+	 * @author Dominik Schuessler
+	 */
 	private class Deletecheck implements ActionListener {
-
 		/**
-		 * Action Listener zum Entfernen eines Bentuzers.
-		 * 
-		 * @param e Objekt vom Typ {@code ActionEvent}
+		 * Event Handler zum Loeschen eines Benutzers.
 		 */
 		public void actionPerformed(ActionEvent e) {
 			BankDatabase.Deleteuser(position);
@@ -208,27 +255,39 @@ public class ATM {
 	/** Erstellt die GUI des Hauptmenues. */
 	public void createmenu() {
 		screen.setSize(300, 150);
+
 		balancecheck check1 = new balancecheck();
 		Depositcheck check2 = new Depositcheck();
 		Withdrawcheck check3 = new Withdrawcheck();
 		Exitcheck check4 = new Exitcheck();
+
+		// Bereinigt Fenster
 		screen.Mainframe.getContentPane().removeAll();
 		screen.Mainframe.revalidate();
-		/** Fuegt Tastatur zur GUI hinzu */
+
+		/** Fuegt Tastatur in der Mitte der GUI hinzu */
 		screen.Mainframe.add(keypad.addkeypad(), BorderLayout.CENTER);
+
 		screen.createmenu();
 		Account Account1 = bankDatabase.getAccount(currentAccountNumber);
 		screen.messageJLabel.setText("Welcome " + Account1.getUsername()
 				+ "                                                                                   ");
 
+		// Buttons fuer Kontostandsabfrage, Einzahlung und Auszahlung
 		keypad.B1.addActionListener(check1);
 		keypad.B2.addActionListener(check3);
 		keypad.B3.addActionListener(check2);
 		keypad.B4.addActionListener(check4);
+
 		screen.Mainframe.revalidate();
 	}
 
-	/** Stellt das Hauptmenue dar und fuehrt Transaktionen durch. */
+	/**
+	 * Event Klasse initiiert Kontostandsabfrage.
+	 * 
+	 * @author Dominik Schuessler
+	 */
+	//issue #7
 	private class balancecheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			userinput = "";
@@ -237,8 +296,11 @@ public class ATM {
 	}
 
 	/**
-	 * Option im Hauptmenue.
+	 * Event Klasse initiiert Transaktion 'Einzahlung'.
+	 * 
+	 * @author Dominik Schuessler
 	 */
+	// issue #7
 	private class Depositcheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			userinput = "";
@@ -247,8 +309,11 @@ public class ATM {
 	}
 
 	/**
-	 * Option im Hauptmenue.
+	 * Event Klasse initiiert Transaktion 'Auszahlung'.
+	 * 
+	 * @author Dominik Schuessler
 	 */
+	// issue #7
 	private class Withdrawcheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			userinput = "";
@@ -257,14 +322,21 @@ public class ATM {
 	}
 
 	/**
-	 * Option im Hauptmenue.
+	 * Event Klasse ruft Loginfenster auf.
+	 *  
+	 * @author Dominik Schuessler
 	 */
+	// issue #8
 	private class Exitcheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			startlogin();
 		}
 	}
 
+	/**
+	 * Erzeugt das spezifische Transaktionsfenster, je nach dem, welche Transaktion ueber den Methodenparameter ausgewaehlt wird.
+	 * @param a Transaktionsart festgelegt durch Konstanten [1;4]
+	 */
 	private void performTransactions(int a) {
 
 		// Speichert die Tansaktion, die gerade durchgefuehrt wird.
@@ -284,8 +356,12 @@ public class ATM {
 
 	}
 
+	/**
+	 * Event Klasse bringt den Nutzer zurueck zum Hauptmenue.
+	 * 
+	 * @author Dominik Schuessler
+	 */
 	public class Backcheck implements ActionListener {
-		/** Bring den Nutzer zurueck zum Hauptmenue. */
 		public void actionPerformed(ActionEvent e) {
 			createmenu();
 			screen.Mainframe.add(keypad.addkeypad(), BorderLayout.CENTER);
@@ -295,37 +371,74 @@ public class ATM {
 		}
 	}
 
+	/**
+	 * Erzeugt eine Instanz der drei Transaktionsarten.
+	 * 
+	 * @param type Ganzzahl im Intervall [1;3] festgelegt durch die deklarierten
+	 *             Konstanten
+	 * @return temp Das Objekt der aktuellen Transaktion (BalanceInquiry, Deposit,
+	 *         Withdrawal)
+	 */
 	private Transaction createTransaction(int type) {
-		/** temporaere Variable zur Speicherung der Transaktion */
+
+		// temporaere Variable zur Speicherung der Transaktion
 		Transaction temp = null;
+
+		// bereinige Fenster
 		screen.getContentPane().removeAll();
 		screen.revalidate();
 
-		// determine which type of Transaction to create
+		// issue #9
+		if (type == 1)
 
-		if (type == 1) // create new BalanceInquiry transaction
+			// erzeugt Kontostandsabfrage fuer aktuelle Kontonummer
 			temp = new BalanceInquiry(currentAccountNumber, screen, bankDatabase);
+
 		else if (type == 2)// create new Withdrawal transaction
+
+			// erzeugt neue Auszahlung
 			temp = new Withdrawal(currentAccountNumber, screen, bankDatabase, keypad, cashDispenser);
+
 		else if (type == 3) { // create new Deposit transaction
+
+			// erzeugt neue Einzahlung
 			screen.setSize(400, 250);
 			temp = new Deposit(currentAccountNumber, screen, bankDatabase, keypad, depositSlot);
+
 		}
 		// end switch
 
-		return temp; // return the newly created object
+		return temp;
 	}
 	// end method createTransaction
 
-	// This creates the 'admin' screen if the Isadmin field is set to 1.
+	/**
+	 * Erzeugt die Admin Oberflaeche, wenn die Variable {@code IsAdmin} den Wert 1
+	 * hat
+	 */
 	public void createAdminGUI() {
 
+		// Fenster wird geleert
 		screen.Mainframe.getContentPane().removeAll();
+
+		/*
+		 * Klassen fuer Adminbuttons werden generiert
+		 * 
+		 * Ncheck fuer naechsten Benutzer Pcheck fuer vorherigen Benutzer check4 zum
+		 * Verlassen des Admininterfaces
+		 */
 		Nextcheck Ncheck = new Nextcheck();
 		Prevcheck Pcheck = new Prevcheck();
 		Exitcheck check4 = new Exitcheck();
+
 		screen.Mainframe.revalidate();
+
+		// Adminoberflaeche wird erzeugt
 		screen.createAdminpage();
+
+		/*
+		 * Event Handler werden mit den Buttons ueber Action Listener verbunden.
+		 */
 		screen.button1.addActionListener(Ncheck);
 		screen.button4.addActionListener(Pcheck);
 		screen.Exit.addActionListener(check4);
@@ -333,7 +446,10 @@ public class ATM {
 
 	}
 
-	// This code adds action listeners to the keypad.
+	/**
+	 * Fuegt den Tasten auf dem Eingabefeld der Klasse {@code Keypad} Action
+	 * Listener hinzu, damit diese auch eine Aktion auslösen können.
+	 */
 	public void addkeypadlisteners() {
 		BCheck BC = new BCheck();
 		BClear BC1 = new BClear();
@@ -350,27 +466,52 @@ public class ATM {
 		keypad.BClear.addActionListener(BC1);
 	}
 
-	// This code checks what button was pressed on the keypad.
+	/**
+	 * Event Klasse ermittelt, welcher Button gerueckt wurde und aktualisiert das
+	 * Textfeld entsprechend.
+	 * 
+	 * @author Dominik Schuessler
+	 */
 	public class BCheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
+
+			// Speichert Buttonobjekt des gedrueckten Buttons.
 			JButton b = (JButton) e.getSource();
-			String label = b.getLabel();
+
+			// Speichert Beschriftung des gedrueckten Buttons.
+			String label = b.getText();
+
+			// Gedrueckter Button wird in der Variable userinput gespeichert.
 			userinput = userinput + label;
-			// update the text field using the user's input.
+
+			// Aktualisiert das Textfeld mit der Benutzereingabe.
 			screen.Inputfield2.setText(userinput);
 
 		}
 	}
 
+	/**
+	 * Event Klasse bereinigt Textfeld, sobald der "Clear" Button gedrueckt wird.
+	 * 
+	 * @author Dominik Schuessler
+	 *
+	 */
 	public class BClear implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			// Clear the input field.
+			// Bereinigt Eingabefeld
 			userinput = "";
 			screen.Inputfield2.setText(userinput);
 		}
 	}
 
-	// Action listener used for the literator pattern
+	/**
+	 * Event Klasse fuer das Weiterruecken zum naechsten Benutzer. Ruft
+	 * {@code iterateUser}; diese Methode rueckt dann in der aktuellen ArrayListe
+	 * weiter, sofern dies moeglich ist.
+	 * 
+	 * @author Dominik Schuessler
+	 *
+	 */
 	public class Nextcheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 
@@ -378,7 +519,14 @@ public class ATM {
 		}
 	}
 
-	// Action listener used for the literator pattern
+	/**
+	 * Event Klasse fuer das Vorruecken zum vorherigen Benutzer. Ruft
+	 * {@code iterateUser}; diese Methode rueckt dann in der aktuellen ArrayListe
+	 * zurueck, sofern dies moeglich ist.
+	 * 
+	 * @author Dominik Schuessler
+	 *
+	 */
 	public class Prevcheck implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 
@@ -386,7 +534,18 @@ public class ATM {
 		}
 	}
 
-	// Action listener used for the literator pattern
+
+	/**
+	 * {@code IterateUser()} ruft den naechsten Nutzer im aufgenommenen
+	 * {@code Iterator} Objekt auf und stellt ihn, sofern dieser Benutzer existiert,
+	 * auf der grafischen Benutzeroberflaeche dar.
+	 * 
+	 * @param Iterator Ein iterierbares Objekt, hier ein Objekt der Klasse
+	 *                 {@code AccountIterator} mit Daten aus der Klasse
+	 *                 {@code BankDatabase}.
+	 */
+	// issue #10
+	// issue #11
 	public void IterateUser(Iterator Iterator) {
 		if (Iterator.hasNext(position) == true) {
 			position = position + 1;
@@ -399,20 +558,37 @@ public class ATM {
 
 	}
 
-	// Action listener used for the literator pattern
+	/**
+	 * {@code prevIterateUser()} ruft den vorherigen Nutzer in aufgenommenen
+	 * {@code Iterator} Objekt auf und stellt ihn, sofern dieser Benutzer existiert,
+	 * auf der grafischen Benutzeroberflaeche dar.
+	 * 
+	 * @param Iterator Ein iterierbares Objekt, hier ein Objekt der Klasse
+	 *                 {@code AccountIterator} mit Daten aus der Klasse
+	 *                 {@code BankDatabase}.
+	 */
+	// issue #11
 	public void prevIterateUser(Iterator Iterator) {
 		if (Iterator.hasPrev(position) == true) {
 			position = position - 1;
 			Account AccountItem = (Account) Iterator.next(position);
+			// *****************************************************************************************
+			// Dieser Teil doppelt sich mit IterateUser und sollte ausgelagert werden!
 			screen.messageJLabel2.setText("Username: " + AccountItem.getUsername());
 			screen.messageJLabel3.setText("Avaliable Balance: " + AccountItem.getAvailableBalance());
 			screen.messageJLabel4.setText("Avaliable Balance: " + AccountItem.getTotalBalance());
+			// *****************************************************************************************
 
 		}
 
 	}
 
-//Code used for the Singleton pattern.
+	/**
+	 * Singleton Pattern fuer ATM Instanz. Diese Methode verhindert, dass von der
+	 * Klasse {@code ATM} mehrere Instanzen erzeugt werden.
+	 * 
+	 * @return uniqueinstance Die aktuelle Instanz des Automaten
+	 */
 	public static ATM getinstance() {
 		if (uniqueinstance == null) {
 			uniqueinstance = new ATM();

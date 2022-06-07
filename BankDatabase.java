@@ -76,8 +76,7 @@ public class BankDatabase
 	 * angegebene Kontonummer und PIN, mit Werten aus der Datenbank,
 	 * uebereinstimmen.
 	 * 
-	 * @return {@code true} bei Uebereinstimmung
-	 *         gefunden wird.
+	 * @return {@code true} bei Uebereinstimmung gefunden wird.
 	 * @param userPIN Benutzer PIN
 	 */
 	public boolean authenticateUser(int userPIN) {
@@ -138,15 +137,19 @@ public class BankDatabase
 	 * Kontonummer ueber Administratorrechte verfuegt.
 	 * 
 	 * @param userAccountNumber Kontonummer des Benutzers
-	 * @return ob der Nutzer ueber Administratorrechte verfuegt
+	 * @return Adminstatus als Level
 	 */
 	public int getadmin(int userAccountNumber) {
 		return getAccountpin(userAccountNumber).getISadmin();
 	}
 
 	/**
+	 * Erzeugt ein neues Objekt der Klasse {@code AccountIterator}, das alle
+	 * registrierten Accounts enthaelt. Ueber dieses Objekt kann iteriert werden.
 	 * 
-	 * @return {@code new AccountIterator(accounts)} Neue Arrayliste.
+	 * @see AccountIterator
+	 * @see ArrayList
+	 * @return {@code AccountIterator} Objekt mit alle zum Programmstart registrierten Accounts.
 	 */
 	public static Iterator createIterator() {
 		return new AccountIterator(accounts);
