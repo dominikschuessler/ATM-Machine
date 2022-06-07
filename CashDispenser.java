@@ -1,16 +1,16 @@
 // CashDispenser.java
 
 /**
- * Die Klasse {@code CashDispenser} stellt die Geldausgabe des Automaten dar.
+ * Die Klasse {@code CashDispenser} stellt die Geldfach des Automaten dar.
  *
  * @author Annalena Maier
  */
 
 public class CashDispenser {
-	/** Die voreingestellte Menge an Scheinen in der Geldausgabe. */
+	/** Die voreingestellte Menge an Scheinen in der Geldfach. */
 	private final static int INITIAL_COUNT = 500;
 
-	/** Die Anzahl der verbleibenden 20€ Scheine. */
+	/** Die Anzahl der verbleibenden 20â‚¬ Scheine. */
 	private int count;
 
 	/**
@@ -22,7 +22,7 @@ public class CashDispenser {
 
 	/**
 	 * Simuliert die Ausgabe, eines bestimmten Betrages. Die Menge an erforderlichen
-	 * 20€ Scheinen wird berechnet. Anschliessend wird die Anzahl an Scheinen in der
+	 * 20â‚¬ Scheinen wird berechnet. Anschliessend wird die Anzahl an Scheinen in der
 	 * Geldausgabe aktualisiert.
 	 * 
 	 */
