@@ -30,34 +30,29 @@ public class Keypad {
 	private Scanner input;
 	private String userinput;
 
-	/*
-	 * Buttons des Eingabefeldes
-	 * 
-	 * Warum sind die Buttons 1-5 static und der Rest nicht?
-	 */
-
 	public static JButton B1;
 	public static JButton B2;
 	public static JButton B3;
 	public static JButton B4;
-	
+
 	/** Button Nummer 5 */
 	public static JButton B5;
-	
+
 	public JButton B6;
-	
+
 	public JButton B7;
-	
+
 	public JButton B8;
-	
+
 	public JButton B9;
-	
+
 	public JButton B0;
 	public JButton BClear;
 	public JButton BEnter;
 
 	/**
-	 * Parameterloser Konstruktor deklariert {@code input} als neues Scanner Objekt.
+	 * Parameterloser Konstruktor instanziiert neues Scanner Objekt. Nutzereingaben
+	 * werden in der Instanzvariable {@code input} gespeichert.
 	 */
 	public Keypad() {
 		input = new Scanner(System.in);
@@ -104,10 +99,10 @@ public class Keypad {
 
 	/**
 	 * Erstellt ein neues Eingabefeld mit den Ziffern 0-9, einer Clear und einer
-	 * Enter- Taste. Dazu wird ein Behaelter erzeugt, dem die einzelnen Tasten dann
-	 * hinzugefuegt werden.
+	 * Enter- Taste. Dazu wird ein Container erzeugt, dem die einzelnen Tasten dann
+	 * im richtigen Layout hinzugefuegt werden.
 	 * 
-	 * @return panel Der Behaelter, dem die Tasten hinzugefuegt wurden.
+	 * @return panel Container, dem die Tasten im richtigen Layout hinzugefuegt wurden.
 	 */
 	public JPanel addkeypad() {
 		JPanel panel = new JPanel();
