@@ -448,7 +448,7 @@ public class ATM {
 
 	/**
 	 * Fuegt den Tasten auf dem Eingabefeld der Klasse {@code Keypad} Action
-	 * Listener hinzu, damit diese auch eine Aktion auslösen können.
+	 * Listener hinzu, damit diese auch eine Aktion ausloesen koennen.
 	 */
 	public void addkeypadlisteners() {
 		BCheck BC = new BCheck();

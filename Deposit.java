@@ -22,7 +22,7 @@ public class Deposit extends Transaction
    /** Eine Referenz zur Klasse "depositSlot" */
    private DepositSlot depositSlot; 
    
-   /** Die Konstante für die Abbruch Option */
+   /** Die Konstante fuer die Abbruch Option */
    private final static int CANCELED = 0; 
 
    /** Konstruktor initialisiert alle Attribute der Superklasse {@code Transaction}
