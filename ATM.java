@@ -28,7 +28,7 @@ public class ATM {
 	/** Das Eingabefeld des Bankautomaten */
 	private Keypad keypad;
 
-	/** Der Bargeldausgeber des Bankautomaten */
+	/** Der Tresor des Automaten; Hier werden die Scheine aufbewahrt. */
 	private CashDispenser cashDispenser;
 
 	/** Das Bargeldeinzahler des Bankautomaten */
