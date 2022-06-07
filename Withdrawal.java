@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
  * @see Transaction
  * @author Dominik Schuessler
  * @author Mustafa Turhal
+ * @author Hakan Pir
  */
 
 public class Withdrawal extends Transaction {
@@ -171,25 +172,25 @@ public class Withdrawal extends Transaction {
 			transaction(20);
 		}
 	}
-	/**Fuehrt die Transaktion für die zweite Auszahlungsmöglichkeit durch **/
+	/**Fuehrt die Transaktion für die zweite Auszahlungsmoeglichkeit durch **/
 	public class withdraw2 implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			transaction(40);
 		}
 	}
-	/**Fuehrt die Transaktion für die dritte Auszahlungsmöglichkeit durch **/
+	/**Fuehrt die Transaktion für die dritte Auszahlungsmoeglichkeit durch **/
 	public class withdraw3 implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			transaction(60);
 		}
 	}
-	/**Fuehrt die Transaktion für die vierte Auszahlungsmöglichkeit durch **/
+	/**Fuehrt die Transaktion für die vierte Auszahlungsmoeglichkeit durch **/
 	public class withdraw4 implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			transaction(100);
 		}
 	}
-	/**Fuehrt die Transaktion für die fünfte Auszahlungsmöglichkeit durch **/
+	/**Fuehrt die Transaktion für die fünfte Auszahlungsmoeglichkeit durch **/
 	public class withdraw5 implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			transaction(200);

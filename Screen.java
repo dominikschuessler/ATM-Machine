@@ -16,6 +16,7 @@ import javax.swing.JButton;
  * Die Klasse {@code Screen} stellt den Bildschirm des Bankautomaten dar
  * 
  * @author Mustafa Turhal
+ * @author Hakan Pir
  */
 
 public class Screen extends JFrame
@@ -106,7 +107,7 @@ public class Screen extends JFrame
 		messageJLabel4 = new JLabel("Führen Sie ihre EC-Karte/Kreditkarte ein                             ");
 		messageJLabel = new JLabel("  Geben Sie ihre PIN ein:    ");
 
-		Inputfield1 = new JTextField(10);
+		Inputfield1 = new JTextField(10);//Inputfield1 wird hier nicht genutzt
 
 		messageJLabel2 = new JLabel(" 														                  ");
 		Inputfield2 = new JTextField(10);
@@ -117,13 +118,17 @@ public class Screen extends JFrame
 		Mainframe.add(messageJLabel4);
 		/** Erstes Eingabefeld wird erzeugt */
 		Mainframe.add(messageJLabel);
-
+		/** Eingabefeld nur für Pin, auf Keypad input beschränkt*/
 		Mainframe.add(Inputfield2);
 		Mainframe.add(messageJLabel2);
 		// Mainframe.add(loginbutton);
 		// Hinzufuegen von Text label
 		Mainframe.add(messageJLabel3);
+		/**Textfeld wird nur zugänglich für eingabe vom Kepad gemacht**/
 		Inputfield2.setEditable(false);
+		/*
+		 *Fenster wird neu erzeugt mit den neuen informationen 
+		 */
 		Mainframe.repaint();
 
 	}
@@ -131,7 +136,7 @@ public class Screen extends JFrame
 	/** Methode erzeugt Userinterface fuer Hauptmenue */
 	public void createmenu() {
 		Mainframe.getContentPane().removeAll();
-		messageJLabel = new JLabel("Wilkommen");
+		messageJLabel = new JLabel("Willkommen");
 		messageJLabel2 = new JLabel("1 - Kontostand");
 		messageJLabel3 = new JLabel("2 - Auszahlen");
 		messageJLabel4 = new JLabel("3 - Einzahlen");
@@ -146,6 +151,9 @@ public class Screen extends JFrame
 		/** Hinzufuegen von einem Text label */
 		Mainframe.add(messageJLabel4);
 		Mainframe.add(messageJLabel5);
+		/*
+		 *Fenster wird neu erzeugt mit den neuen informationen 
+		 */
 		Mainframe.repaint();
 	}
 
@@ -161,6 +169,9 @@ public class Screen extends JFrame
 		Mainframe.add(messageJLabel2);
 		Mainframe.add(messageJLabel3);
 		Mainframe.add(Exit);
+		/*
+		 *Fenster wird neu erzeugt mit den neuen informationen 
+		 */
 		Mainframe.repaint();
 	}
 
@@ -169,7 +180,7 @@ public class Screen extends JFrame
 		Mainframe.getContentPane().removeAll();
 		Mainframe.revalidate();
 		messageJLabel = new JLabel("Auszahl Menü:                       ");
-		messageJLabel2 = new JLabel("1 - 20€ ");
+		messageJLabel2 = new JLabel("1 - 20€ ");//Auszahlmöglichkeiten werden beschrieben
 		messageJLabel3 = new JLabel("2 - 40€ ");
 		messageJLabel4 = new JLabel("3 - 60€ ");
 		messageJLabel5 = new JLabel("4 - 100€ ");
@@ -178,6 +189,7 @@ public class Screen extends JFrame
 		Exit = new JButton("Abbrechen");
 		Mainframe.setLayout(new FlowLayout());
 		Mainframe.add(messageJLabel);
+		/**Auszahlmöglichkeiten werden hinzugefuegt*/
 		Mainframe.add(messageJLabel2);
 		Mainframe.add(messageJLabel3);
 		Mainframe.add(messageJLabel4);
@@ -185,6 +197,9 @@ public class Screen extends JFrame
 		Mainframe.add(messageJLabel6);
 		Mainframe.add(Exit);
 		Mainframe.add(messageJLabel7);
+		/*
+		 *Fenster wird neu erzeugt mit den neuen informationen 
+		 */
 		Mainframe.repaint();
 
 	}
@@ -202,6 +217,9 @@ public class Screen extends JFrame
 		Mainframe.add(messageJLabel3);
 		Mainframe.add(Inputfield2);
 		Mainframe.add(Exit);
+		/*
+		 *Fenster wird neu erzeugt mit den neuen informationen 
+		 */
 		Mainframe.repaint();
 	}
 
@@ -219,6 +237,9 @@ public class Screen extends JFrame
 		button1 = new JButton("Nächster");
 		button4 = new JButton("Vorheriger");
 		Exit = new JButton("Zurück");
+		/*
+		 * erstellen von Eingabefeldern der größe 10 character
+		 */
 		Inputfield1 = new JTextField(10);
 		Inputfield2 = new JTextField(10);
 		Inputfield3 = new JTextField(10);
@@ -243,7 +264,7 @@ public class Screen extends JFrame
 		Mainframe.add(messageJLabel5);
 		Mainframe.add(messageJLabel6);
 		Mainframe.add(messageJLabel7);
-		Mainframe.add(Inputfield1);
+		Mainframe.add(Inputfield1);//inputfield1 (JTextField größe 10) wird im createadminpage GUI zum bildschirm hinzugefügt
 		Mainframe.add(messageJLabel8);
 		Mainframe.add(Inputfield2);
 		Mainframe.add(messageJLabel10);
@@ -254,6 +275,9 @@ public class Screen extends JFrame
 		Mainframe.add(button2);
 
 		Mainframe.add(Exit);
+		/*
+		 *Fenster wird neu erzeugt mit den neuen informationen 
+		 */
 		Mainframe.repaint();
 	}
 
