@@ -141,73 +141,82 @@ public class Withdrawal extends Transaction {
 
 		/** Screen Referenz */
 		Screen screen = getScreen();
+		
 		/**Auszahlmenue wird Erzeugt**/
 		screen.createWithdrawGUI();
 		screen.Mainframe.add(keypad.addkeypad(), BorderLayout.CENTER);
+		
 		/**Erzeugt neue Instanz von withdraw1**/
 		withdraw1 check1 = new withdraw1();
+		
 		/**Erzeugt neue Instanz von withdraw2**/
 		withdraw2 check2 = new withdraw2();
+		
 		/**Erzeugt neue Instanz von withdraw3**/
 		withdraw3 check3 = new withdraw3();
+		
 		/**Erzeugt neue Instanz von withdraw4**/
 		withdraw4 check4 = new withdraw4();
+		
 		/**Erzeugt neue Instanz von withdraw5**/
 		withdraw5 check5 = new withdraw5();
+		
 		/**Prueft in {@link Keypad} ob B1 gedrueckt wurde und fuehrt somit check1 aus**/
 		Keypad.B1.addActionListener(check1);
+		
 		/**Prueft in {@link Keypad} ob B2 gedrueckt wurde und fuehrt somit check2 aus**/
 		Keypad.B2.addActionListener(check2);
+		
 		/**Prueft in {@link Keypad} ob B3 gedrueckt wurde und fuehrt somit check3 aus**/
 		Keypad.B3.addActionListener(check3);
+		
 		/**Prueft in {@link Keypad} ob B4 gedrueckt wurde und fuehrt somit check4 aus**/
 		Keypad.B4.addActionListener(check4);
+		
 		/**Prueft in {@link Keypad} ob B5 gedrueckt wurde und fuehrt somit check5 aus**/
 		Keypad.B5.addActionListener(check5);
+		
 		/**Setzt {@link Screen#Mainframe} zurueck basierend auf den neuen Geldbetraegen**/
 		screen.Mainframe.revalidate();
 	}
-	/**Fuehrt die Transaktion fï¿½r die erste Auszahlungsmï¿½glichkeit durch **/
+	/**
+	 * Fuehrt die Transaktion fÃ¼r die erste Auszahlungsmï¿½glichkeit durch 
+	 */
 	public class withdraw1 implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			transaction(20);
 		}
 	}
-<<<<<<< HEAD
-	/**Fuehrt die Transaktion für die zweite Auszahlungsmoeglichkeit durch **/
-=======
-	/**Fuehrt die Transaktion fï¿½r die zweite Auszahlungsmï¿½glichkeit durch **/
->>>>>>> cecf28447b9f2d9653c1185fa7a589cf96516294
+	
+	/**
+	 * Fuehrt die Transaktion fÃ¼r die zweite Auszahlungsmoeglichkeit durch 
+	 */
 	public class withdraw2 implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			transaction(40);
 		}
 	}
-<<<<<<< HEAD
-	/**Fuehrt die Transaktion für die dritte Auszahlungsmoeglichkeit durch **/
-=======
-	/**Fuehrt die Transaktion fï¿½r die dritte Auszahlungsmï¿½glichkeit durch **/
->>>>>>> cecf28447b9f2d9653c1185fa7a589cf96516294
+
+	/**
+	 * Fuehrt die Transaktion fÃ¼r die dritte Auszahlungsmoeglichkeit durch 
+	 */
 	public class withdraw3 implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			transaction(60);
 		}
 	}
-<<<<<<< HEAD
-	/**Fuehrt die Transaktion für die vierte Auszahlungsmoeglichkeit durch **/
-=======
-	/**Fuehrt die Transaktion fï¿½r die vierte Auszahlungsmï¿½glichkeit durch **/
->>>>>>> cecf28447b9f2d9653c1185fa7a589cf96516294
+	
+	/**
+	 * Fuehrt die Transaktion fÃ¼r die vierte Auszahlungsmoeglichkeit durch
+	 */
 	public class withdraw4 implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			transaction(100);
 		}
 	}
-<<<<<<< HEAD
-	/**Fuehrt die Transaktion für die fünfte Auszahlungsmoeglichkeit durch **/
-=======
-	/**Fuehrt die Transaktion fï¿½r die fï¿½nfte Auszahlungsmï¿½glichkeit durch **/
->>>>>>> cecf28447b9f2d9653c1185fa7a589cf96516294
+	/**
+	 * Fuehrt die Transaktion fÃ¼r die fÃ¼nfte Auszahlungsmoeglichkeit durch 
+	 */
 	public class withdraw5 implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			transaction(200);
