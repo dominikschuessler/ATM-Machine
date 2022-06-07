@@ -1,7 +1,7 @@
 // CashDispenser.java
 
 /**
- * Die Klasse {@code CashDispenser} stellt die Geldfach des Automaten dar.
+ * Die Klasse {@code CashDispenser} stellt den Tresor des Automaten dar. Hier werden die Geldscheine aufbewahrt.
  *
  * @author Annalena Maier
  */
