@@ -17,7 +17,7 @@ public class Deposit extends Transaction
    private double amount; 
    
    /** Eine Referenz zur Klasse "Keypad" */
-   private Keypad keypad; 
+   private Numpad keypad; 
    
    /** Eine Referenz zur Klasse "depositSlot" */
    private DepositSlot depositSlot; 
@@ -35,7 +35,7 @@ public class Deposit extends Transaction
 	 * @param atmDepositSlot	Der Geldfach
 	 */
    public Deposit(int userAccountNumber, Screen atmScreen, 
-      BankDatabase atmBankDatabase, Keypad atmKeypad, 
+      BankDatabase atmBankDatabase, Numpad atmKeypad, 
       DepositSlot atmDepositSlot)
    { 
       super(userAccountNumber, atmScreen, atmBankDatabase);

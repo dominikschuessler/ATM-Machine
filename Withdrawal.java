@@ -17,7 +17,7 @@ public class Withdrawal extends Transaction {
 	private int amount;
 
 	/** Referenz zur Tastatur. */
-	private Keypad keypad;
+	private Numpad keypad;
 
 	/** Referenz zum Bargeldausgeber. */
 	private CashDispenser cashDispenser;
@@ -35,7 +35,7 @@ public class Withdrawal extends Transaction {
 	 * @param atmKeypad         Das Eingabefeld
 	 * @param atmCashDispenser  Der Geldausgabeschacht
 	 */
-	public Withdrawal(int userAccountNumber, Screen atmScreen, BankDatabase atmBankDatabase, Keypad atmKeypad,
+	public Withdrawal(int userAccountNumber, Screen atmScreen, BankDatabase atmBankDatabase, Numpad atmKeypad,
 			CashDispenser atmCashDispenser) {
 
 		super(userAccountNumber, atmScreen, atmBankDatabase);
@@ -152,15 +152,15 @@ public class Withdrawal extends Transaction {
 		/**Erzeugt neue Instanz von withdraw5**/
 		withdraw5 check5 = new withdraw5();
 		/**Prueft in {@link Keypad} ob B1 gedrueckt wurde und fuehrt somit check1 aus**/
-		Keypad.B1.addActionListener(check1);
+		Numpad.B1.addActionListener(check1);
 		/**Prueft in {@link Keypad} ob B2 gedrueckt wurde und fuehrt somit check2 aus**/
-		Keypad.B2.addActionListener(check2);
+		Numpad.B2.addActionListener(check2);
 		/**Prueft in {@link Keypad} ob B3 gedrueckt wurde und fuehrt somit check3 aus**/
-		Keypad.B3.addActionListener(check3);
+		Numpad.B3.addActionListener(check3);
 		/**Prueft in {@link Keypad} ob B4 gedrueckt wurde und fuehrt somit check4 aus**/
-		Keypad.B4.addActionListener(check4);
+		Numpad.B4.addActionListener(check4);
 		/**Prueft in {@link Keypad} ob B5 gedrueckt wurde und fuehrt somit check5 aus**/
-		Keypad.B5.addActionListener(check5);
+		Numpad.B5.addActionListener(check5);
 		/**Setzt {@link Screen#Mainframe} zurueck basierend auf den neuen Geldbetraegen**/
 		screen.Mainframe.revalidate();
 	}

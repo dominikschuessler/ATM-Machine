@@ -47,6 +47,8 @@ public class ATM {
 	private String userinput = "";
 
 	private int userListPosition = 0;
+	
+	private UserInterface benutzerschnittstelle;
 
 	/**
 	 * Speichert die ATM Instanz und verhindert durch Singelton Pattern, dass mehr
@@ -90,6 +92,8 @@ public class ATM {
 		depositSlot = new DepositSlot();
 
 		bankDatabase = new BankDatabase();
+		
+		benutzerschnittstelle = new UserInterface();
 
 	} // end no-argument ATM constructor
 

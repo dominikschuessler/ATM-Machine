@@ -24,7 +24,7 @@ import javax.swing.JButton;
  * @author Dominik Schuessler
  * 
  */
-public class Keypad {
+public class NumpadOld {
 
 	/** Liest Daten der Kommandozeile */
 	private Scanner input;
@@ -55,11 +55,12 @@ public class Keypad {
 	public JButton B0;
 	public JButton BClear;
 	public JButton BEnter;
+	public JButton BLogin;
 
 	/**
 	 * Parameterloser Konstruktor deklariert {@code input} als neues Scanner Objekt.
 	 */
-	public Keypad() {
+	public NumpadOld() {
 		input = new Scanner(System.in);
 	}
 
@@ -84,10 +85,6 @@ public class Keypad {
 	public void setbuttons() {
 
 		B1 = new JButton("1");
-
-		// ueberfluessig weil Konstruktor Beschriftung schon als Parameter aufnimmt
-		B1.setText("1");
-
 		B2 = new JButton("2");
 		B3 = new JButton("3");
 		B4 = new JButton("4");
@@ -99,6 +96,7 @@ public class Keypad {
 		B0 = new JButton("0");
 		BClear = new JButton("Clear");
 		BEnter = new JButton("Enter");
+		BLogin = new JButton("Login");
 
 	}
 
