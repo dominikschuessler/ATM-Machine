@@ -3,6 +3,7 @@ import java.awt.Button;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
+import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.Random;
@@ -13,77 +14,51 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 
 /**
- * Die Klasse {@code Screen} stellt den Bildschirm des Bankautomaten dar
+ * Die Klasse {@code Screen}
  * 
- * @author Mustafa Turhal
- * @author Hakan Pir
+ * @author Dominik Schuessler
+ *
  */
-
 public class Screen extends JFrame
 
 {
 
-	/**Erzeugt ein Fenster auf dem das GUI ist**/
 	public JFrame Mainframe;
-	/**Erzeugt statische Eingabefelder, welche man in anderen Klassen aufgreifen kann**/
 	public static JTextField Inputfield1;
-	/**Erzeugt statische Eingabefelder, welche man in anderen Klassen aufgreifen kann**/
 	public static JTextField Inputfield2;
-	/**Erzeugt statische Eingabefelder, welche man in anderen Klassen aufgreifen kann**/
 	public static JTextField Inputfield3;
-	/**Erzeugt statische Eingabefelder, welche man in anderen Klassen aufgreifen kann**/
 	public static JTextField Inputfield4;
-	/** Zeigt Textnachrichten an auf dem Bildschirm an */
 	public JLabel messageJLabel;
-	/** Zeigt Textnachrichten an auf dem Bildschirm an */
 	public JLabel messageJLabel2;
-	/** Zeigt Textnachrichten an auf dem Bildschirm an */
 	public JLabel messageJLabel3;
-	/** Zeigt Textnachrichten an auf dem Bildschirm an */
 	public JLabel messageJLabel4;
-	/** Zeigt Textnachrichten an auf dem Bildschirm an */
 	public JLabel messageJLabel5;
-	/** Zeigt Textnachrichten an auf dem Bildschirm an */
 	public JLabel messageJLabel8;
-	/** Zeigt Textnachrichten an auf dem Bildschirm an */
 	public JLabel messageJLabel9;
-	/** Zeigt Textnachrichten an auf dem Bildschirm an */
 	public JLabel messageJLabel10;
-	/** Erzeugt klickbare Knoepfe auf dem Bildschirm */
 	public JButton loginbutton;
-	/** Erzeugt klickbare Knoepfe auf dem Bildschirm */
 	public JButton button1;
-	/** Erzeugt klickbare Knoepfe auf dem Bildschirm */
 	public JButton button2;
-	/** Erzeugt klickbare Knoepfe auf dem Bildschirm */
 	public JButton button3;
-	/** Erzeugt klickbare Knoepfe auf dem Bildschirm */
 	public JButton button4;
-	/** Erzeugt klickbare Knoepfe auf dem Bildschirm */
 	public JButton button5;
-	/** Erzeugt klickbare Knoepfe auf dem Bildschirm*/
 	public JButton Exit;
-	/**integer accnum[accountnumber] wird mit 0 initialisiert**/
 	public int accnum = 0;
-	/**integer Pin number wird mit 0 initialisiert**/
 	public int PIN = 0;
-	/** Zeigt Textnachrichten an auf dem Bildschirm an */
 	public JLabel messageJLabel6;
-	/** Zeigt Textnachrichten an auf dem Bildschirm an */
 	public JLabel messageJLabel7;
 
 	/**
-	 * Methode zeig eine Nachricht an ohne Zeilenumbruch
+	 * Macht zu gegebenem Parameter eine Konsolenausgabe ohne Zeilenumbruch.
 	 * 
-	 * @param message
+	 * @param message Wird auf Konsole ausgegeben
 	 */
 	public void displayMessage(String message) {
 		System.out.print(message);
 	}
-	// end displayMessage
 
 	/**
-	 * Methode zeigt eine Nachricht an ohne Zeilenumbruch
+	 * Macht zu gegebenem Parameter eine Konsolenausgabe mit Zeilenumbruch.
 	 * 
 	 * @param message
 	 */
@@ -92,48 +67,57 @@ public class Screen extends JFrame
 	} // end displayMessageline
 
 	/**
-	 * Metode zeigt Euro Menge als Double an
+	 * Macht eine formatierte Konsolenausgabe der Form: $10,00 (bei Parameter 10)
 	 * 
-	 * @param amount
+	 * @param amount Betrag, der als Eurobetrag ausgegeben werden soll
+	 * 
+	 *               Ersetzt durch {@code displayEuroAmount}
 	 */
-	public void displayDollarAmount(double amount) {	//Delta= displayEuroAmount
-		System.out.printf("$%,.2f", amount);
+	@Deprecated
+	public void displayDollarAmount(double amount) {
+		displayEuroAmount(amount);
 	} // end displayDollarAmount
 
-	/** Methode erzeugt Userinterface fuer login */
+	/**
+	 * Macht eine formatierte Konsolenausgabe der Form: $10,00 (bei Parameter 10)
+	 * 
+	 * @param amount Betrag, der als Eurobetrag ausgegeben werden soll
+	 */
+	public void displayEuroAmount(double amount) {
+		System.out.printf("â‚¬%,.2f", amount);
+	}
+
+	/**
+	 * Erstellt die Anmeldemaske. Dazu gehÃ¶rt ein Neues Fenster mit der Aufforderung
+	 * zum Karteneinschub, der PIN Eingabe, die Benutzernameneingabe und ein Login
+	 * Button.
+	 */
 	public void createlogin() {
 
 		Mainframe = new JFrame("Bankautomat");
-		messageJLabel4 = new JLabel("Führen Sie ihre EC-Karte/Kreditkarte ein                             ");
+		messageJLabel4 = new JLabel("Fuehren Sie ihre EC-Karte/Kreditkarte ein                             ");
 		messageJLabel = new JLabel("  Geben Sie ihre PIN ein:    ");
 
-		Inputfield1 = new JTextField(10);//Inputfield1 wird hier nicht genutzt
+		Inputfield1 = new JTextField(10);// Inputfield1 wird hier nicht genutzt
 
 		messageJLabel2 = new JLabel(" 														                  ");
 		Inputfield2 = new JTextField(10);
 		loginbutton = new JButton("Login");
 		messageJLabel3 = new JLabel("");
-		/** Layout wird erstellt mit Layoutmanager */
 		Mainframe.setLayout(new FlowLayout());
 		Mainframe.add(messageJLabel4);
-		/** Erstes Eingabefeld wird erzeugt */
 		Mainframe.add(messageJLabel);
-		/** Eingabefeld nur für Pin, auf Keypad input beschränkt*/
 		Mainframe.add(Inputfield2);
 		Mainframe.add(messageJLabel2);
-		// Mainframe.add(loginbutton);
-		// Hinzufuegen von Text label
 		Mainframe.add(messageJLabel3);
-		/**Textfeld wird nur zugänglich für eingabe vom Kepad gemacht**/
 		Inputfield2.setEditable(false);
-		/*
-		 *Fenster wird neu erzeugt mit den neuen informationen 
-		 */
 		Mainframe.repaint();
 
 	}
 
-	/** Methode erzeugt Userinterface fuer Hauptmenue */
+	/**
+	 * Erzeugt das Hauptmenue, in dem die Transaktionen ausgewaehlt werden kÃ¶nnen.
+	 */
 	public void createmenu() {
 		Mainframe.getContentPane().removeAll();
 		messageJLabel = new JLabel("Willkommen");
@@ -141,55 +125,48 @@ public class Screen extends JFrame
 		messageJLabel3 = new JLabel("2 - Auszahlen");
 		messageJLabel4 = new JLabel("3 - Einzahlen");
 		messageJLabel5 = new JLabel("4 - Beenden");
-		/** Layout wird erstellt mit Layoutmanager */
 		Mainframe.setLayout(new FlowLayout());
 		Mainframe.add(messageJLabel);
-		/** Erstes Eingabefeld wird erzeugt */
 		Mainframe.add(messageJLabel2);
-		/** Zweites Eingabefeld wird erzeugt */
 		Mainframe.add(messageJLabel3);
-		/** Hinzufuegen von einem Text label */
 		Mainframe.add(messageJLabel4);
 		Mainframe.add(messageJLabel5);
-		/*
-		 *Fenster wird neu erzeugt mit den neuen informationen 
-		 */
 		Mainframe.repaint();
 	}
 
-	/** Methode erzeugt Userinterface fuer Kontostand */
+	/**
+	 * Transaktionsmenue Kontostandsabfrage
+	 */
 	public void creatBalanceGUI() {
 		Mainframe.getContentPane().removeAll();
 		messageJLabel = new JLabel("Kontostand Information:        ");
-		messageJLabel2 = new JLabel("Verfügbarer Kontostand:");
+		messageJLabel2 = new JLabel("Verfï¿½gbarer Kontostand:");
 		messageJLabel3 = new JLabel("Gesamter Kontostand:");
-		Exit = new JButton("Zurück");
+		Exit = new JButton("Zurï¿½ck");
 		Mainframe.setLayout(new FlowLayout());
 		Mainframe.add(messageJLabel);
 		Mainframe.add(messageJLabel2);
 		Mainframe.add(messageJLabel3);
 		Mainframe.add(Exit);
-		/*
-		 *Fenster wird neu erzeugt mit den neuen informationen 
-		 */
 		Mainframe.repaint();
 	}
 
-	/** Methode erzeugt Userinterface fuer Auszahlungen */
+	/**
+	 * Transaktionsmenue Auszahlung
+	 */
 	public void createWithdrawGUI() {
 		Mainframe.getContentPane().removeAll();
 		Mainframe.revalidate();
-		messageJLabel = new JLabel("Auszahl Menü:                       ");
-		messageJLabel2 = new JLabel("1 - 20€ ");//Auszahlmöglichkeiten werden beschrieben
-		messageJLabel3 = new JLabel("2 - 40€ ");
-		messageJLabel4 = new JLabel("3 - 60€ ");
-		messageJLabel5 = new JLabel("4 - 100€ ");
-		messageJLabel6 = new JLabel("5 - 200€ ");
-		messageJLabel7 = new JLabel("            Wählen Sie einen Betrag zum Auszahlen");
+		messageJLabel = new JLabel("Auszahl Menï¿½:                       ");
+		messageJLabel2 = new JLabel("1 - 20ï¿½ ");
+		messageJLabel3 = new JLabel("2 - 40ï¿½ ");
+		messageJLabel4 = new JLabel("3 - 60ï¿½ ");
+		messageJLabel5 = new JLabel("4 - 100ï¿½ ");
+		messageJLabel6 = new JLabel("5 - 200ï¿½ ");
+		messageJLabel7 = new JLabel("            Wï¿½hlen Sie einen Betrag zum Auszahlen");
 		Exit = new JButton("Abbrechen");
 		Mainframe.setLayout(new FlowLayout());
 		Mainframe.add(messageJLabel);
-		/**Auszahlmöglichkeiten werden hinzugefuegt*/
 		Mainframe.add(messageJLabel2);
 		Mainframe.add(messageJLabel3);
 		Mainframe.add(messageJLabel4);
@@ -197,17 +174,16 @@ public class Screen extends JFrame
 		Mainframe.add(messageJLabel6);
 		Mainframe.add(Exit);
 		Mainframe.add(messageJLabel7);
-		/*
-		 *Fenster wird neu erzeugt mit den neuen informationen 
-		 */
 		Mainframe.repaint();
 
 	}
 
-	/** Methode erzeugt Userinterface fuer Einzahlungen */
+	/**
+	 * Transaktionsmenue Einzahlung
+	 */
 	public void CreateDepositGUI() {
 		Mainframe.getContentPane().removeAll();
-		messageJLabel2 = new JLabel("Bitte geben Sie einen Betrag zum Einzahlen an in CENTS");//Delta: Beträge in Euro
+		messageJLabel2 = new JLabel("Bitte geben Sie einen Betrag zum Einzahlen an in CENTS");// Delta: Betrï¿½ge in Euro
 		messageJLabel3 = new JLabel("");
 		Inputfield2 = new JTextField(10);
 		Inputfield2.setEditable(false);
@@ -217,44 +193,43 @@ public class Screen extends JFrame
 		Mainframe.add(messageJLabel3);
 		Mainframe.add(Inputfield2);
 		Mainframe.add(Exit);
-		/*
-		 *Fenster wird neu erzeugt mit den neuen informationen 
-		 */
 		Mainframe.repaint();
 	}
 
+	/**
+	 * Aktualisiert / Setzt das GUI Fenster.
+	 */
 	public void setGUI() {
 		repaint();
 	}
 
-	/** Methode erzeugt das Userinterface fuer den Admin */
+	/**
+	 * Erzeugt die AdminoberflÃ¤che.
+	 */
 	public void createAdminpage() {
 		messageJLabel = new JLabel("Nutzer anzeigen:");
 		messageJLabel2 = new JLabel("Kontonummer:");
-		messageJLabel3 = new JLabel("Verfügbarer Kontostand:");
+		messageJLabel3 = new JLabel("Verfuegbarer Kontostand:");
 		messageJLabel4 = new JLabel("Gesamter Kontostand:");
 		messageJLabel5 = new JLabel("________________________________________________");
-		button1 = new JButton("Nächster");
+		button1 = new JButton("Naechster");
 		button4 = new JButton("Vorheriger");
-		Exit = new JButton("Zurück");
-		/*
-		 * erstellen von Eingabefeldern der größe 10 character
-		 */
+		Exit = new JButton("Zurueck");
 		Inputfield1 = new JTextField(10);
 		Inputfield2 = new JTextField(10);
 		Inputfield3 = new JTextField(10);
 		Inputfield4 = new JTextField(10);
 		Mainframe.setLayout(new FlowLayout());
-		messageJLabel6 = new JLabel("Konto hinzufügen: "+"\n");
+		messageJLabel6 = new JLabel("Konto hinzufuegen: " + "\n");
 		messageJLabel7 = new JLabel("Benutzername: ");
 		Mainframe.add(messageJLabel);
 		messageJLabel8 = new JLabel("          Kontonummer: ");
 		Mainframe.add(messageJLabel2);
 		messageJLabel10 = new JLabel("                                       PIN: ");
 
-		messageJLabel9 = new JLabel("              Balance number: ");
-		button2 = new JButton("Hinzufügen");
-		button3 = new JButton("Löschen");
+		messageJLabel9 = new JLabel("              initaler Kontostand: ");
+		button2 = new JButton("Hinzufuegen");
+		button3 = new JButton("Loeschen");
 
 		Mainframe.add(messageJLabel3);
 		Mainframe.add(messageJLabel4);
@@ -264,7 +239,7 @@ public class Screen extends JFrame
 		Mainframe.add(messageJLabel5);
 		Mainframe.add(messageJLabel6);
 		Mainframe.add(messageJLabel7);
-		Mainframe.add(Inputfield1);//inputfield1 (JTextField größe 10) wird im createadminpage GUI zum bildschirm hinzugefügt
+		Mainframe.add(Inputfield1);
 		Mainframe.add(messageJLabel8);
 		Mainframe.add(Inputfield2);
 		Mainframe.add(messageJLabel10);
@@ -275,9 +250,6 @@ public class Screen extends JFrame
 		Mainframe.add(button2);
 
 		Mainframe.add(Exit);
-		/*
-		 *Fenster wird neu erzeugt mit den neuen informationen 
-		 */
 		Mainframe.repaint();
 	}
 
