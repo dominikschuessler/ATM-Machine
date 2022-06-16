@@ -14,7 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 
 /**
- * Die Klasse {@code Screen} erzeugt die Benutzeroberflaechen fuer alle Sichten.
+ * Die Klasse {@code Screen} erzeugt die Benutzeroberflaechen fuer
+ * alle Sichten.
  * 
  * @author Dominik Schuessler
  *
@@ -71,7 +72,7 @@ public class Screen extends JFrame
 	 * 
 	 * @param amount Betrag, der als Eurobetrag ausgegeben werden soll
 	 * 
-	 *               Ersetzt durch {@code displayEuroAmount}, warum?
+	 * Ersetzt durch {@code displayEuroAmount}
 	 */
 	@Deprecated
 	public void displayDollarAmount(double amount) {
