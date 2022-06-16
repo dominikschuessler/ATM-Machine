@@ -9,9 +9,6 @@ import java.awt.event.ActionListener;
  * 
  * @see Transaction
  * @author Dominik Schuessler
-
- * @author Mustafa Turhal
- * @author Hakan Pir
  */
 
 public class Withdrawal extends Transaction {

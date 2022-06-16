@@ -71,7 +71,7 @@ public class Screen extends JFrame
 	 * 
 	 * @param amount Betrag, der als Eurobetrag ausgegeben werden soll
 	 * 
-	 *               Ersetzt durch {@code displayEuroAmount}
+	 *               Ersetzt durch {@code displayEuroAmount}, warum?
 	 */
 	@Deprecated
 	public void displayDollarAmount(double amount) {
