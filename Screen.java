@@ -141,9 +141,9 @@ public class Screen extends JFrame
 	public void creatBalanceGUI() {
 		Mainframe.getContentPane().removeAll();
 		messageJLabel = new JLabel("Kontostand Information:        ");
-		messageJLabel2 = new JLabel("Verf�gbarer Kontostand:");
+		messageJLabel2 = new JLabel("Verfuegbarer Kontostand:");
 		messageJLabel3 = new JLabel("Gesamter Kontostand:");
-		Exit = new JButton("Zur�ck");
+		Exit = new JButton("Zurueck");
 		Mainframe.setLayout(new FlowLayout());
 		Mainframe.add(messageJLabel);
 		Mainframe.add(messageJLabel2);
