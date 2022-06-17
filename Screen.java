@@ -159,12 +159,12 @@ public class Screen extends JFrame
 		Mainframe.getContentPane().removeAll();
 		Mainframe.revalidate();
 		messageJLabel = new JLabel("Auszahl Men�:                       ");
-		messageJLabel2 = new JLabel("1 - 20� ");
-		messageJLabel3 = new JLabel("2 - 40� ");
-		messageJLabel4 = new JLabel("3 - 60� ");
-		messageJLabel5 = new JLabel("4 - 100� ");
-		messageJLabel6 = new JLabel("5 - 200� ");
-		messageJLabel7 = new JLabel("            W�hlen Sie einen Betrag zum Auszahlen");
+		messageJLabel2 = new JLabel("1 - 20 EUR ");
+		messageJLabel3 = new JLabel("2 - 40 EUR");
+		messageJLabel4 = new JLabel("3 - 60 EUR");
+		messageJLabel5 = new JLabel("4 - 100 EUR");
+		messageJLabel6 = new JLabel("5 - 200 EUR ");
+		messageJLabel7 = new JLabel("            Waehlen Sie einen Betrag zum Auszahlen");
 		Exit = new JButton("Abbrechen");
 		Mainframe.setLayout(new FlowLayout());
 		Mainframe.add(messageJLabel);
